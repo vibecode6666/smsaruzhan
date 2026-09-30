@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Совет молодых специалистов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Pangolin&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: comic book. Navy header strip with speed lines, halftone paper, panels with thick ink outlines and hard offset shadows; right-side drawer as a big panel */
+:root{
+  --bg:#E6EFFF; --dot:rgba(31,91,255,.16); --speed:rgba(10,22,51,.05);
+  --surface:#FFFFFF; --surface-2:#DDE8FF; --ink:#0A1633; --muted:#44557E; --line:#0A1633; --hair:#B9CAEE;
+  --accent:#1F5BFF; --accent-soft:#D3E1FF; --on-accent:#FFFFFF; --pop:#FFD23F; --on-pop:#0A1633; --pink:#FF4F8B;
+  --nav:#0A1C47; --nav-2:#1A3478; --on-nav:#FFFFFF; --on-nav-muted:#AFC3EC; --hard:#0A1633;
+  --sun:#FFD23F; --on-sun:#0A1633;
+  --good:#12875A; --warn:#B86E00; --bad:#D32F4C; --good-soft:#D6F3E6; --warn-soft:#FFF0CC; --bad-soft:#FFDCE3;
+  --d-edu:#1F5BFF; --d-sport:#F06A0F; --d-culture:#D6329A; --d-social:#0E968E;
+  --f-display:"Pangolin","Comic Sans MS","Segoe Print","Chalkboard SE","Nunito",cursive;
+  --f-sfx:"Rubik Mono One","Impact","Arial Black",sans-serif;
+  --f-body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Rubik Mono One","Nunito",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#071230; --dot:rgba(111,160,255,.13); --speed:rgba(255,255,255,.035);
+  --surface:#0F2152; --surface-2:#18306C; --ink:#EEF3FF; --muted:#A8BBE3; --line:#DCE6FF; --hair:#2D4A8C;
+  --accent:#6A9BFF; --accent-soft:#1E3C85; --on-accent:#061230; --pop:#FFD84F; --on-pop:#0A1633; --pink:#FF6FA0;
+  --nav:#030B22; --nav-2:#16316E; --on-nav:#FFFFFF; --on-nav-muted:#8FA6D6; --hard:#000000;
+  --sun:#FFD84F; --on-sun:#0A1633;
+  --good:#44D19A; --warn:#F5B547; --bad:#FF7089; --good-soft:#123D30; --warn-soft:#3F3013; --bad-soft:#44192A;
+  --d-edu:#6A9BFF; --d-sport:#FF944D; --d-culture:#F06CC6; --d-social:#3CC7BD; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#071230; --dot:rgba(111,160,255,.13); --speed:rgba(255,255,255,.035);
+  --surface:#0F2152; --surface-2:#18306C; --ink:#EEF3FF; --muted:#A8BBE3; --line:#DCE6FF; --hair:#2D4A8C;
+  --accent:#6A9BFF; --accent-soft:#1E3C85; --on-accent:#061230; --pop:#FFD84F; --on-pop:#0A1633; --pink:#FF6FA0;
+  --nav:#030B22; --nav-2:#16316E; --on-nav:#FFFFFF; --on-nav-muted:#8FA6D6; --hard:#000000;
+  --sun:#FFD84F; --on-sun:#0A1633;
+  --good:#44D19A; --warn:#F5B547; --bad:#FF7089; --good-soft:#123D30; --warn-soft:#3F3013; --bad-soft:#44192A;
+  --d-edu:#6A9BFF; --d-sport:#FF944D; --d-culture:#F06CC6; --d-social:#3CC7BD; color-scheme:dark}
+*{box-sizing:border-box}
+body{background-color:var(--bg);
+  background-image:repeating-conic-gradient(from 0deg at 105% -5%,var(--speed) 0 1.2deg,transparent 1.2deg 5deg),radial-gradient(var(--dot) 1.3px,transparent 1.5px);
+  background-size:100% 100%,13px 13px;background-attachment:fixed;
+  color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:.01em}
+h1{font-size:2rem;line-height:1.1} h2{font-size:1.4rem;line-height:1.15} h3{font-size:1.15rem}
+.num{font-variant-numeric:tabular-nums;font-family:var(--f-body);font-weight:800}
+.muted{color:var(--muted)}
+.small{font-size:.85rem}
+.eyebrow{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* шапка: тёмно-синяя полоса с линиями скорости */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;color:var(--on-nav);border-bottom:3px solid var(--hard);
+  background:repeating-linear-gradient(-60deg,transparent 0 22px,rgba(255,255,255,.04) 22px 24px),var(--nav)}
+.bar-in{max-width:1240px;margin:0 auto;padding-inline:20px;display:flex;align-items:center;gap:18px;min-height:68px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.mark{width:46px;height:46px;border-radius:10px;background:var(--pop);color:var(--on-pop);display:grid;place-items:center;font-family:var(--f-sfx);font-size:.72rem;transform:rotate(-6deg);flex:none;border:3px solid var(--hard);box-shadow:3px 3px 0 var(--accent)}
+.brand-t{font-family:var(--f-display);font-size:1.05rem;line-height:1.05}
+.brand-s{font-size:.72rem;color:var(--on-nav-muted);font-weight:700;letter-spacing:.04em}
+.tabs{display:flex;gap:6px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none;padding-block:4px}
+.tab{border:2px solid transparent;background:none;padding:7px 14px;border-radius:12px;font-weight:800;color:var(--on-nav-muted);cursor:pointer;white-space:nowrap}
+.tab:hover{color:var(--on-nav);border-color:var(--nav-2)}
+.tab[aria-current="true"]{background:var(--accent);color:#fff;border-color:#fff;transform:rotate(-2deg);box-shadow:3px 3px 0 var(--hard)}
+.seg{display:inline-flex;background:var(--surface-2);border-radius:12px;padding:3px;border:2px solid var(--line)}
+.seg button{border:0;background:none;padding:6px 12px;border-radius:9px;font-size:.8rem;font-weight:800;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.bar .seg{background:var(--nav-2);border-color:var(--on-nav-muted)}
+.bar .seg button{color:var(--on-nav-muted)}
+.bar .seg button[aria-pressed="true"]{background:var(--on-nav);color:var(--nav)}
+
+main{max-width:1240px;margin:0 auto;padding-inline:20px;padding-block:28px 72px;display:grid;gap:24px}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.head p{margin:6px 0 0;color:var(--muted);max-width:65ch}
+.head h1{display:inline-block;background:var(--surface);border:3px solid var(--line);padding:6px 16px 8px;border-radius:6px;box-shadow:5px 5px 0 var(--hard);transform:rotate(-1deg);margin-top:6px}
+
+/* панели-кадры */
+.panel{background:var(--surface);border:3px solid var(--line);border-radius:6px;padding:18px;min-width:0;box-shadow:6px 6px 0 var(--hard)}
+.panel > h2,.panel-h{margin-bottom:12px}
+.panel-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.g3{grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr))}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+.kpi{background:var(--surface);border:3px solid var(--line);border-radius:6px;padding:14px 16px;box-shadow:4px 4px 0 var(--hard);position:relative}
+.kpi b{display:block;font-family:var(--f-sfx);font-size:1.7rem;line-height:1.1;margin-top:6px;font-weight:400}
+.kpi:nth-child(odd){transform:rotate(-.6deg)} .kpi:nth-child(even){transform:rotate(.6deg)}
+.kpi.hot{background:var(--pop);color:var(--on-pop)}
+.kpi.hot .eyebrow{color:var(--on-pop);opacity:.8}
+.kpi:first-child{background:var(--nav);color:var(--on-nav)}
+.kpi:first-child .eyebrow{color:var(--on-nav-muted)}
+.sfx{position:absolute;top:-14px;right:-8px;font-family:var(--f-sfx);font-size:.7rem;background:var(--pink);color:#fff;padding:4px 8px;border:2px solid var(--hard);transform:rotate(8deg);border-radius:4px}
+
+.btn{border:2.5px solid var(--line);background:var(--surface);padding:7px 14px;border-radius:10px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;box-shadow:3px 3px 0 var(--hard);transition:transform .08s,box-shadow .08s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--hard)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--hard)}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.ai{background:var(--nav);color:var(--on-nav)}
+.btn.ai::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--pop);border:1.5px solid var(--hard)}
+.btn.ghost{border-color:transparent;background:none;box-shadow:none}
+.btn.ghost:hover{border-color:var(--line)}
+.btn.danger{color:var(--bad)}
+.btn.sm{padding:4px 10px;font-size:.82rem;border-radius:8px}
+.btn[disabled]{opacity:.5;cursor:default;transform:none}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.spacer{flex:1}
+
+.chip{display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border-radius:999px;font-size:.78rem;font-weight:800;background:var(--surface-2);color:var(--ink);white-space:nowrap;border:1.5px solid var(--hair)}
+.chip .dot{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--hard)}
+.chip.good{background:var(--good-soft);color:var(--good);border-color:currentColor} .chip.warn{background:var(--warn-soft);color:var(--warn);border-color:currentColor} .chip.bad{background:var(--bad-soft);color:var(--bad);border-color:currentColor}
+.chip.acc{background:var(--accent-soft);color:var(--accent);border-color:currentColor}
+.chip.demo{background:var(--pop);color:var(--on-pop);border-color:var(--hard)}
+button.chip{cursor:pointer}
+button.chip[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--hard)}
+
+.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.85rem;flex:none;font-family:var(--f-display);border:2.5px solid var(--hard)}
+.av.lg{width:68px;height:68px;font-size:1.3rem;border-width:3px}
+.av.xl{width:104px;height:104px;font-size:1.8rem;border-width:3px}
+.av.sm{width:28px;height:28px;font-size:.7rem;border-width:2px}
+img.av{object-fit:cover;background:var(--surface-2)}
+.phwrap{position:relative;flex:none}
+.phbtn{position:absolute;right:-4px;bottom:-4px;width:28px;height:28px;border-radius:50%;background:var(--pop);color:var(--on-pop);display:grid;place-items:center;cursor:pointer;border:2px solid var(--hard)}
+.phbtn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.str{display:flex;gap:6px;flex-wrap:wrap}
+.str .chip{background:var(--good-soft);color:var(--good);border-color:currentColor}
+.lvl{display:inline-flex;gap:2px}.lvl i{width:4px;height:9px;border-radius:2px;background:currentColor;opacity:.25}.lvl i.on{opacity:1}
+.comp{display:grid;grid-template-columns:minmax(0,190px) 1fr 30px;gap:10px;align-items:center;font-size:.9rem}
+.chairbox{display:flex;align-items:center;gap:10px;padding:4px 12px 4px 4px;border-radius:12px;background:var(--nav-2);color:var(--on-nav);cursor:pointer;border:2px solid var(--on-nav-muted)}
+.chairbox .t{font-size:.7rem;color:var(--on-nav-muted);line-height:1.1;font-weight:700}.chairbox .n{font-family:var(--f-display);font-size:1rem;line-height:1.2}
+.chaircard{display:flex;gap:20px;align-items:center;color:var(--on-nav);border:3px solid var(--line);border-radius:6px;padding:20px 22px;cursor:pointer;text-align:left;width:100%;flex-wrap:wrap;box-shadow:7px 7px 0 var(--hard);position:relative;overflow:hidden;
+  background:repeating-conic-gradient(from 0deg at 12% 50%,rgba(255,255,255,.07) 0 3deg,transparent 3deg 12deg),linear-gradient(120deg,var(--nav),var(--nav-2))}
+.chaircard .eyebrow{color:var(--pop)}
+.chaircard h2{font-size:1.8rem}
+.chaircard .quote{position:relative;background:#fff;color:#0A1633;border:2.5px solid #0A1633;border-radius:16px;padding:8px 14px;font-family:var(--f-display);font-size:1rem;max-width:320px}
+.chaircard .quote::before{content:"";position:absolute;left:-14px;top:18px;border:8px solid transparent;border-right:12px solid #0A1633}
+
+/* карточки участников */
+.mcard{background:var(--surface);border:3px solid var(--line);border-radius:6px;padding:16px;display:grid;gap:12px;cursor:pointer;text-align:left;width:100%;box-shadow:5px 5px 0 var(--hard);transition:transform .12s}
+.mcard:hover{transform:rotate(-1deg) translateY(-2px);box-shadow:7px 7px 0 var(--accent)}
+.mcard-top{display:flex;gap:12px;align-items:center;min-width:0}
+.mcard-top > div{min-width:0}
+.mcard-name{font-family:var(--f-display);font-size:1.2rem;line-height:1.1}
+.score{margin-left:auto;text-align:center;flex:none;background:var(--pop);color:var(--on-pop);border:2.5px solid var(--hard);border-radius:50%;width:54px;height:54px;display:grid;place-content:center;transform:rotate(8deg)}
+.score b{font-family:var(--f-sfx);font-size:1rem;line-height:1;font-weight:400}
+.score .small{font-size:.65rem;font-weight:800;color:var(--on-pop)}
+.meter{height:10px;border-radius:99px;background:var(--surface-2);overflow:hidden;border:1.5px solid var(--line)}
+.meter i{display:block;height:100%}
+.loadrow{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;font-size:.85rem}
+
+.lrow{display:grid;grid-template-columns:minmax(0,170px) 1fr 52px;gap:12px;align-items:center;padding:7px 0;border-bottom:2px dotted var(--hair);cursor:pointer}
+.lrow:last-child{border-bottom:0}
+.lrow .nm{display:flex;gap:8px;align-items:center;min-width:0;font-weight:700}
+.lrow .nm span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lbar{position:relative;height:14px;border-radius:4px;background:var(--surface-2);border:2px solid var(--line)}
+.lbar i{position:absolute;inset:0 auto 0 0}
+.lbar .cap{position:absolute;top:-5px;bottom:-5px;width:3px;background:var(--pink)}
+
+.list{display:grid;gap:10px}
+.item{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:6px;background:var(--surface-2);min-width:0;border:2px solid var(--line)}
+.item > div{min-width:0}
+.item-t{font-weight:800}
+.stripe{width:6px;align-self:stretch;border-radius:3px;flex:none;border:1.5px solid var(--hard)}
+.empty{padding:22px;border:3px dashed var(--line);border-radius:6px;color:var(--muted);text-align:center;font-family:var(--f-display);font-size:1.1rem;background:var(--surface)}
+
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:760px}
+th,td{padding:10px 8px;text-align:left;border-bottom:2px dotted var(--hair);vertical-align:middle}
+th{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;cursor:pointer;white-space:nowrap;border-bottom:3px solid var(--line)}
+tbody tr{cursor:pointer} tbody tr:hover td{background:var(--surface-2)}
+.rank{font-family:var(--f-sfx);font-size:1rem;width:44px}
+.rank.top{color:var(--accent)}
+.cell-bar{display:grid;gap:4px;min-width:84px}
+.cell-bar .meter{height:8px}
+.total{font-family:var(--f-sfx);font-size:1.1rem}
+.weights{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.wt label{display:flex;justify-content:space-between;font-weight:800;font-size:.9rem}
+.wt input{width:100%;accent-color:var(--accent)}
+.wt p{margin:2px 0 0;font-size:.78rem;color:var(--muted)}
+
+.ecard{background:var(--surface);border:3px solid var(--line);border-radius:6px;padding:14px 16px 14px 20px;display:grid;gap:8px;cursor:pointer;min-width:0;position:relative;overflow:hidden;box-shadow:5px 5px 0 var(--hard)}
+.ecard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--dc);border-right:2.5px solid var(--line)}
+.ecard:hover{transform:rotate(.6deg)}
+.ecard.ro{cursor:default}
+.ecard.ro:hover{transform:none}
+.ecard-t{font-family:var(--f-display);font-size:1.2rem;line-height:1.15}
+.progress{font-size:.8rem;color:var(--muted);font-weight:700}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+
+.field{display:grid;gap:5px}
+.field > span{font-size:.8rem;font-weight:800;color:var(--muted)}
+input[type=text],input[type=number],input[type=date],select,textarea{background:var(--surface);border:2.5px solid var(--line);border-radius:8px;padding:8px 10px;width:100%;min-width:0}
+textarea{min-height:74px;resize:vertical}
+.form{display:grid;gap:14px}
+.form2{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.skills{display:grid;gap:6px}
+.skill{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:4px 0;border-bottom:2px dotted var(--hair)}
+.dots{display:flex;gap:4px}
+.dots button{width:28px;height:28px;border-radius:8px;border:2px solid var(--line);background:var(--surface);font-size:.78rem;font-weight:800;cursor:pointer;color:var(--muted)}
+.dots button.on{background:var(--accent);color:var(--on-accent)}
+.tenrow{display:flex;gap:4px;flex-wrap:wrap}
+.tenrow button{width:32px;height:32px;border-radius:8px;border:2px solid var(--line);background:var(--surface);font-weight:800;cursor:pointer;font-size:.82rem}
+.tenrow button.on{background:var(--nav);color:var(--on-nav);box-shadow:2px 2px 0 var(--accent)}
+.tenrow button.in{background:var(--accent-soft)}
+
+.overlay{position:fixed;inset:0;background:rgba(5,12,35,.55);z-index:50;display:flex;justify-content:flex-end}
+.drawer{background-color:var(--bg);background-image:radial-gradient(var(--dot) 1.3px,transparent 1.5px);background-size:13px 13px;width:min(760px,100%);height:100%;overflow-y:auto;padding:0 0 60px;border-left:4px solid var(--hard)}
+.dhead{position:sticky;top:0;z-index:2;background:var(--nav);color:var(--on-nav);border-bottom:3px solid var(--hard);padding:16px 20px;padding-top:calc(16px + env(safe-area-inset-top,0px));display:flex;gap:14px;align-items:center}
+.dhead > div{min-width:0}
+.dhead .muted{color:var(--on-nav-muted)}
+.dhead .btn.ghost{color:var(--on-nav)}
+.dbody{padding:20px;display:grid;gap:18px}
+.sect{background:var(--surface);border:3px solid var(--line);border-radius:6px;padding:16px;display:grid;gap:12px;min-width:0;box-shadow:5px 5px 0 var(--hard)}
+.sect-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.bul{margin:0;padding-left:18px;display:grid;gap:4px}
+.cols2{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.good-t{color:var(--good)} .bad-t{color:var(--bad)}
+.idea{border:3px solid var(--line);border-radius:6px;padding:14px;display:grid;gap:8px;background:var(--surface);box-shadow:4px 4px 0 var(--hard)}
+.task{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,150px) 140px auto;gap:8px;align-items:center}
+.taskro{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:2px dotted var(--hair)}
+.taskro:last-child{border-bottom:0}
+.taskro.done .tt{text-decoration:line-through;color:var(--muted)}
+.think{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.95rem;font-family:var(--f-display)}
+.think i{width:16px;height:16px;border-radius:50%;border:3px solid var(--accent);border-right-color:transparent;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+/* речевой пузырь */
+.bubble,.banner{position:relative;background:var(--surface);border:3px solid var(--line);border-radius:22px;padding:12px 18px;font-size:.95rem;box-shadow:4px 4px 0 var(--hard)}
+.bubble{font-family:var(--f-display);font-size:1.12rem}
+.bubble::after,.banner::after{content:"";position:absolute;left:34px;bottom:-17px;width:22px;height:17px;background:var(--line);clip-path:polygon(0 0,100% 0,15% 100%)}
+.bubble::before,.banner::before{content:"";position:absolute;left:37px;bottom:-11px;width:16px;height:13px;background:var(--surface);clip-path:polygon(0 0,100% 0,15% 100%);z-index:1}
+.banner{background:var(--pop);color:var(--on-pop)} .banner::before{background:var(--pop)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) rotate(-1.5deg);background:var(--pop);color:var(--on-pop);padding:10px 18px;border-radius:10px;font-family:var(--f-display);font-size:1.1rem;z-index:80;max-width:calc(100% - 32px);border:3px solid var(--hard);box-shadow:4px 4px 0 var(--hard)}
+.bars{display:grid;gap:10px}
+.hb{display:grid;grid-template-columns:minmax(0,150px) 1fr 34px;gap:10px;align-items:center;font-size:.88rem;font-weight:700}
+.hb .track{height:16px;background:var(--surface-2);border-radius:4px;overflow:hidden;display:flex;border:2px solid var(--line)}
+.hb .track i{height:100%}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.78rem;color:var(--muted)}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+/* мем-стена */
+.memes{columns:3 280px;column-gap:22px}
+.meme{break-inside:avoid;margin-bottom:22px;background:var(--surface);border:3px solid var(--line);border-radius:6px;box-shadow:6px 6px 0 var(--hard);overflow:hidden;display:grid}
+.meme:nth-child(3n+1){transform:rotate(-.8deg)} .meme:nth-child(3n+2){transform:rotate(.7deg)}
+.meme-pic{position:relative;background:#0A1633;display:grid;min-height:140px}
+.meme-pic img{width:100%;display:block}
+.mtext{position:absolute;left:8px;right:8px;text-align:center;font-family:var(--f-sfx);font-size:clamp(.85rem,2.4vw,1.05rem);line-height:1.15;color:#fff;text-transform:uppercase;
+  text-shadow:2px 2px 0 #000,-2px 2px 0 #000,2px -2px 0 #000,-2px -2px 0 #000,0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000}
+.mtext.t{top:8px}.mtext.b{bottom:8px}
+.meme-drawn{padding:0;display:grid}
+.meme-drawn .p{padding:14px 16px;border-bottom:3px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;font-family:var(--f-display);font-size:1.05rem;line-height:1.25}
+.meme-drawn .p:last-child{border-bottom:0}
+.meme-drawn .p .lab{font-family:var(--f-sfx);font-size:.62rem;background:var(--nav);color:var(--on-nav);padding:3px 6px;border-radius:3px;grid-column:1/-1;justify-self:start}
+.meme-drawn svg{width:64px;height:64px;flex:none}
+.meme-f{padding:10px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:3px solid var(--line)}
+.lol{border:2px solid var(--line);background:var(--surface-2);border-radius:999px;padding:3px 10px;font-weight:800;cursor:pointer;font-size:.82rem}
+.lol[aria-pressed="true"]{background:var(--pop);color:var(--on-pop)}
+@media (prefers-reduced-motion:reduce){.think i{animation:none}*{transition:none!important}}
+@media (max-width:640px){
+  .chairbox .txt{display:none}
+  .bar-in{padding-inline:16px;gap:10px;padding-block:8px}
+  main{padding-inline:16px}
+  .tabs{order:3;flex-basis:100%}
+  .task{grid-template-columns:auto minmax(0,1fr);}
+  .task > :nth-child(n+3){grid-column:2}
+  .lrow{grid-template-columns:minmax(0,110px) 1fr 44px}
+  .dbody{padding:14px 16px}
+  h1{font-size:1.6rem}
+  .kpi,.meme{transform:none!important}
+}
+</style>
+
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+  <div class="brand"><div class="mark">СМС</div><div><div class="brand-t">Совет молодых<br>специалистов</div><div class="brand-s">только для своих</div></div></div>
+  <nav class="tabs" id="tabs" aria-label="Разделы"></nav>
+  <div class="row"><div id="chairBox"></div><div id="modeSw"></div></div>
+</div></header>
+<main id="main">
+  <div class="panel empty" id="boot">Загружаю совет… Пока можно налить чай.</div>
+</main>
+<div id="modal"></div>
+<div id="toast" hidden class="toast"></div>
+
+<script id="seed" type="application/json">{"memes": {"m-3": {"byMid": "chair-aruzhan", "createdAt": 1790750300000, "kind": "drawn", "lol": [], "panels": [{"face": "cool", "lab": "Я НА ПЛАНЁРКЕ", "text": "Я просто послушать."}, {"face": "tired", "lab": "Я ЧЕРЕЗ 5 МИНУТ", "text": "Руководитель трёх мероприятий и ответственный за призы."}]}, "m-1": {"byMid": "chair-aruzhan", "createdAt": 1790750100000, "kind": "drawn", "lol": [], "panels": [{"face": "cool", "lab": "ОЖИДАНИЕ", "text": "Проведём тимбилдинг на 50 человек!"}, {"face": "sweat", "lab": "РЕАЛЬНОСТЬ", "text": "Пришли трое и один мяч. Мяч был самым активным."}]}, "m-4": {"byMid": "chair-aruzhan", "createdAt": 1790750400000, "kind": "drawn", "lol": [], "panels": [{"face": "shock", "lab": "ДЕДЛАЙН", "text": "Был вчера."}, {"face": "cool", "lab": "ЗАДАЧА", "text": "«В процессе». Уже третью неделю."}]}, "m-2": {"byMid": "chair-aruzhan", "createdAt": 1790750200000, "kind": "drawn", "lol": [], "panels": [{"face": "happy", "lab": "ПРЕДСЕДАТЕЛЬ В ЧАТЕ", "text": "Кто свободен на пятницу?"}, {"face": "shock", "lab": "СОВЕТ", "text": "*все внезапно на совещании до 2027 года*"}]}}, "events": {"demo-e1": {"createdAt": 1790700000000, "date": "2026-10-22", "demo": true, "description": "Секции по направлениям, жюри из главных специалистов, 40 докладов.", "direction": "edu", "leadMid": "demo-aigerim", "participants": ["demo-timur", "demo-dana"], "status": "active", "tasks": [{"assignee": "demo-aigerim", "done": true, "doneAt": "2026-09-24", "due": "2026-09-25", "id": "t1", "title": "Собрать заявки на доклады"}, {"assignee": "demo-timur", "done": false, "due": "2026-09-28", "id": "t2", "title": "Согласовать состав жюри"}, {"assignee": "demo-dana", "done": false, "due": "2026-10-08", "id": "t3", "title": "Афиша и анонс в соцсетях"}, {"assignee": "demo-daniyar", "done": false, "doneAt": null, "due": "2026-10-05", "id": "t4", "title": "Смета на призы"}], "title": "Научно-техническая конференция молодых специалистов"}, "demo-e4": {"createdAt": 1790700000000, "date": "2026-08-20", "demo": true, "description": "Знакомство новых сотрудников в неформальной обстановке.", "direction": "culture", "leadMid": "demo-dana", "participants": ["demo-madina", "demo-aigerim"], "status": "done", "tasks": [{"assignee": "demo-dana", "done": true, "doneAt": "2026-08-09", "due": "2026-08-10", "id": "t1", "title": "Анонс"}, {"assignee": "demo-madina", "done": true, "doneAt": "2026-08-14", "due": "2026-08-15", "id": "t2", "title": "Закупка игр"}], "title": "Вечер настольных игр"}, "demo-e2": {"createdAt": 1790700000000, "date": "2026-09-12", "demo": true, "description": "Волейбол, настольный теннис, эстафета. 120 участников.", "direction": "sport", "leadMid": "demo-arman", "participants": ["demo-daniyar", "demo-madina"], "status": "done", "tasks": [{"assignee": "demo-daniyar", "done": true, "doneAt": "2026-09-30", "due": "2026-08-30", "id": "t1", "title": "Аренда зала"}, {"assignee": "demo-arman", "done": true, "doneAt": "2026-09-08", "due": "2026-09-05", "id": "t2", "title": "Сетка турнира"}, {"assignee": "demo-madina", "done": true, "doneAt": "2026-09-12", "due": "2026-09-12", "id": "t3", "title": "Ведение церемонии награждения"}], "title": "Осенняя спартакиада"}, "demo-e3": {"createdAt": 1790700000000, "date": "2026-11-15", "demo": true, "description": "Сбор тёплых вещей для детского дома.", "direction": "social", "leadMid": "demo-madina", "participants": ["demo-dana"], "status": "planned", "tasks": [{"assignee": "demo-madina", "done": false, "due": "2026-10-15", "id": "t1", "title": "Договориться с детским домом"}, {"assignee": "demo-madina", "done": false, "due": "2026-10-25", "id": "t2", "title": "Пункты сбора в офисах"}, {"assignee": "demo-dana", "done": false, "due": "2026-11-20", "id": "t3", "title": "Фотоотчёт"}], "title": "Благотворительная акция «Тёплая зима»"}, "demo-e5": {"createdAt": 1790700000000, "date": "2026-06-10", "demo": true, "description": "Закрепили наставников за 15 новыми сотрудниками.", "direction": "edu", "leadMid": "demo-aigerim", "participants": ["demo-arman"], "status": "done", "tasks": [{"assignee": "demo-aigerim", "done": true, "doneAt": "2026-05-18", "due": "2026-05-20", "id": "t1", "title": "Список наставников"}, {"assignee": "demo-arman", "done": true, "doneAt": "2026-06-04", "due": "2026-05-30", "id": "t2", "title": "Памятка новичка"}], "title": "Адаптация новичков: наставничество"}}, "members": {"demo-daniyar": {"age": 29, "createdAt": 1790700000000, "demo": true, "dept": "Финансовый департамент", "name": "Данияр Жумабеков", "position": "Экономист"}, "chair-aruzhan": {"createdAt": 1790750000000, "isChair": true, "name": "Аружан", "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAQDAwQDAwQEBAQFBQQFBwsHBwYGBw4KCggLEA4RERAOEA8SFBoWEhMYEw8QFh8XGBsbHR0dERYgIh8cIhocHRz/2wBDAQUFBQcGBw0HBw0cEhASHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBz/wAARCAHgAeADASIAAhEBAxEB/8QAHQAAAQQDAQEAAAAAAAAAAAAAAQACBAUDBgcICf/EAEEQAAEEAQMDAgQEBQMDAgQHAAEAAgMRBAUhMQYSQQdREyJhcQgUgZEjMkKhsRVSwTNi0XLhFlPw8RckJSY0Q4L/xAAaAQACAwEBAAAAAAAAAAAAAAAAAQIDBAUG/8QAMBEAAgICAgIBAwMEAQQDAAAAAAECEQMhEjEEQRMiUWEFMnEUgZGhMxUjsdFS4fD/2gAMAwEAAhEDEQA/AO8gBFoRHKcOFIpsAaPAT6SaE6rKAABxsnNbe9I9tpwFbj9kCdjC1PDR7bpwFlEDZFjoAA3TmjbhEC7tOo0nYwVZvwiAOQiAnNGwSGADc7IgblOqkQEAADwnBtIhvPlGrKQ/wCkQAiAOCnV7JgAtBSLOAnDb7pV5QFA7d/snBtogVx7p1bpDoFHhOaBsEgE6vsmA03f0CQHhOrdEIAb2pdu5+qfSNbICzF20bSoLJSBCTAYACj2pwFUlVWkD+wztIKcW77o1aNJgMIHdwiRacUkCGFl7HhItCyUEqQMxNal2gGqTwP0KJBu0BZj7eUgKCyfdN7RaYuuhgam+Vmob7Jpb5TGzGWb7JFo4WRItT2RbZjoJVaeG2Ug3evZAjGRQTQ3ystb7ppFtTExlUOUDQ8brJWyFIsBlJpFHcLJSVC90+xLRjA3SrdPA3QoklADSKQ7dvCcRaVVSWwGVSVWU48pVuhaFVFME8DjZAf5TgoMlQmhPA8oCingUN0AFoSARCeBSQdMa0WnAUU4D6co8bBA2gBOG9JNHunAewQNVYKshOrZKt04C0wYEQE5EBAIA2TvCBFmk9otAxVaXN0nAb7p1IGM4+6O22ycW1wlVlAwit06rSDU4Db6oBAANI0keEaQAKu0qr7JyXCAEl5pJH3SABQTqSIQIHsgQnIEb8IAbzsjW6ICICAG0iE47JUkA0hGqRKVcphQwBGrR7USKQMYAkRun/ohWyYDaJCFbJ4GyFbJoTGEXSXbW6eAh22pLREZ5RKdQQ7Rd0gK1Q0hNI2pZCgaH3RQGMNu0iKpPrf6JEWUCfZjqkCPZZO35uECEAY/2Q8rJ21SQaiyPqzGQSgG39lk80kBZ+iYjGdvsgeVkI9wmhvzbpgil2TgPokOCnNCqeyQgAeFkI2CDW7J+9UgGJo2O6cEP0ThzylQ0O7bRokbogbWjVoQ+uwVsnVfCNbI+UDBSd4QCcAmF+gBOA3tEDZOApFgApzeOdkqo2jf0pA19ggbEog2kBYRApIYgLRI3TgLCNIAA2Tq3QHKIG6AEb99kfCI5RrdADSNkk6rSAQAAEinDZFGgGoNBTvdAcJBQqSTh4SKAoYBZRArwiOUfdNBQ2rRA2RR4pMBhHCVJ1eUiEgY1KtkaS4pMQA1Kk6ihVIJAoJVtQCcAgQmiI2qQrdPSpOyNDCECE4I/puhDehhCRFp9boIEMqilVp9IUmnQmMrZAjYrJWyFeEAxhaO36oALIU0hC2R/Azt3SLfZZKtNrwpC6GkCuP1Ta+iyEbIEVVIsVFENtqtPACaNyngc+FUTocBQRAQANDlPDUDYvYJ1b0NkhsQj5QLodVA0iPKQ25RpBL1Ym7px2KAFVXCdyUDEAnAfRCqITgCfCQCA/ZP4Cb9uU4DbdAAB24TgL8JVt9k4chA0ECrT64TR/dEIAKI2CVbo0kMQTggAimgCEt7SA8IhtIARSARolIeEAApUU7c7JUR4SBDeLSA3TkPKBipA8J9X90C1ADQ3ZODd9yi0eE4tTAYQiQdkSEQDsmIbSFbJ4GyVEIExtJFqPPCQCKAaeUC08J4aLSI3TGNpBw34Tq3QI3QA0i0qTu1KkCG0UeDaRukqtDEN33QAO6eW7odp3QL0NpCk+tk2vZSCgJI1slW6CLWxvlEhGkCmFApCq5Tqs/VIhHsixhF+N0C207tv7pVshDWih7QntFBAexKeK8KsmIN2pPAPCAbtynAc2gQa+ZID5rJR4O3CcRZCA/kVbo7AcIjbyj54TGmIeEaq0vITuR7JD9CARHCI2ARHCA6AAnAUkBX0ThVIBCB904AFAe6eED0ABOCCdSAABuE9ABHykMO3CNbhIDhHyjsBNRRCNIBA90gOE5IeExgpIHlONJUOUgGJAJ9Wm9u5pIBBByfVpEboATRsieKSajW6YDCNgngWlQR4CAGA7ouopD7IuH1QKhrRslScG0kmMb5tAgkp9ADdN+qBDfKFb+yybUmk2KTAFJUP1S4Kddm0AYzwAjsAnEbpEIEMSA+qf4TaAQKgVsmgUFkoIVXKkAwNSO32T/CaRaLIu7GhA+6fXCRATEMH1S5KJ2KR8JiG0kAnUkgGjX63TxSY0rIDarZND2keEQUB9E6khB8o8JAI1SYxApwQq0QEhpBG1pxO5QG5TqsosBwRAHhACk4DlAmE7I7eEKRq0DoNXynBBHhC6H6oIFohIbpAeUxjwhSQRrdIQWpwNJAeyNIGJu6eTabWyKQCA8pBEHY2eUgA4j2TGOsJXwlSVeUgB+qBPKdQ8lLt3+iAANrSqwiR7JcBIBNFJzaSr+6QagAe6Q2KcBSVJgDyhVpw4SA2QAwfVLbdGtgR5RPAQA07oEVSegRumA2rQItPA2KbVJoBvbujfGycRugQgQ3yieRaJAJRdykIaQD9k3tv9E/wgEwGhK6TgLP0SpSoQw8hEjlEhInZMi+xle6RArZOO5CRASTEzHSQ5Tih5tSGDygRunFJMTNeaP8A7p45QA904GuFUSCE9pJ5Qb9U4c0gNBTgN0AnDwkAQOEdrSG/6ItG6QxAUnfVJOI2QMLfCJQaCndqAEL4KcBXugkAd/dMBw8ojhBvG6NbIAIRASCcAgYvZIHlIDlGt0rBBBrwnb2kGpDlFhQ4HZIn6JAE0jSBhoV9Uao8IVSedkACz45RbZG/KVeyaL8JAEndIbkpwbtv5SqkABIcpwH6pBu6AF5QPKcPujW6AG7BLZHzSX6JgCqSTj4QKABR2QO5RH0S7fJQACLQO5FJ4CFJgN+6B+ifVlAt82E0A00a2Rq/skUSKKAG1RCFklPI8oEeUC6B2obEJ1bFAFMVDQ3akQPBTt69k3gKVCBQRNX9Ej9kRt4SEYwKKRFBPokoFu+6SFQzlNICdwaSIP7KYDAKS2+yJNNS3KkxI17k0n+aCA3pOaN1QTHAbFFu26Q45R80mA5Gk3ik77JWNGRoPgIgnzsmt+iNc8JAEbi0/wDpTQCAfZOvb2QKx4u7S5ICDXAj3KPFWkSQuDSfVIAb7WimFABTvCATkBQfCIvZKrRrhAB8pcpbeTuigY4OP3SFpAbFFqQDhZHKScNm7JXsmMV3SRO6JbWyAbRSEOF2i27QpOGyBgJ2Ss+6W1blGrNhAggJvHCcNggUDC0GkvKLeEiN0CB5S3tHyiRumA07IEkJxPumncWgAgo/YpoIpGq4QAUPZIndBrrdugAjygj5NpeKTAaQSUCTafaaALQATaB2RIoIclSXYhb+6QG6NbigkLO1WgAcIH+VOoIUapO/QgUatKj5TqNV5TTdC0hfgbuDyhzunUCEBsirBjOT7IUnE2QUipoixh4SbfuiWnykBsmJGvhObyEGu+n6pF1KmydjxyQkXBtWQFrPUXWmldNYb8vPyWRQs5vyuA9Xfiox4nTYujYwf3AtbkOPB9w1WwwTntLQuaul2eoH5MbRZIIbz9Fgl1vT8drny5uMxo5L5Wiv3K8Eav6ta5r2U+XI1nLbf9IeWD9AKWq5+uZuVKZnziYk2HSEkn9VY8OJdy/0ScZ1aR9B8/1I6Y01z2z61hsc3f8A6gO36KKz1Y6RPaf9fwHNdw5soXzwOv5eOC903w3ON2AozNZleyzkMmBPcKNf2S44dbYuEl7PpE31R6Sl7hF1BgSFv8wZO0kfcWqbI9bOj4pnQ/69hMmb/S+UUf1Xzvk1E5DvjPae+77r3tR36s9spD53+4slFYK7Y+LPpbonqXoOsSCOLUsQvcLBbK0td9iDutvgzoZgAHg3wQbtfKE59Nc5jqL9z2nc1xstr0n1q6y0KeN+NreW0MaGNa9xkbQ4FOv+yhxxvadBxZ9PWuB4KN8FeIemvxiarHI2LV8WKYNH80fyOd9gu7dAfiF6a6zjMX5kYmayiYZiASPJB8j7KMsbjsEztLTunAfRQcLPizYmyRSBzXDuBbwQpzTYVSdkhwqgeU4gJo9k4H5qTASJSI3CPKACOCjVbpDYFHwkMcOEgKCdsldoAW3gIj6pApIGIoomgkPdAArbhOA32Q9kfKBA/wApFGkPKACBSISCRKAFwUjykfCTjV/ZMRik+ZwFmvKyXfAWD4jfibkLJ33tYQA17u0+wTvit5BbX1K13VOrdL0wva+X4r2fzfCHd2/c8LQtQ9beksTILJNTDOx1EyNLWg/fj+6kot9EW6OvCaN52ckTZrdaPo3X+g60xjsLUMeUOAILH2CPcFbPFqMTgCXAnwbTcJLtDsn/ABhXsntf3bjdVjs4B7aFtdtfhZxlCJtlwDVFDJt1yEe262VfJrGFG4NlyYGH2fIB/kqQzJaRbXW08V5Uqd7QiQRt5SLdkGva4DdEgHhCAG91aTRvyjVb2SUmkEfVIYGtrfZEhOpNO6ZEF1YS8A+6Q/qS5AQAK4SI23RCDuBaEJmMiyhVchZCQlQItSWiNjHCwm1ScUgOUxGu2AaXC/WH8QGj9FQzYODM3K1WqAY49kf3I8q79bvUqLovprIZBkRxalP8kfeaoeSPqvnZr2rZGq5skk05kPcaL+atasWHHjh8ub+yI/VKVR6L/rD1G1fq/UX5OXn5JjBJYz4p7W/pa1VuouhmL224k2S7yq4kpzAXOAConmlJ76L4xUVSLSTXZ3xhpY2hw72T4+oJgWVG35eduVBx2N76c0kcFWjceAMtrdx/VSosmTBrhkFOg72EU5rd7/RQZs/HkeS1pjcfpRCxuEbQD8m6xyxxzA0wX9DaLpAOklyYB3OLjGeHUszcoZHb8RrXge3KrHQ5Ebu1hft7WmPZO2raR9kvwFlpKyNp7e8xg78Itc5lt7mlleTyqj472kWOPBCLZGk3u130SFaJmQSXFxZwfCy4WsZWnZDMjGlkiljPyvY4gj9VXd7iflcSmvc4H5gb90rY0emfST8Tmd03lsw9bc6XTp3fO8AXEf8AcPp9F7Z6S9QND6x07GzNJ1GDIil2IY8Etd7EeF8i2PINjlbV0f1/rHRuqQZul5b4JYzwD8rh7OHkbKa4yW9MbSZ9dmuvjynV5XM/ST1W031K6TxNVx5WDLDWR5kAO8M1bj7E8LpYcCLULItU6H2KHukCkPsi3cJ0IcAiPZAclEGyiwQ8VSVWkG7FIAeUDHAUfdLykAnD7oGJ24QGwSJRHFpCF4+qVWUAbRBoEoEK/dNvdKy5IDlAx7UHE8BIA8hNEgF3sgQ7fZYnvO57ioWqaxiaTgT5uZlQ42JA0vkmmeGsYB5JPC8q+pP40dO02SfT+isBuozNtp1DJJbDfu1vLv1pTjjctjbPT+sa7p3T2FJm6pmwYmNGO50s7w0f3XnH1J/FhocONLgdMYuTqUzxRyN4ov0PJH2C8f8AV3qXrXXGcc7qLUZs3I/oY41HGPZreAtcl1eBtEEn6BSXFdKwS1s6l1X6v9WdYu+BkZDcHTmmxiYvytdW/wAzuXfqtUyM3JyuwOypu1v9PxDR/RafJrZe6w0kDht0EYdRysk9kcRs+yXJ+idI3fTc3JwHsdjZ2RCWHub2SloafoF1DQfxAdT6CIY8vPbn47PEvyuA+4XEoMLUgGuleGgtvwok+DksJ739xO5BOxTWV1QSSdHtvpX8QGh67h5H5rPdjujFiPIOzvYj9Vruv/iTnyGNxNOPbHVPLSWmT7O5AXlDDdNHH2dzi080rOHCyGt+NGHFo/siU4vogoHV871s1GHKB/JwOLj/AEE3+pN2ti6f/EXPpuTGXyZMcDSC9hpzXb7ivAXBnuLxXaW1vfkqpzHta4NJ7r590vkaHxVnvzpL8S3SesQxtyss4WUTRjyPlB+ocTX912nS9exNSibLiztkY4WCCvk5FrMsLexm4Iog7GltfSPqfrvRM7ZdD1KXCddug5id92nb9VdHhPT0VtP0fU9k4dQ90/3peX/TD8VWk69DBidSuGnZxpvx3C4pDwKI4s+69Habq2LqETJoJ2va4Agg8qM8Uo79fcSlumWm6Fc7JB1gJX7qoY0XuiRsEar7IEppiAEiAUhwkPKNCYD7IeKROyXhSQhhCG9px2HCX6JgfLf1v67j6s6hypI5++IO7WO80D/7Bcdke57iSSb91M1SczZL3F/cSbu7UFW+XmWSdLpEoR4xETe6QcR5KCSzeiaM0Uvwz3Auv70p+Pq4iFOYXD2JVVaVKLfoZOyMmGd3c1pjP7hYDIAAW8jz5WBOY8sPc3YhKxk1mRldttfJVLDNNI5/zPf3exTRlzXZeSmmVx5A/VFg/sjKXukZ8zQ6vcrA8VuBQ+6ReS7uIBP2S+K7zR+4TQqC1zRyDf0TzICCO6/usXdabyigMlN+/wBkKaRzRHumgeUfHIUfYzfPTT1O1r051GXJ0ye45g34sBcQ2TtdYv8AwvpD6XeqOk+pGhR6jp7+0uoSQuPzRu8g/qvlDdfddc9AvVR3pv1pjZOXJJ/pcrXsmjb5cWntP70nJtodWfUht0PdOHi1rPSHUsHUemQZcczHGVgf2tN17/stmDmmkWQeh7aslEINR3QNDxaQ4tDyUQExh5RbaRRHKBCIAR5QISQAatDgUUQd0126QhwNWg4keFjPcNud0XyNsBADj8rdytX606z0fojRMjWNazY8XBg2c53L3eGtHLnH2Cn9SdQYfTmk5ep6jkMxsLGYXySyGg0AL5qevXrbkerevtGNHJD0/hEtxIHfzPPmRw9z/ZNEkrZm9bvxAa56qZ0uKx8mJ05G/wDgYLTXfXDpCOT9OFxd05F1sf8ACxPf3Oqi1OhaC+iL+gQ2S0Oixp8rZrSQFa4uhFxuT5a902LUvyg7YwwB3IG5/dS4Mp+TXxHBrL96SFon4uHj4ziR2k1wFImzWYTSaHcTfy8qslmgxQHd3c6uAbVXPmM3aATY5J4UqG19ixm14y38PuG/FqO3JfLKe8u/XdVQkka7YFwHuFaYv8YAuDmuG+ySYd6Nk0tjJCwc/wB10XS9P+Jivhea+Iwm/DR7laJo+A+RzSzYnyPK61pWmTMwi58PzlhADj5VcpfYvxRrs5LqsjcbLd2gdrjQAKos2UsY9xZQ9/ZbF1NH+Wy3NMY7wT3Vxsd1q+QWyhz3c+Gl3ClHrZDKkpEaPPaWhkjAbNDZZfhRZJ2Haa5aVDbOwSEdjb9rUgNDWlzWb+SPP0U1+CkysiyY43NgnZIHbdpBXYfSz8RfU/p5JiYeeHalo+OQ34Mx/iRs9mu9h7Fcka6Ajuc8B1Xfn91MaYZYrk7TfkncqzHllDXaE4pqz6g9AepmgeoOlw5ui6hFN3NDpIQ8d8Z8hw5BW8NeDwvk70j1Pqnp9r2Lrmh5L45sZ3zMB2kb5aR5C+jfpP6m4PqN01janiktc75ZYnDdj/Ir7qyeKMlzh/dFX7XTOjmzwkeAlzuE7/KpJGNo/sjwjsNkikgbGVvfhDhE/wBkvCkRGmq2Q8VSca9kPNKViekfFWRxc4k8kpoRIPkboNBcaHJVXK9lwFKxNPycx4ZDC95JrYLb+kein6tU8rD2exXWtJ6SgxGRhkTLIFgbgKmeWlo24fDc/wB7o4xg9B6jmm/hOaPIrcK9i9L8prR3/NvRrhd2wNCaDZY0DzsrzG0hjjvGAK22VEsk0jfDxcSe0edm+lUxcATQrlNk9LpdvhtuuXeV6bZpEbL2HsaTZNGjc4W2wPdULPk7stXi4+kjyjnenGo4wDhCaPBCppOkNTa/tMLiftuvZbtCjfHXw2kfUKIOksZ3/wDTGCTwWBP+rkldFa8GEjxxL01nQgF8DgPsVEk0jIYa+G79l7Fzuh8WVm8TQD4A2K1HJ9M2T5HZ2D4Y37qrf7Ka8xVbIy/TovpnmN2mzteW9m/2WJ+NIw0WkL09l+nOPjwP7I2ki+0NvdaXn9BBrDIMd4PLh27D9Vbjz8zPP9Pa1E4kWOHOyaBfG5W+6j0pLFP2MxyO8mgNytbztIyMWSvhkXwQFapJ9GOeGa3RTEJBxaQRyN1JyMaSKgWEKN+imUtNdnf/AMOPq7mdMdSYulalqRZozmObG2Vw7Y3uN3+9/uvo7gzCfGikHDmgje9qXxrwcp+FmQZEZp8Tw8H2IK+pvoZ1uzrbobTs8SNc/t+G8d1kObsbS6ZJxbXJHVGmwBSceeFjshPbxasf2KxwKPhNCeQK4QMIArlEJrRScDzskAieEgdjaTjsgLpAC8ojcJGkgLCKExHblYZJA07Df3T3v+X2XBPxR+ps/Qvp7NiadJ8LU9aLsOOQOp0bCPncPrWw+6Q0uTo81/io9bJ+v+op+m9Jyf8A9taVKWOdG6xlSjYu+rQbA/deaZZPANAfVZcrJoua3nzfKhE925Q3ZOVJUg9xJO53TjKQ3tbsEyt6TiwCgHBxPsgir9DbN2FlZM+MW125U/T9AzdRexsUEhBNWGkhdJ6b9H8rUHRulBIcAQ0DkqEppGjF485nKTJkTEC3OI4pScbS8rL2ZE4m6Oy9O6L6HxROY78mXdu9du63bTvRiBvafyjGu5JI3P3VbzGiPh0m2zzDoPpxq2Ye9sLyLobH+66P0/6SzmVrsmNzWkjetl6Z0P05g02JgbE1oA3pq2aDpiGIA00AKMskn0XQ8dJ7OJaT6T4cbRUG3O4vf3W6RdHCKGizucG9oPkbUuiM09kYFCh7LL+Xb20NgqHJ+2aPiVUeYOtfS+bNyXvawNiP9X/0FxXXfTzMwJNqcN/1XvvJ0yOcOtg+i1LVuiMfMJc+MuB5HuoLPKL/AAKfjRk7Pn3qOlZWKe4NIAF7BRYcnMgoXbfYr2D1P6TwZcUnw8drX3/MP/C4j1P6W5eG9xx+4ht20bFq1Q8muzHl8Pf0nNmZbZaEjmEnmxv+6kw5DGgeGnweFFytNlxC4Oje0XseVXmaSFxHeXj6rTd7MEo06Zs0PcCZIiC08t8Lr34f/UY9D9bYuK6Qs0nVZGw5DXmgxxNNf9N6C4fg5FtFON1+hVqzIMZbLRFb207gjyrMOVwmQlDkj636dmNniaQ4OBGzgeVPJ915v/Dz6lydUdNQx5WSJcjHqNxqia8n9KXonGnErBvurMsOMtFMJWZh9eUiPqj5JSJVZJjKSoUUTxaaeE7CgXulW/hL3SAUhHxUcSTud1caJppycuMHm91VxQku3sfVb/0bpnfkRvZZtws8rPPXRpxR5SR17pHQmY2CztAJPJA5W54WHRA+HuNtlD0fHGPisG47hQ+i2bEjADe4A0srTTO1j0YY8YCg5WGPDRoUQpQxL3Ffqs2LjkPs/ooN/wCS9MEWI1vN7+6kfB4ICmR4ZdwNll/KO32tVuOiUZMhfDHaBVoMwwSTQ2VgMam0R/ZPjhB2qlCqZJv7EM4YkouWJ+AyiA0bq2dFQA8ofBN/RRcFVByson6O2X+Zqh5HTMc0ZaWAD3pbb8MAc0mObskk07Q+WjncnRGPDI+XttzhsCLC07VfTeLMnkkfCzcDhoBoFdrkb3miLAUSbHY5pAAv3U7dFXFN3I8qdW+n7oDkzwsDYmcbLj2fjfBlNAAey9xdQ6HDkYc10DRIJGy8idYac3D1CePtAtxoj6Ld48+UXZzPOwxg00aaF7A/BP1Tmt1HU9C/MMOGW/FbE4iw69yPK8fnYkLpHoPrc+g+q3TWVjgue7JbEWg1YdsVZNaMUH6Pq+Nm3W/ung1VLCyQvYHHgi6WWx5H6KxbVlTMli6CN8pg3KdvwmFDwlzskErpIAkbIeEeUN0MBOJA2KG+1pP2+ya5ztuEgMMrgw7cleFvxu67HJr2g6c1w7saCRzm3/U4jev0XtTX9Sh0fTsrNypGxQYsTppJHHZrWgkk/svk96o9bT+oPW+sa7K6Qx5UxMLHndkf9Lf2RZKLrZp5PcS6ymo/ok1pcQByU2K/sZIIH5DwyNpc4+y6R0d6cz6o+N8sdtd4IUr036I/1Gdk0jO5mxvYr030x05j4EQIjDRdgLPky1aR0PHwL90ip6R9LsPT2scYQ3gmtl2npzQMLGhDba0DwqHFeIQAOFZY+WWHZ36LNF/c6HD7G7/lcGBgILS0bBoCizZUDQe0NA91RjMe6MCzv9UHuJBPlOw4Ispc+x8r+OAh+cBALjv91XMZ3fdZAwhDbvZOkkTzlhwGyaJ+530USqTmlVO32SSRPb8wCkMxBIyg1RcdwFD3Vxju7WgHZOMPYpOiC7RIp4y1zBf2Wj9VdFRyxyPMXcarb2XUPiVuEpGMymFrxZI4VjimtFd0eMeu/TWKSMStgDSCT29uzl5/6j6Xk0+ZzWt7S3evdfRHqnpuN7XhsYcHbGl5/wDUD09jfjyOEPb/ALXAfylKGVwdMryYYzjs8jxPkx5TyCOQrvFyC5nc3cAWQVk6l0OXAynMkjp3hw8qhxsp+O8AOP2W1SUlaOO4OEmmdv8ARHreTpfqvE7pjHizvbHKATVOIBsfqvod0zqjM7BimikaTdOo2D+q+UUZD2MyGGpGmwRyCve34ceuj1P0fjsyLGZC4seW8OI2v/C1Y3zh9XoyZFxZ6NZJ3H6rKaKgYUrntBPhTAbvdQaoknoTgkfZFI8JjGEIAUgXbgBEcoQmfGrTMf48zWsFi9yV2zofpyTsbMWuDON1qXp90x+dkbNKw9vNEUSu66ViMxoWNqqFAeVRkk3o6njYaXKydjw/BgDTy0KxwHvLgA09vNnlYI3ih3VSsIJoWNHc9rT596WebOjFUXkFVfv7KdC1tjgKhi1PHPaRKw7+DupkepRcfEad0vi1sFJdG04r4+2iNx5Up3wTvstbh1FlCyApbMtriAHc/VV8dlqJ0hjN9pCxMcLonZM72vsePomB3z/ZV9oktOya1rXFp8rK6K97r6KKyRt3fCkRubJ/UEqbJJWY3RknbhYXMo8fuprjG3yLUR5BN2iq7E0Ry0NuuSoeSDsSpjyWgkbqvne48jZKV9EfZXajGXwObz9F5R9RdOEWfPtsHE0vVuomoX7+OCvOfqBhkZct2QTYr2paPFlviYPOWrRwfIHbK4fVbJ6cd5676eEbpGvObCAYzTv5xx9VT6njfDlc4cLdvQzS4NX9T+ncfJcGw/mA4l1gbb8ha56izmYtTTPqziSGbHie5pBc0Eg8jbhSw6vqsbNtibKeOfKlDUUVS7Mooi0gK5QvYUj3VypCHXvsiON026tFp2QNDikmndyV8bpAI7lY5pBG3uKe+z5pVmo5DWMkdI8NjjaXOcTsAEgs8z/jA9SZNB6GOhYcwZk6y8xSFp3+EP5h+uwXz8J7nEnyus/iG9QB6geomdkYxP8ApmGTjYoPlrTu79Ta5O5naeQleybi0hq23oXpx+t6nGXNqFpski1rOHjSZeTHDG0uc9wC9L+nfSTNN0+J74m/Eqxv5VWafFGjxMXOXJm/9I9PQYGHDGALaK3G/K3mFvwWdv8AwqTTIi0C+KqlsETLA2WW1I69cdDmOofVZo5KG5pBuMdjSkRYxB3G5T16HZLx5D2iirAO7huo8OMO0WOVKEHFeFJCvZkjP1WUvB4WGNoB82soG6bY+xpcnN23J/RDtKe1pOyrf3GyTCASCrKJxI9yq+GMgqxgGyIgTorLQsjSAbOyUMVtQka4XsprRGiFmsbKCCAbWn65oUOZjyxOFseN1uErbO/BUDKhtpFLPONkHro8beq/RZxXSgQEkW5prchedNSxji5Lm71f7L356k6E7N06d3Z3lgLmgc/ZeLeuNN/L5cgP84N2r/Gk0qZg8mF7KPTstv8AISCCOF6G/DH1aNP17K0gW1+S348O9Bzm7OH7b/ovMcTzHa3LoTqmbpLqXSdbga0vwpg8tPDm8OB+hBK6fjuppP2c+UW49H1e0XPZlY7THbtgD96VuwhljytR6TzoczFY+BwMUjQ+N30IsLbo6cCfKlO1JoqiZO6hwhZPikjwiDwoWSGgAfdIVaX6IN5KYmfP7pjQ24OM0tNEtAobAKV1B1LBocAZ3OMx9vH3CmyzNxcV0vBY2xXhaDmaXldROlzJIqgLh8zzu/auFTCHt7R155XCkiu1b1DzpI3MhnewEXbdq9lQn1E1QygjMyGgmhbvl/YretN6Jx54A4QEvJ5cNqrhXTPTVkkAe3S4fhX/ADBpof5pa44qX0xsocnL2crg6/1mN9xTO7rs72XH62pkHqhrUDqfIWtu9/ddGn9HzLCZBpTiCLuCQEn9Frur+nbNOax8uHlRmty+B1D9apVyhNp/SODa3yL/AKW9WG5/w48hwZJ/K4EHc/crpGH1HHkCgQXe3lec3aNFHJeK5jzX9JW3aDmZMbwHyGx7GqXPyx4uujp4MiaqR3aHVu5o32O3Kks1EOcaNG+VpGDmmSEV3bc2p35kNb5H/Kzc70amrNofq/Yeb3T49eYHhgeL8gHcLm+s6o6GJ38SvB3Wmy9XT40skrnX2jkn+ynGLfRDkoq2d8HUmOXFpmbZNDflZWazjk26YN+i8a651bquZlvfFLNFGCSGteWhv0FeFgx+t9dxmwsGpZLDH4a+gR9lo+FpGeXlRW0e2xkskY0teCHcUoWRI4HtK8qYXqjq0MHzOfM4C7Gxv7hbRofrK6RzGTB7nki2E/8AKPh11sUPKjNndMmpGOG1HyuKepmnOa0uYLO/A4XRdE6vw+o45GxOEeRE2zEeSPcKL1DpDdSica5aQduFlx3jmy2eNZYHk3WcVzC/uAAPldN/CvgNy/VrTY3va0djyA4X3EeFqXWOnjC1GbHeCHtP8q61+ESLFk9QZ48iEOkEAfE8t3BDgDX7rdJ/TZxIx4y2fQeNtAACk8iiExldorhOHNqxGZmQbDZE7pt0BunAjzwpAOGyc0ptg2i3hIYShylylsAgQ2V5Ywkey4/66dXDpL011zPfKY58iJ2PA8HcPcCAR9l1qcd57TsCF5A/HJrhxOnOn9Ijk7RPO6VzfcNG3+Uhx7PD2XOcmd8pFdx4CwJI8pMk3bOg+mmjjIz453gEdwq22vT+l4nb8MBoDOaXBvSyC5IXBpse42XonTYqa2rJWXNt6Ot4ceMLLbCjo7VQCu8aOwT4VfBEQRTa2VnG0tCrhFdGlk+FrTQI4U4RNoGtlWxyhpClNyBRB/spcGKycxzatSYmBwGypzMauws8OpNoDghTUa7DXotXRAH6pNaGqH/qAdXv7onLbdbopElZKNAk+6QIFFRH5AHnZY3ZdGrUUMuDKGgKZFlMaBZWsSagNgTuPKP+rMYB3uAQkRcqN3gy2kbLK+TuXPpOu9N08ls+TGwt8FwCfH6m6Q+QBk5cK8NKtUbVlbyJdm9GIOUfIhDQfb2UHS+tdKzKDJLafJCs58zHyGkxPa5pGxUMmGkOM4yNO13FGTjyMqwQQV4q9aemzgalI5jQGudYoUF7ozYO9jg070vPXrt0Y/O0k5eOAZWcn7A8rJBuE0yGTFyTPGMkTmCyNlkxJ+x3Y51NPko5kMkM7w8EEGjtx+ijOAPB3XWT2cVtp0fR38NfVU/UHQ2n5GTJ3ZGNIcSbfc0dnfqCF6Ki3b8tWvBH4N+pJotX1TQ3m8eaNszR5Dwa/bhe8MJzg1zH7ObstWanUl7KUqbRNB7hwkE1gsfVHg7qlqiTYe2gmjYlOQICSYjxl1D0RiMxsZx1SX8pLI0PD49iy992k+E7UYNPe8swmM+BdtLW7EJ3ScLj1T8bvPbjY7ngHgE7bfVZswPfJLKAD3OJ4WnC8cmkaZqfJ8mV8Xw4G0AGtb7bUpL+p8HS9NlcZe4k123x9fotZ1rKymktgjId/uI2tafF0xlZ8gk1AvyIj/RZAAW7E4p3ZVPmq0d80nrjQ5sGBzsyIlzQKbIBX3PCtDrWlZ7DAzKie13Aa4Paf1Gy4q/R5cOON8OKTihoAaxuwHtSsNFjznZbZhiywRwt3thaCup/Q4ViU79Hnn+peR8jjwN/1foXQtXYZX4ULp6vvaztd9rC5brfS0nTWRG93ccKR3Y17uWu9j7rqvT3U2RkPME0AY5gG4J3+qr+tWY+fp0kWTKyCF723NRd8M3YNBcPycCdxZ3fC8jJab0app0JLWNp29b+FYzYr4o3WLFbfRTOnXafkZnw5J5TCSR8ZsPB+xNq61ePT2zQY0E8sjpbBkMBYxvtZPuuHLxZxbR6f+ohS/8As4/r+Z8J4hFyZcmzYm7uP/gfVUuF0ZqOrZJb8HtlPLdyAPr4C3uDRn4c+XPkRf8A5yRx7qPcGgHZoP8AdQ5tZOh/GyS7sjLSXlxoV5QoKOr2Uubkr9FHF6ZT5D/hg4pcN+03+1rJH6VZBfJ34eBIW/Ls8tcfrdLT9S9XNU0+D4+Djn4Eji34so/m/wDCn6X61Z+OMf8ANRwxiV3aXtb3Hjmluj4zmlx7MLzxi3bLxnpDT3HJwvhfL/NHJ8QH/larrfpwdNm7seObtFH4jYj2/r9V1rA68/NxOcciN7ot3BnLfuBurB87NSxxI2TubKLsHfdQnj+J8ZInjmskecNo4h08/UNF1TGmBcAHdzXdp+Zt0R9V37HkGbCx+9EbhazrWjOdoLJy+Rz8WWwDvbOSr7SC7HxYonOBc0V3fRYs8Umpejd48k4tHBvVqL4HUsrTdGIOFnn3XbfwadLtdm6nrr2P7msEUbvFHkj6rjvrLbupIXAvkc+AdrQLLjfAC9Vfh/1TReiOiNL0nJhyodTyP42X3xV8J7t6Pnbzsrm1wicycZSnLjs9DjgeyfvVLGyRsrWva4PY4WHA7ELJe2yvVIxO0O2oIjdN8Ig0hCQbop4Oyx/dEcUkMyXuEjVJrtkCbCAMLz/EP2Xgf8cea+TrPQsW/wCHFhF+/uXL3rL/ADfYr56/jVl+P6lYhBJazEDa8NNpOiUOzzMi0W4D3KVbqXpeDLn5sUMLe55PCXSCKbejufpJgPdjMnc0gHgFegtLY1kYJ3IC510Now0/TYWtHytFe1hbTqHUePpbGxmVglcNm92/7LNJc5HchBQgkzZ8/WMPSMcS5EzI2jgkrT8z1Y06B5ETzIB5DSP7ELR9Qw5ddzHyyOfL3bgOs19KUY9BPyHBwx2nv8gbhXY4OKtkZzvo3RnrNhR7yMeGkbfLasNM9ZtKyu4SB7aHFXS53D6O52R2vbO9u97mxXtSyz+lGfjdjmylzid7GwTlXZVbs7Hg9f6ZqbR+Xm7neWcOH3Vk3VI3jva4C/C4jB0vmYGVGKe0sAIoeFuWJ+bjrvJ2bTlSy2Emts6bh5gkHuPdWDX3wVo2kag8PDHefK27Fm+K3ZQb9l3RKklIbZ4C13VNdGDHI+7LATS2KaFxhNA8crRdawHzyubRLT5UG6ehvo1/UetMkQj4Yp5J35paNqPUes583bHlStF7lvlbyOmnSvHcAALF1xascTpTAhIDmBxHlWxkkrZXJOtHKcTp/UtRnuNkj3nd0sgJB/VdA6a6b1GBzfjueByACBRXRNPxMWCPsjYG0K2WwYGFD/N2gk+6tWSKejP8Te2UePgTsiA+Mb+3CczVcvSiSHh4HhxW5w48AHzMbshk6Hp2bE4OhYHHyAhy0JKu2RdK6hh1Nva+o5vqdj9io+v6RFquHJBM0OZIKp3Ci5XSrcYtfj8M4Fq4wmzOhbHLdjwVRlhF9E4zaZ4Y9ZfTPI6S1B+ZBC/8nK7+YNsArjXaS6tgV9MutOkMTqnQ8nT8qJrmTN7eNwfcL509VdPT9N65m6fOD348ha4gV9lLxsjtwl6M3l4VXyR/ud2/BrHIPU9wc3vZ+UfYvgWN6X0TxwHH3C+a34U9Ym0f1e0iASN+BqMUuM55/p+Uu/f5V9J8QjsbRBFcjyutkv44HJ6mySAAECTfulXtwkAQFRfsfQgSaRQbskLJNIA8jdMxsj1HUzZcfy4I335KzPjaA4Ctyq7R5HR6lO0fzPgA45o7q2ADjZ5HhRjFvo6trkUeRhfFDqaK8LLjafKyPbc+6vPy7ey653+yxlvwmn29gk217LZq40iGM+KLFbB+VAc3bvobqIzU2i2/DN//AFss+Qx8rS1pUT8iO7fclOXm5EqT0VQ8GEvqa2ywxtWgjcT8Adw8jZal1vrIzIMXGaD3Sy91A8tbv/4Vpnh8DKiFuOwK51nsy9b6mblB/fBDH8CHtPPu79/8JQ8ick5SZN+JCGSMYLZuvSuPNkBro9gSrvU86fT3MgyT8jvI4Vx0tiR42NG00aAHG6j+omn9+CMlrS50ZDgAudFNypnXyS4orOnsU6lpWJK6QvldEC6/f/6Cq+q+lsTUoxj5Xf8AAO72tNdx8X9FXdLa1l4elQwhpJhmdH3Ctx3E7/o7+y3rIYM2IfEd87xwFpTWKab7MajPJByRyrUvTvSdR0wYfxfg48bu5gDrI+1qg070TwWZTJfzZmYxwcGvcN/vQXU8rRSyb5hx7eyfBpTQQWOcD9FfLzWqpmb+jg7cuzR870jJc7NxNT7M8EkAN+Uj2tbB01g6hA04udifl5qFOApp+y2/CxJNrddcK1lx2ui7n8t9lRl8iWVVL0X4sEcXXsqS4YuHKZYxJHE0udG6qePYrLrWs4+ZpGVBg6Pg4OTJG4RSgfyEsIaf0JBWLVpb0jMcADbPhivPcQP+VBdGMp4IjpvkKKyuCWgjhi227KrI65j6UyNCxMLQNPn16WJkL9XyRbg4UC5orazZ2UTW/UefRtZixvyj5pJ3gyTuNAgnchVnWWNijqPQ/wA0WjGYSJBfzdli1sfqNg4mrdOwZ+nRMacCQNtrf6D/AO9KjyG50l9jX+nYoxn9XtnqP0z1E6j0piOLi4RksBJvbYj/ACtwscArmXoYJD0Sxzyf+qQL+jQumhp3/wArV4zvGmzhedFQ8icV9xx4R9kOUhyrzIORCbv90WkhIBxKPI+qaeUuaCBmCcbOBNXyV4g/Gfprnw6XqLXbOlMTwB7Dbf8AQr3FIP5r4O2684fix6UOrel2ZNBGHPwZmTbD+Vt/Mf2KOxx7PnOusekXTYzZn5z2kgODWfcblcqLe0i9rXp/0i04Y3SuG+7+K3v/AHKryNJGzw4OU7NxnlkwsURQD+I4bV4VHhaC7LyvzGXvITydytsyQxjCSBuFAbM4dobVBVQpKzpNctonYkUGP2tDAK8q1gyMdhs7V7cLQta6mi04/D7wZXA0O6lzPVOt5tRyvyeI92ZmPNBjf5GjzuiOVz1DYpccf7tHpmHqbS4QA/Mxmb1Zkbazxaxp2pucyDMxnyNNFveLv7LxHr+u61halLjzZPZLHQ/gkbAi+f1WKHW5TkNknzstj3AHu7++q+hOyJY8j3ZnXkY06PcOVhtYO5zf1VXkNj3NgEeFyTSOq+qOmNHwc7JnOp6VkRtfUp+doI9/Bpb3pmv4nU+l/n8CQEDZ8ZPzRu9iqHGUHxfZoxyjKPLtFpiyBk9tOxK3zRYvixgmlzDCynDI7e033VfuutdLQmaGvopR62XSVUXLMX4kJBG1LXNYwhB8zd/e10JuGBiDgELTOosd72ODbpVzTuiHs0fIyWxNO5sey03qLr/A6cY4zyd0n/y2ncD3Kd6ha+/pvDZHAx0uoZJIiYP6R/uK5npOjQ6vgajNniWTOyIyxkko4vyiGJ5NXSQZH8cbrszyfiDy3ZDhgYoDGbktYCfvZVppP4iNQdO2KfFznNcfmLImuDR+i4Uejteie8M0nOm7CQXCB1fcGl0L056S6lxNc07Ly8PPgwsZ/ee67kNbClsjgxutnOlmzSdJHeOmfW3H1t/ZDPFLLV/Bd8khr6LpOgdYYmsgtZJ2zN2dG7lp+y889Y+k2pdW5jNR0zGbp+SD/wBVgLHvP1I8rNoXQXWfTGTDJnPdmRR1UkLu2UV4PuFRJcemX46lqWmephkfKL3+qkxW5wLfPutM6W1WbOgEc7Je9vPeKNreMHFcALBA+yFPl2OUeLozTQCSMit14V/FF047SeuDmxbQZsbX1W3dwV73dFbAPovLP4s9GZLiaPmAW4F0f28qHWSMkElyhJM87ekc+W7rHQ/9OdE3UYMuOWEPNFxDh8o97FhfVPRXzHGZ8eNsclbtBsBfIvp/On6d1/TdUx47nwMmPIbX/a4Gv7L646Fmw6jp+Nm4zg7HyI2yRkeWkAgruRXLAn+ThZKUi3+yaLPlLu3KLaKpoYGpcFAJeCbQ6FR4txshsGbBkG3Bh7Xbf0nz+i3Q6NldolYx74nDuDmttte9rn2K0bHc37LdOmup9S0Fox8WUOxif+hKLb9geQpY24bR1HH2uy4ZBbO2iCPdRsjDeSPloAeFdt6jwsgF+Tpz43u3uF4I/YqFma5ozGkvky4/oYb/AMEqrJUui7E2v3I192MWOcCL8/RYHxBosmj4pSsvqbQgCGTZcjv9rccgn91rWudQyGFzcKJ2Kxw3lkIL6+ngLJLFT7pG6M9fStlZ1JqDIJTgtkBeRcrgb7BXH3Ki6LjNnn7o+0sFDYcfZavDiZOr55EIqLuJLjuTvuSV0rpnSmYbmMBbsir66RKCp2+zfOm9Oe+EECiN0OpcU5GMYiNvIPlWWlZAhb8NrhR8LFqpbJ3juAI91SpfVZa6emcY0yA4GuS4L3fLI3ujb9W7/wCP8LbYs2nNaALG4BWodcwZeJLHn419+O4SMcGk0RwT9FfdMZLOqMNuXitAmb/14SfmjP8A49ilkTe0Rj9Fpl055dfcLv8AymNhZYPjz90WsMT3Bw+myZEHNHb3E+dwocZE3C1os4SGN2I42VfmSyS21jqrY0rLT2/FfsDYFb8FZZdJkfN/DabdzasgndFM1Fd6NezJGtiwsNwv4sve77N3/wA0p8cDWt9nKu+K3IzZJGHujj/hRO/3DyR9CVYseDHu7ceCie5JfYqlSjf3OVepHc7qHBbThHHFufqSrzpwnK6Z1aN0pdUezSTV3Y/wovVej5eq5j5YMVzw2gX7bBbF0fpLNLwpYpXd82T/AD7bNFrPn7VHR8Z8MSvvs9IekEHweh8H5atznV+y3xv1K1L06xzj9J4LRdP7nAnyLof4W2NH1XQwR440eW8yXLPN/ljwbJSB5TRvaPurzMhwNbJ1rGE+9kUMNpeRumjdGkgGyC7+q13qzQota0DUsKQ7ZELmWeL8LYm3drBms+JCW7EEjb9UC9nx86r0gaJ1NqOnB3eMad0YP2K9W+n+II+kNFaN2nFjIJ9iL/5Xmb1NaG+oXUrWutjNRyGN+wkcP+F6k9O3fG6Z0dzbAOJGK9vlGyqm0dPxfpk2WOXjOI3BOy1vUsl+KCGMc53FAcLqcOlRTMBIu1GyOlI5ST2A39OFQ16RtTTdnnXqPprP6geWiR0TXfzHyVF0b0syMOaPIhe5so8kb0vQWR0lI0bb1xSq36Vk42zWOI+gThcFSHJLJpnKdY9KX63ksyMkvdMGhvcw1wp+k+h+lRkSZGNJK8G/4ktg/SgulMGpUOyBzq33/wDdZ49O1bJJvtibzRKbySltIisEPZS5fSmn5ELGZ7++Juwja6gB7UomHoGk9P5rZtKhfD8UdsrO4lrh4P6Lb4Ol3gh08rnkcWnZmlxQNoN3UEpeyyXH9sTXseDvzx2C7PK7z0JhtbjAPFuIXKNJ09oyR9Df3XY+kXuDQwt3U00kEuXs2qfFAxTQWj6xjk92y6Bf8GlrmfiNmc7ZVz27HSemcP6i08xZkkr4myChRIuqWuxMwpf4bmjYUAf6V2vO0Vs3c18YI+y1DU+i4nOLm8f7U42umEa6kapi6RgS0HPcDXh9LatPh0zH+E7ktG/c7lQmdIREnvdJZ47XUrXC6SgjFudI42Ni5Qcp3ojKMH0y+wdSxi4RwxsHtSuYWskoyNa4u5tV2Dp2PjhobE1rgNtlcYmL3vAqk1yerILHFbLHF0vGlqRsLQ8eQALVi2IRCqWXCxHQMaSflKWR8zradla4cUR4pkeRpNrz7+JbT/z3TOMXChFOSXD+kVuV398haSCDS5R6yYMOpadhQZEYkhdKbB28e6zTtU0NJuVI8Q6L0tJrPUmFp2N80mTO1jLbexPJH2X1S6e0tmh6Np2nMILcSBkIoUAGiqXmr0q9K9MwOqtP1mOG7b8QNk3oiwvU7GX53+q7WPKviUEcXycXHImEDn3S8j2SN+SkBYUbbKHQg40RVpXsbSGxQIB87oEeKI4g197WFc4pLacXANHNKqpw+Y1tzazxZPbtzXFJO+jrwdo2ITiQUGivZYp8OKdvc4dw4pQYstrmtO491KOR29pAJtZZya6N+NMjy6XitHAH2Wm9aT/Dg7IuCKW5zvvg0SqHV9LbkREvF2qk05Gm/pVmv6DmY+Fp7e8gU3uJJ42/wsR9QMFuoxwYufDI87dsbwd1q+v6JnsD4YWl8EjaryFpuN6bSyy/E/iRdrvajdq1pqPejPklJO0uz0RpXWJbH3Ok3Hkm0zL67ilmA7xd0bPP1XJxpWrxQxwMLnkCr7SSVo+s6DqkuayTJypmScMG47QFl4NttaLPmap8T0y3KZnxvElOa5tEFc8gZLpXUmU3TciXFyIXkskifRAPj6j6Faz0hq+qwxsxBNNmS9wDQGk/QWt+07QMhkoy5XOEjr7mqMXOCaZrajNKTRsf/wCIHUUdNzMTCz49ty0sP9rCnRdZwSgSS9Pyd3vHOKH7hYMJnaQ1zA4fVWzcaANFhm52AVqzcV0VfEo9ErT+roLaIdFcwnzJONv2Cdquv5mqY8mO9seNjuFOjhu3j2Lj4WCGCJjrDRfigsWUW9psUAj5fwUSwwu2VrAYu3toMbsABwpfxLj29rUIyjuIvZZ3SfwBbqB4JUItorytt/SP02EiKXv3dI4u58K86U6Yn13XIcOPuZAT3zSDftZ5/wDC17CndEQwj4kjnUwMFl18Cl6M9P8App+gaR3ZTOzPyvnlaeWDw1RxQlOW+izyfI+DFrt9G2Y0MeNHHDC0MiiaGMaOA0CgFmH/ACmDnhOabJXSR5lu3bDVBIFL7ophYvCNpFIIHYQUeSmohACPKY87g+AnXvvukaJr+yOhHzT/ABP9Ay9I+o+o5Ixy3E1F5ymSNbTSXG3D72uoejc/5zovSZCS4taYyfsSF378QPpvj9edHZEgjBzdPYZYyBuWjcj+1rz96TY8ml6BJiEgthncQG+x3VOSk0dHx3yVnYsWRuwpWkEsY2d5WsY8/eQQ47DwrLGms3ZFe6rjCzelo2iGOF7aLQo2TpEch7gAsGNk2BvurCGYHne1Nx1RLimUz9ILDYAWN2nnewtkcxruOFGfENxSiohSsoXwBjaHIVDnxGy7ff3W2ZcLWg+Fp+sZjIXUTwVGVLZZF/YmaPj25riOV0vQQIIrvf6LnGhy9zGuo7roWkZrWRgO/S1XZGrZtsJE2M4jauVXSUHG1YadI2Udpds4UoOoQuhkeL4SkmqZN7ImRG12xHhVE+K2zTVKn1Nkbvhu2Puojslr+CnFpuhJfYhyYTAb7RaLcc0D7qY1oeLvlObyAePCtr7EeI3HxyTYC2HCx2taHdu6qsQ/OG+Fc45A5JpTiq2J2iTJLbavhYYxdnlYXyEur+lODywIeyuTrRjn2ulyv1Vefg4bW7hslkhdOleLO6591rpk2rZ2LjQtBJHdz/hY80XWgxV8isuvTC5oYjtTQe36BdXYeDa0HoDSv9LaInEdwYe4ey39tALoYP8AjRyvOS+Z8Q925RB2pAEAlFp91cmYmImhsh7n3RJQsIInjCdvzEBp7VEdJ8I91HlTtRe6J5oWP8Klny6kHzAtPj6q3JBpnUwvpk+PNAok/Nyp8WQbNeRdla2+VjB8Rx7RfJNBTYMj4ha2OiB5rhc7KjqY5Jl4Zrc2qUefIY9r2j5jzVKsysssprSQ4eyhHUu2QAvALtq8lZ4RcnsunNJUZsuOMVIQBW+w3WFuGZHtaGAhx3CGTqOHAfnlHfQPYOVj/wDiBrGEtx7j/wBw5V05a4ojjxym0+iwgwI2FoPaaO7QFOn0PGyC34zGk1e4VRDqeP3NcfiE8/KrrF1zElpr3fDJ2AdQtZZTimX5PGnVrdE3TtEwsWzDCxjnbkgbn9VZjHia1zRzXCrTOA0PYb8CkGaiI5R3vNEUVCUpPaEpt6kYslr4ZS5oNBCHMMg+G9xaRuQOVKmyWStLgfHFrXczLPeQCQRspctFrar8mwf6lGxwZYG2wPKiZOWZHcmvYbrXJM3YEmyPKxMzZSO5xFn2QqZTMv8AHmbJL8Oy4/ddV6J9OsHqnTJptSfkCNru2P4L+2z58Fcu0aN0koPZfFAeV6q6Z0r/AEfRMTFaN42W/wCrjuVpxL6tHJ8vLwVJlZ0z6caB0xO3KxMV8mW3Zs+Q/vc37eB96W4efcoAAAJw2WxJHKlOUncnY4blK0ATaQQIekPKFpA0SmINogptp1jwkMKHlKwEkwFf0SBIJNo8BNu7SYEbUo3ZGDlRNb3GSNzQPewvIGixnCzNSxQ0tALSB7eF7GcCNgd15i6z0puj9Y6vEwfI53cAPZw7v+Sqsi1Zt8OfFtGPFmLWgNKvMSTubytUxZqFGv8AlXOPkNAsHf2RGR1Fs2aCTsbzup0OQGgCvl91QYuSCebBPlWIyQwXSk2icaNhhyA5teyxzS0LO1KsjzQ4Ag0fIWPJze6Mi91ByHWzDqWcz4bj3UR4K5znvm1zUo4If+mw9z3XwFb9S6qcfGf8+52VH07nRwab8fuBfKe5xJFrO5KUqZeoUrRuOLIzDY2MGq8q/wBN1EOIDnbLluVrw+LbnEfW1M0/qIMe23dwPuUnKJFQZ3nStTDWj5rVpNM/IHeaIK4/g9UtYWjuAV5F1qIvk7zXFJSmumQkmWvV+lzHEObiEufFu+MeR7rVdN1/43b81gbELcMTqOHLZRI3G/1XItXkGl9S5scN/B+J3NF+CL/5VTdNSXstxpSVHUsfUO9o7eVOblAjfkrQtO1IENp3P1V9DnklvsVrg7RW1RtkGSKFDdWUOR3MorV8fJAFtKtMXLIIPj2U7orlRdRO73blQcuWRmU1g/lWeHIFWFhkmbK66qih0US3sa59myKJVc7Cil1BmS826IfKFMe8F31VRqOTNjh00I7i1wsfRZp7IJtPRuGgUcuRwFW1bN9aWm9MZYmlaRY7xuD4PstxHhbsP7EjleT/AMg5C90iUAaNq0zBKRP0SuydkL+uyYjyT1Tpx03UcmDt/wCm4tG3Ivb+y0bIZ3yB1EUbXW/UFrZ8wztb3F2xpcxyYuxxLmkX7rZ5WJxav2bfFzKUPyV2ZjHNxnxEuAeC22miEtIxotLxosaIntj25UxrB2kbfsmNh7jdccFcrO0lSOngq79kHXMuSOAO8jgDlc0y+uJoZZGtgl+ICQaHldgfgMmh/iNDiVquqaDjiV7xG0PdsSBSow1ey912aC3W8qTKMhinLnVRcCT/AHVi7qTNeAPyOQ4AVYHP1WyRxRY0ZbJH3s8kq2x8jTImFoAbYsturVmRLtnQ8eEZR72aIOr8t0X/APDyS9g3HwyQFKh6slk5gmbQsXGVugzdPbTD2gA3QoblSJs3TDH3Nia6Rw3Idys7jBrovkpVVmpab6lMxJBDI5roydwXcLYY+rcTPnbHHOHd/wAwAVNquk6dnROjdhwjbYhtEV9VE0joNsMrMqKeVrvDQdqVEoxStMzZYy7aOh4ec57W2SWuGxWGY/EcdtjyLUSBk7IxHQ7mirWaMF4JcKI2Uaa0yPL2uivlY8Po8HysuKHB/BI9qWR7O8UWk0dr8rPBGC4sFC/8KzGvVbM85fc6T6W6Q7V9fxg9o+FCRK8H2H/vS9LDfkb+y5h6OdPv0/R5NQmbUmSe2P8A9A8/qV0/elvwwSOF5U1KdIyt3Fog2VjH8oBTwd1fRmHojhMtOBQIKQKFo2gY72RGyZwUe7dIBxCSHdukSgAlLwbQtK0AI7XuvOvq1nYkfWM0vxSGtayKQk7d4FEL0S7YLyl6k4jouuM2LMbbTK+ZhPkONgqE3Ss1+Ik5uyqikkbkSMcTQPlXEMrmgECgqmV7ZC2QO53tZYcnYt9gofk6cJ2bDi5BIFk7e2ynR5feAf3WrtyXhnPCnY2XRF8EKEp/cviuzZGzuDQRuFhysosa4nZQG5zQDv8AqqfVdULWFodyqp5KROC2VmvSHMJjBO/t5Wq588+k45axl3x7Bbbhw/Epzzuln6dFlxFjmgg8KuOO9vss+Ti+JwnqLXeqRJ8TDyAY72Ajaf8AIW4dNavqUmJCNRY1uQ5o3ZsDt5W1M6Vh+Lfbt96VwOmYHsaGtAI32U3jSivuVSl9VojYDp3Qd7jRqgAtI6x6T651nO/NYWsTNw/EMUjoxH+g5XR8PTjHktYb7b4K3/SNOjkaA5gIIpVxj7l2JyS3ZyP09h1/Rj+VzciXKcDs9xsgffyt21PRsiV0mW4kyP3JXQ4tDxYW90cTWuPJ8rFl4TOyiEnjQ/k2mtHKMTPdjyiNzjYOwK2rD1X5Rv8Astc6q0p0T3SY/wArmmxsqPTNdc14hm2kaa38/ZLHld8SydSR2DGzA6i08q4x8juAHdVrnemamHbWQR9FtGLm23uBshaVNGaSo3GCcdth1oiS3k3sVr8GebAPKsW5Pc36osqlonukra9itLyeo5Bm5mNBFJIWPLXdrbDa9ytmZIXE+6Wu9H6S3CZmR48rM7MkYyQxzOayQ8nubdHYI+B5fZQ88cbp7LL06M+ZjHMeO2BzyIx/u9z/AGXQwqvTIo4sOBkUbYomNDWsAoNA8AKxaF0HFR1E5OTI8jcmPN2gl53QN0itFVhCV7ocIWgVnlL1M1J+m4Ls7uIbG9t/a91qbclmZAyeKnRyC2m+VvPqhov+rdLajihxEj4j2HyHeF5y6H6klwmnGyGktLqff9JGxXc/VI8YRn/YP0+ppxXaOlOd2A1QcsYnHxBZF+wR72TNbIHAtcdlhkDS/krz+WPJbOxjn9+yd+ZDfNn2UTJIlDjR7h5CHwXPshz+eFmbjkSDfjwVRGFGuMk0UeRhOkY5rBuf2WvZWg6gC58ZAdZDQPK6QyBgaW23uPG6fCGOHzRgkfRVzTfZogrf0s47JoWsOIoO2O1jY0rjE0jNDY3OBaDwe3ZdOjx4C4lzRd7KRLBC4gtDQR4pUSf06RbHnDfJs0bG0qYnvld3tbuSVfYzWxtH9IHspWTG2I127eVBnkDW7Gm+SVRNKx837A+cFxNgWeAo3e5kh47T4WN7u4A2O0+QFFL3G3Cz4pSjH7FUpUmTnTdxI48Clt3p/wBJz9T61Dita4Y4IfM8jZjL3/UrWtB0TP6h1KHCw4viTymmjwB5cfYBesOieksXpDSmYkREmQ/5pp63kd/4C2Qx6XI53k+RxVI2XCxo8PFjx4WhkUTQxoA4A4UkEjlMadjvSyNO32WtaOV+QtBoeE79U1pqij3DdSCx4SIJQadrRBtAhw4SG6CKiAUQmk0dyiEDFvadym+U66SASRN2haVpgNld2tu1yv1j6Uw9X0WLUnyiDUcRwbC83UgJFsP0qyuqu+ZUHVOgP6h0+PFZOIe1/f3lvchb0yUJOMlJHnrXej8npvGxJJMqDJgym98UkDSG1+q147O2PHhd99Q+nQOhocaJz5JNOjYGurctaACf2C89ymgb8bX7qGSOtHQ8fK5LZKEp7eSb/VZ4ZXAD5lVY87u6v6VYMAIO230WWezoxkjJk6j8FpomwFQxZL8ub4jzQB4tSs9ru1zdyqSXOhw/htLmgu3IJ4WN25fUWm2487qaPBF7KwgIPcXC1r2m5jHRts7FXDM6JjfndTR9VqS4LRW5XpE+NgL+TR4CusLTR22Ta1D/AOJ8PHdyHb7Kwx/UDGiYWyR1528qMsiGsWRmw5GKyPtk7ePZbJozba3atuFosfXOC/HMrWucLqgnQ+oBjkb8KAGO/wCa0lkikSlgn7R1UBzDyo88fcTfJWiwepIY4fHgd27bq5x+uNLyg25w0nb5uUc0+yl4prdETqPA+NGeQuPa/pToZDOwkPZuCF1/X+oMB2nzSR5mOWtaT394ofquGjrvB1fMnxo5Q6jQNHdUSab0ShyaLbQtae8MDzT/AD9F0PS8172tddhcn07GDcuR0Z+Umwt90eV8fww4kAq2LHPRvuNktLvqrJk5Iq1ruE6+d1bwHuo2rUY5PZeYNF7SSt4y8KHOwI4pm90QIe2jVHwQtQ0XB/OSOYD/AEk/QrbtKcX4cIP+3hbsUaic7yZXIuII/hQMaCSB7m1Jbwo8IIHb7LMFc/yZPQ4pWh5Q8pCHHcIeEPHKDuAn0ROGdRRB2NK0iwR+68idWaS7R+rMh/a5sOW4voDYO8/+f1XsbWoxI1y8+eqegPzYTPG3umgPc37eQvR+ZFZMMoP2UeDkWLIm/wC5qOia4/HqGU3ET537VtH5zva0sLT5tc7gP5mABp/iDYj2U7G1GTGLWl1NvejuF5OM+0zvvHTX5N+jyxd/MpPxm3fdufPstRj1MvPe11j3U3/UgWbP3O3b7ptKrRZCSTr2bD+bBeCVgdqHzEbj6qgk1RrW2RZHNcqG3UHGwSebVU46NkMirs2+HMY52zz+uxKkxZvcS2hf9lqUWptY4lxskVzuFKjz4+/vDyb5BCyOLsujkVUbBLltLzZ+yhTPaC8tIsqolztzRUTJmfI3ta4V5PskociOTLFGebKsU0kuvZSMaJ8hb3NA8bqsZIxpH9Th+ykyarDiRyPle1pbwCaV0UrUTJkySpyOqeiXUkeH1dl4PYxsT4wzvI3v2XqCMjYLxL6diUa9pE0TT35WS0nbx/8AZe0cGUy47HE/Md791vcaVnIyz5u2TmnlOaVjaeSE5p5SRWZL2pOBsLFtYWTZMQ/wnCgExvCddBADmkFKwmg7cIkpDQ4ndEEJgKcDumA60k20h5SGEcIjdAIhIBHYe4TbA4RJ5TedkARZ8b8zHLG938OVpYbF7HZeXeqNCdoWs5WC6h8N57NuW+P7L1YB3DtI4XK/V/pg5OEzVsdg+JjfLL7lp8/ohrkqLvHnxnX3OCMkaCQSAVOx7LibAH1USdvc7Yfqs2Nkdoa0kn6lZZRpnYxztmfNxnGJxadyPC5pr+mz5kjmhzmgAiwN11d2Q34BFdxPC1/JxWyZBNCieAsMl9RpjKkcxbB1DpEbBi5fxoQKLJdy37FHG1jWcj/qhpJ3ILiLXR5cNkYPyDnmvCr8rRY5wXsbTru/K2R4yXQoSjezWGSaqSGjGY91Ct+CrKHTuoJ4z34HcfPZvSzQxZWBLdki7W06X1A+P5XWN+KScYdM3qN1xNH/ANG6zZOWR6Yz4JPPxaNfbytv0vpXqCeFjPgwwvFG5HGv8LaY+oC91sbW1HdTD1A8VR/ZOKxLdClyb2imb6ea0QDNrMHYR/KxhP8AlYJuh8jGJvVO6X/a1tLaY8rKyqBk7R/lXGnYTWnuf8x9ynzhWkZcknFbf+DlmV6cZGa34mXlyPxwbay9h9VTZfRmNhZDpmR9h+i73ktZKzsa0V5Wn69pzSwgNo+9LLOVKkVRycnZpmhYwdHZskHyFuOHjtawENN+6o9Mibjuc1wINrasYgxVdA+6cWmyM5V2TcN1htK8xq7fqqTFcAflG/sr/TIH5mTFCzdzyAr8cXJpGHLKts3jpOD4UJlffbJsPsr7R4u74rqHZ8R3b9rUeaFmHhsiiFkDtA/5VjgRflsVjb+y6SS6OROXJ2S2D5nH6p/hNYCG78px3QQHed0PKHcQh3boEx2yaSlYpDgIQjkOsMJa7f8AYLmfUWGycva8Ag+CtoyfU7orLB+F1Vo1njuy2M/yQqfMOPqLDkYk8U+O/dssMge132I2Xop5oydJnOjjmmrR501HAOj61NjgfI8lzTwACnzYwmZ8ob31/db519ojpMVuYGuLsfdwb5C0qJrJoWlh3q68rzP6jiljyfJHp/8Ak9P4k1mwq3tFNLHLjPLmEN99uUDqR+G4Pa5rvCtZ8cvO7dvH0VbNgkuJaLobgrPHLoscL2Q5c6WQX8Qu9xdGvZZYs6Yk/K/t24GwWKTT+TRojZNZjPjNBzwx3gFDyp6oUMc7pMlDOlc4BrCAPPKzf6jkRNstHbdXag9kn81u7fqVnixHOeSGmrv3UHkj1RZUrosYtS7Xdr7cQOAsscmROarsYdr+iWNpwA7i3f3pWLYmxNaXj5b2tVTyu9InHHewMjZFufmNVYWjdRaqdU1zD0iEgEyDue0+SVda/r5xGvjiePiG634Vj6J+jGs9YayzXdUjlxdG+YiWQU+f/wBAPj6rV4Xizytzf+TN5eZQSijtfpB09LqGs/6s6MswMFhiiLm/zPIo/sF6VwD2wAFato2nYulYWPgYcTYsaBvaxg8f+62vDbUQI4XVzwSxqjkKfKZMYW1ssgO6wMOwB3Kyg0sBcPT/AAFjATrqkxGS/ZEEpoKd3AlMY6zSPcsfHJRvcbpAP7kfI2TBynWQmAbTgdimA3wiDyFFjCDQRJ4TeQEfZIViJ2NpNpB1g/RIGqQMcK/VYczGiy8eSGVjXxyNLXNcLBBWb6hA7jhAI8q9bdOSdL61Phu7jA75oX3yw8fstY+KWkXW69P9fdGN6t00RxyfDzMfudE47hxI4K8xZmHNgZEuPkRujnhJa+N2xBCpypp8qOj4+Xkq9maGckCrpPf/ADB1bqEyb3BB2O6k/EOxN0PdYpL7nQjL0OcGkC9vBUV2Obsf2Uqi4AhEx9zQCOeFJMKXsrJ4g9tndRS2jbRuOFeSYhcBylHpTZXNJ7mtJrbyhqycMko9MgQ5cjmkFvA3U/FnJrgfSlPwujzO63OkDT7raNP6LgaBT37bndLhJO7CWd1plfp89EHtsH3WyYpe+rFALKzp2KEAsHA8qXHjfCru8bKPFR0UNuW2FkQaPuq/UsUTROpWwbYo1fhQtSa9kDhELf4A8quS9DjadI0l+nmLI+W1PbA90Ja2wfdSzDJJGDM3teOQFkYyh/2qURZHTFixGGJrST3D+o+V0zo7SDj435uZhMslfDBG4HutU6X0uLUM5hnJ+DGQe3/cfAXXMSHsbZv6fRdTxoJR5v2cryst/SgNxxQLj3PJ5UyNnaQsZbu4jwsrTYDlemYUqMnlK0LQOyA/gcT4TPKcTXKZYu7RQMIOyJcU3jwU0utOhNHxyMPfE17XA+49l6J/DRrr5MfWtGc8ksDcmNn22d/wuAaV2yNLHm96DSLBtdD9DdVi6f8AUvTGTmoM7uxCb8vFNv8AWl0U3KPNIvlDW/Z6g1HHiyYZWua23c2FxnVdMOj6tPjO2ju4yBy3wu86ljAPNAgD6rn/AF5pBMMeaOYdnUPB8o8rH8mJxRm8PP8AHkp+9GhSQbguBcP2UOTH7XgChfNndXuO9kkbeKO+4Wb8jDKd2UbBteW6fVHpKv8AhmqPx3OogUOU0YrjwCb+q2s6Qw7tJA+qazAYLAAcOP1R+GLbVGus0su3IPHnhToMEDYNoD3oK+/Lxsbs0X9Co8z42WGtt52AAskpKLm6Ssm6S2Qy1sEdOA3G48KnnkzdVeMLS8V+Rkv2EcbSSP24W/aL6c6h1EI5s1zsLEfuA3/qOH28fquz9K9E6d07D24eO1l8vItzvqT5XU8b9Mk3yy9HNz+fDGnGPZzD029CoceSHVOp4osrMbRZiOHcyI/93hx/su/wx/Ca1oFAeAkxjWAVQWVjt7Oy7uPFGEaXo4ubNPI+TM8Q+ZWsMz4qo/KqqJ4sDwpQyOxwB3BU0k3TK70XcUrZAKIB9lI8bhU8b9w5pVjBOH01x3WXP4Sl9UOzRjzPqRJF2nWgQR9kBwuXKLi6Zou+h4ciH3aY02nAJWSHjdHbakwEnwigByfe2yYPqnWgQm7ABOsIDgId26QBJ/dKyCgSbQv5khjnOQDk0m/KQcRyUwMhO6N1sFjLr8pd9IAOx7geLXBvXLRY8fV8HUYmBv5qJzXvHlzTt/YruxftuaHuSuTeuGRBk9Ms7ZGmfGmDh2+GkEH/AIUJdNF3jtrIqOCsc6yHndp5WbuLqBdYpU0eSAO2+0k0HebUyOcho+YF1++6xOk9I6/J+i5hp4AurHCmMPa2j/ZUEcxfKw95HbzRu1bwzA06/uAnFWNO2ic3t7bFmllx3MLwHceFHaQQQaBPBBTAwCUjuG/t5TdxLE1F79m4YeUwAAbWOVc42UG0A7fytGxcxgpjiQBsbKu8PMa5xHcCCk5CaN0ZM17fYIO7HNNEfdU0OUSAA6wVKEjWsPzfuVDcipuiUHNa77qLkgAk2AEfzBP2A2VbnZoAO/8AdJrVEXJ1ZgyJQCf3UaC5nUCe21DdlGZ5DSLPsrTDgIAPIVMppbQVa2bV0rkQ42oMikdXeKYPdy6YMgloBNAeFxbJlfiRxZkZIfjvbLY9gd11TEyTlYcUzXfJI0OBO/K3+NmuNfY53lY0pWXjHDt2Ng+yzA3QC112VJjutrtvIUoao9jQ4x/Eb5LeVsU7MnGi5LrKJNKnb1Fp75GxuyWxSO/pmBYf3Oys2yBzAQdjwU7sjTXY5xuqSLuLTe4Cr5CRBPhSr2L+R12E20O7lAutHsW+j5Rv6bn0TPJfG+MtDhTqDh9R9VFnfPp+Xg6tC4nIx5WytdVUWkFu/wCi736n6VDl6Zkz/BDZYwXNfx73yuBzYpnD2k/KDs0bAfWl6aWCNXH+4Ysssir7Ht3Q9cxeqdDwdYxXtfHlxNeaP8r6+YfobCi63gtzMGdhaC1zCHBcH9EevIOm/jaFquU2PFc8vgmLqYxx5BJ4BXYeouudE0J8MWXqMDZJ290bO6y4Hg7eFzVeOXDv/wBFU8UlL6Ucs0yX5zG/w6iOd1sAexoAu1qkseTk6plTYeJkPx5JS6MxRFzaO/IW36Z0zree0CLTcpwP9RZQv9Vxcvg5J5G8a0d2PkLgnJ0BzxQBP7qOTHC5zQ3je6W46d6X67ltuVkUAI3732R+gW36T6OYsT2yajkuyW//AC2jsafueVZi/Ssz1LRXk/UcUenZyTD03O1rIZFjR13f1OFABdX6X6AxtJayZ7DLmEWZXjdv/p9lu0OiaN05humMONi40Q7nSvIa1o9y4mgq/p3r7pbqzNysTQ9YxM2fF/njidvXuP8AcPqLXSw+HhwHNz+ZkzLjFaLXFwY2AfJxtup3YG/L4TyB27Jh2H0W/ikjnSY0gA2Uwvo7IPdVLEX7qD0gRLg3INrO+cNfW3yqLA6q+iPa0vJJ3KUHuyT6LXHyQ4bEKfFJZH0VAyOjbXEFT8fJdGaeNvBCuQjYsfIsdrtwpBZQ+XcFVMErH12uCsYZHMoE7KrN40cq/JbjzOOmPGyVnfZZSxr29zP2WLglcXLhlif1GyM1JWhwcaStNBoBFU2Ssc0+U4Ve5WNEkICzJdCgkB83Kx3xSdf6JAOvudzugeeUy+aQDiUgoeTVHlMLhd0h3ECtytK6t9SdL6amOBC4ahrr9otNxj3SE+7q/lH3TW3SHFM2fVtbwNDxDl6jlR40A4Lzu4+wHJP2WuydUZ2psccGA4UJ3bLkt/iEe/b4/VadDp8jHy9RdXZsT82NpkJkd2wYTPZoO23uvM3qn+IvL6tz5OnOl3nF0rJeMd+WdpJg7Y/Zu6K2orb/ANIsUdX6PUWL1gc/KycfF1KTUGQ/LLkd47O/y1tbbeaWm+o2p/C0W5Cf4kgYTfk//ZTelOnsbpPp/F0rHY6SHGZ2mV2xc7y4/crWPUaUS42JGSQ3410fJANKvJFKyWN/Wjm2RJQJDSCfIKjR5zo3fOHGt7tS5gX91WQTuq6WFrSf5iPdYZp+jqxSqmW+Jm95Dg4EHndWcWZuN7/XhaWHGJ9NP6KRjatIyu8b+6ip9WSpxuR0CHNDmjfdY58pznFrf5fBC1SHWW7ASAk+Cd1J/wBR7zvtW3KFlTHbbtmzYmWbAcRausTPaBzstDGXsC0gHmypePnSxn5SCCLQ5q9sk2zo0GqtZZq2j2KsItVa6In33ornUeohgLu4DybWX/WBuIySfCr+RIg4tm8T60G3ThfuqPI1J+bKWNuhyVRxyTZG/ce0+FsWlYg7hsTsqpZWxqCStljpeLQut/JV/CztFKNiQhjfqfdTg0AVfCXK+x0YsyP42NLCQSJGFu31CsPRzqf/AFzozGjmJOVhvdiyHzbT5H2pVU7z2k9x232Wi+gPUMMfUvVWgS2yc5LsiIDcBtkO/wABXeLL63FdmfyI8sTl9mei8gskb2uLTf7qCx8kEhjFix7qY94Le35JPqdiq7JiBeJO1428HhdFWzlHKesvXGPoDqePSeptLM2mZLS+HKgAcQODbT7LeulurenercRmX011AQw8shl3b9DG7hc2/EH0XjdV9JZWcWSNz9NhlyIXM/q7Wklv9l4Xhz8rAnMkE8kUgN98bu0/uFbii5R+l7ROXG1qj6tMztVikIZPi5bGc2Ox39tlOh6heWj8ziTQv+3c0/qF81+nfX3rzpqP4WNrk02OOIskCQDf67rvPQH4u8bOzRjdWYbcKNw2yYLLQf8AuCsfJKmipxTPVeT1Zi4o3imfX/ymh39rVHmer/S2nucM3KycYt2Pxcd237Ws+idQ6R1Np8eVhz42ZiyDZ4AcCpT+ntPzGPBiaI38xuAew/drrCa29uhKK7aPJ/qhr5zMDKw8TCIjLT3SO9vK89tcJpewtLXEgWOCPuvT3WmFix4Oc+VjSxsTiRXNDhebcQtY4fFIMRBHefN8fZesTbhoz+G7RFydPlMwuw47d1VZCiOgGMT3t7Q4UHt2BVvNkPY0kiw5vtyR7eeFhdhO7AHhvwXurvG/PssuXHy7Z04pMsenOuNY6Ry5MvTcoR5EradG/wCeMj/08Lcsf8S3WGKLdj4EpbtTmH5j+i54cBgkYHtcW+HBuw8V7JzdHtpodjmGiRtY9vus6xJXRGcFJ7R2nS/xc6rjtcM/p7Fkkby6N7mj/lV+u/jC6kyo3R6Ro+BiA7fEl7pT+xIC4/kYEEcZlLvmBDXN24VDMMeKRzGAtHFg8BKarSZnlgXbRd9WeoXU3Wsgk17WcnLa3dsLndsbPswUB+y1vTNYz9Fz4s7TsqXGyojbJYnFrgrKDSxqUjIohNJOdudr+i2HSPS7V85ze/H+C3z3n5j9gq3jyZNdIHKMHV0eiPSP8S2Lr35fSOqu3G1F1MjzAKjkP/d7Er0QJ2uYCCCHCwQdiF4NxvR3Kax4mlBB2FCiu0+m3Vep9GRQaPq2RNk6U0hscjz3OhH38t+i0YsGTFC27X2Meb45y+ns9AyFYC4B3KY3KZLGHNd3NO4I8/VYzJv4+6TlZQlsmun+FA94FkDYe6hx5OXKT2x9t8Wszu17Qx1HysrKaPalKNUKQo5Mr+ptO+ilRzTjwsbHkbrOySiCSrUkJtkuGdzSCWV9lcY2eTXcDsqaOWz4U1kjSOKKloVs2XGnjf8AyuF+ymOibMO6qd7rVopCNxdj2Vhj6jLD/N87R48quSU1TLE3HomyxOjO45TNwAFLgzsfLb2Ei6vtOxCbLjFje5htn+Fyc/iOP1R6NcMqemR7RBq7TQQ4159goOdrWBprmx5OVDHI7hhdbj+g3WG0nRZTfRPP3SLqCqzrcDh3MstPvsoGf1HFiwvlmeyGJgtz3kAAfcpXZNJl7JkxxCy6guc6r6yaYNWyND0DHn1rWYLa+PGH8ONw/wBz+BR5Wl61r3VfqR3YPSsT9O0OZlS6zlsLCQeREOSfqti0DRNA9NdNGn6TivkmG8sjR3Szv93FXPC4K8nb6S7/AL/Yaa67MWTg9d9X47otU1mHRMVw+eHS2kyOafBkO4/RRsfSejfRrTMvVJpBjCXebLyZC+ad1+53sk+FC1rXfUHPlfDoejY+DDx+Zy5gXfdrR/yucR+gesdVaxNq/Wmvy5kryS2Bji7t8VZ2A44CnGE2mm1Bfzv/ANh8ifbv8HGPWn1rz/Umb8rhukxdDjNtxQd3n/c8jlax6XdGZuvdZaH3YczsL8wJJJfhn4Yaz5jbuN6A/VexNC9Eei9AiiYzRcfJmjZ2ulyW/Ec/6m9v7LcZMePDxfhY7GRxtFBrWhoA/RP5MGONQtv/AAL65P7EF4LcenO7j5Pi1zf1HcBjYoIIc2cfMBxYK6PPIAztsd1cDytG61xfzGjZDy0OfGQ9u/kf+1rFJa2XY3U0znP8zK3JPlYpYgR7e9owSdwBA2d7+FJoFt/vZXOm/Z1lT6KZ+GCLaDufHChGFzAflG+23hbA6Eu/lGwPCwyYrHc0XHhRasmtqma+ccAlwaL4tD4k0FEF/b7q4fiACht9Fh/Ig3dk/wCFU19ibrTIkGXlhtB1+977KdHPlSCi7Y+2yUWEAKY1oP8Au4U9mNbRQFhVybRNLYsdrnPAskjkq6xcQSEU3b3WLFxCSCCK9gOVsGFj9nF17KDe9EpJWSMLCBodtAcrZMKEMoN22VZhso/dXcDmjnke6EVyVLRYQW03fCk3e5KiwuPdfhZ7sHikWVN6I2TTo5Lo7bWuJ9G5p0D1ujc2P5c7viIO29X/AMFdtymkREtAXE8iB8vrD09JG35hksFeBsbP7LR40ms0RTr4pI9aSfOGmWHcDgcpgrsNh7Q47hEFpZ3vY5jt9xwmNlBBJnBJGwI3XUao4rdmudV6NFq+lZWI97vhytLHciw4URt9CuLTfhP6YzWyPj1LPiPhvykWvRMjZJYX7MdYN7qvxnt+HW/d7eVZiyPH+32KS5LZ55m/CJonwWCPWspktjuJYHDhZI/wlaAI2/8A6vmF7QO49jdz52Xo0yRllNG4UKbVMLD7H5GRHHGfLnAK9ebJOtEFjtnKtK9BpOnWNHT/AFTqODF3l7owAWfT5bpdE0PpvXdNcBL1NPksbW742t7ve6VfkeqPSWmT9mRr2A1wslvxmkgfbn9FT5X4jegcGaaNupPmDDREcLiD9iq3nU5bSb/gsWPIurNX6mgdJO6Jjm/Nt824Xl/IxY49QyI3gGJr3AAeKK9Y9Q47mzmRznBoPheW81rItUymNAfAZ3inO4+Y8r2KjWN7MHhfudGGeNuK8BpD4HOBIA4vagT/AMLG1nwXvMTHBjQWuAGza4APupONiwQSyfFjBDgQ0uIth9wpWS78rOY2xtDXGwdjW3O3lZMutnXhFJcm+/7EZjJmF8bnNiY82L3DQQqqbPc89sRdbG2LFeOSsWdqLo4XM+Y1/LvVfU2qaKLIzJ2NjY98jhw1t39VmnktUieTJWkLIknypPhNDndwtreSD/5XTej/AE6axkWTmxfEnc0Pa3kNse3urL099OT3w5eVC4vBDgCePou6aTophYAyBrBwflUli9+zk5/I7SZoGD0nFjyBxhbY8lbVh4EUYDQ1rR7AUt4h0VtWWN380hPoLCLaKH0V6VmGcm7NcZpkcgPBsKr1Tp9kkR7Wi1s8mnzY9EXX0Tw34oDSBalG4sj3spehdYlw3v0jIcS1lvhJNkDyF0KN3c4G7C5/HhfA12GSIEEA8fZbvjPHaBfKryY0pXH2Wc7VlrD87u7hSgALtRMdwa0C/wB1kM490JEU0iSHgBJslb2FBfkgjlR3ZgbsOUXRJLZexzgGyspz2x/1LXBkzSeaWSKJ0jtybUXJtAX7dXskMFkeylRZ0zh3O+UKmEsOHG576aGiyatcqxPXDG6l6+xemdJgd+ULnNkyJD2l7mgnYHxsqck+MW/sXwxubOu6/wBX42h4gmlbNNMXdsUONGXyyO9mgbrUpOsfUrqGSCPScWLQceiTLqDWySPH/pHH6p3WXqD096eafBma3lFkklthijZ3ySHzQXAuqfxbZko+F01pYxnHmXK+dx+zRssDzZMlpR5f+DVDEo/g9Jv0/q2fBcdQ1huXI4fM3GLoA77dtLT2Zmj6LqjMOTLPT+S/l2TC0iT7SOsE/quL9JdNerHq4z/VdU6iztO06V3cxxmdDtXMcbK2+q3fP9PuuendPldqWczrDRY2h02JlW6UNHJYTuCPoVF4JrU2k36Xf+CTyRvXf/72dr0/Tsj4XxHa5NnMduCGRhv6doUw6XjO3njbM73l+f8AzsuBt9Ndakhxdc9OurcnExJ4y9mHK4lgPPb7bHbccqpjzPX3p8SufhjUm9pFOcyQb+QA4f4VH9Pml9WNp/6f+GTcoO7dM9Q/D72drnuLAKrwsbMSGIHtaADuT7ryzN6ues+NinFPTLfjWG/FbhOJBvjkjwqrO9VfWWUOJ0LLie54c0x6a/5P+2q/yheF5V3w/wBoSni/+R67lgiYAGuu1Hc9rbAI7eLpeTcr1B9dc4SQQ6HlYzw0hzotOLXAe9ng7qj/APhL1r6z7Rl5GqRRd1E5GR8IN+p3+if/AE/yPaS/lj+TFV8j1RrHW2gaFjifP1bCx2PNB007QT9he60vE9YeleptZGkaXmnIynNcQ4MIYe3nf9LXBcP8L/VORPCdS1DEiD308teZCG+TdUtw6L/Dtn9K9VY2qHWopMfFJJa0EGS2kEf3CUvDpNyyLXqxrPDpRZ3OVxlx7Aqhu4+QqLUI2vbTgbftv7eVePZ/CZ8SQO22Y3yqnU3ucO1n8/B+gVHrYHFdUx/9D1mXELrYSZIzfLSVIiN812/U8q9670A5mmjPxGufl4Pzmhu9n9Q+vutRwM5mRECTsRxSwZYOLv7nV8fJziXAjIA7SC76LII2yM4tqxYzraPJKmtj+Ynx7qi0aKI5wwCKqq8rC7ELXGmq0Md/zCiPontjBBFAIXdokvuiqjxxtsfqrCLG4oUfZSY4QLFUa4U2KOgNq+nsq5UT3SbMOPj93G1Hilb48diiaP3WOCLbf+ynRRE0ANlW1WgXRki/hqxiJkqz9lEjg7jSnRsIHbSr6EnWydC/6bBSGDvKiwsJ24U+KOqF2PZSjGyuaRHyh/DIHC5JiYBy/VXRx81Rzl7u3wACuxZTKjcRzS0rovS25fW8uY51RQMI99zW39lr8aP/AHYsqytfFKzuAlBBMUxDfDHDhSJI3OaJA2OT7KLAHxgbse36p8mUwWCx7T7ALpWcdmBzgzu+SjXIXmT8QPqJ1F05l4em6NJLBHJGZJZ4mWW70B3eF6Qnl745Ox5cCCK91Fj0rFl+eXHa8kdpJHKcIQk/r6BTcdx7PBsHVfqT1PkvxYc7VJnw0x4jc5ojrbeq91bD0e9Stayfg6jHkOZHQD58nu7m3/TuSV7cj0nExjIGwsj+JzTatOnDIowTGLAqxytV+PB/RD/JH5Msnd0eeek/wyabjwF2s58mS59O7WfLXuL53XR9E9CuhNNLezS2Su5/jO7/ANFuYyQ2AEVTtt/C1/WuttG6Yx5sjO1GGMRDuc0uHdt7DyiXnTUtUv4EsUpri7ZW9YPbiQue9rflHdXuvJeWGOzsxtDskLnV31ybpdo9XOt4dSnOm6bLHJH3XNNe1b2G+/3XAdRmw5NREMZLmRgk/DaWkk8ADyvWZJJRSbM3h43FWy9xJ2x4zWQsaX9x7XA1337/AEWpanqM0wdGHAmKvnZRv/8A0tgy8HUHwxyYuVLDi8GN7aEfaNib4ta9h4GodSZ7cTHhdJK+wDVN2/43XNzOTR0pTfGpE7ROn8zqLU4oIWElwtzndzqHuV6K9PPSDF02NmVlRh8zhR7vO9q89OPTzF6bwIowS5+zpHOG7nV/hdRxMRoYGtpKMU0czP5EpOl0RMLQ4IWhsUTQBxQAFK6hwo4xs2ifopEEIDfoFIa0BXIwrRF+A0ACk10DSCCAVKcWi7pYHysaCS4UnsdkObEY9tUqbJ06iXMsH7K3nzo2ktb8zvoohimyD/tH1Ul2I112N2ZYeQSQKoDlXONFI4WR2j2KzfDgxSXPPe8eEPjSzn5GACk5tSJLX8EkObG3chYn5NcJhgdVvchTQoUS16G9zpL8J8cYbRPKoNT6z0fSNbwNFyMtrdTznARY43NHy72H3W0nDkEYdYo7qqWaEXUmSWOdckYXShmw2CkY8w7qJG3uue+qnU+T0b0nl6li9oyA5rI3uFgEmr+6pvQLqR3UvT+b3zyT5UWQ4ufLuXA0btZ82dKFxL8WFy2zsE4c+MkC68e68j4mqS6B+I4j4VGfUvgdg47JBQIH6hexBGAz6UvH/XuL8D8RuExk4jfJmYndIP6GntBG/wD2/wCVmxT+SM0/saapqj0p1z6ZaR6kQ6THqxnEeIXvAgf2k9wG3B9lH6c9Gekel5I5sLRYn5MXEs/zuBqr3V91h11pXp7osOp57JDjmT4bGRMsuNEiv2Wj434nOh8mFkj5srGkcQCyeAjt25sWKVCz+RHGlG+P4Wv8j+JSf3Oo4xOK8AsaGjix4U+PNilbIA5oLXUd+DzS8v8Aqr+ITC1bTRo3SE+VNqOY/wCGciJhFC+GeST9FoGJ6P8AqlA9ut44zGZYJmefzB+MHHYkjyaUIeNkzR5xf+RuWOH0z0eh9e15vpP1BPqUsUsnSeonvkbFH3DEnJouocNdyug6Nr+ndS6bj5+Dkxz4kw7myxusfr7Ljvpr1bL6oaJqvTfWOERqWK0QZUbmmN0sZ2Dq8EEfutc1P8PHU/TWW/K6G6lnx4nnu+E+V0bhXAJGzv1Cg8M8kuLajNdp+/zYcoxW1r7np2L4Ib/NYHG/KytkitzjTjVb7kLx1qnU/rX0LlSf6gJsiIMaBIYWvY7wDY4KhN/E91lC+R0+k4lEHtLmubW3N+U5eH5UNKNr8MaeKfTR7KMjHl1Dat1FkLYmENAA8gryPhfix1+Bh/MaLhSOJs05zaCg5n4quosjKjdHpeE2ANIMYc75ifNqt4vIT4yiyXGK6aPXjntOzaFj2WEQteO5u97b7Lx478S3VuTZgwcJjru+xzvHHKtdD/FJqeM5g1jSo5Q2wTASzf7G0nhzxVuDG1FrUtnpfIBic5sbQ6/6vZU+bjlxIHLhu6/Co/Tz1Jx/UjTZs2DClxvgv+HI124vkb/ZbPlRGRtV2R1RUU3WxGtzlsdMAIhAII8Fcf6i0R/Smr9ke2n5RL4D/tF7t/Rdpmia+nf0Dj3KqeodAi6l0x+FkENmd80MhH/TcOP/AAo5I81suwZPjlvo5zp2T3jk/T6K5hd3G7ut1qeE2bAyZMLKjLJoj2uB8FbViEua2iOFz5QXKjst8laLCOPu2oEn32CzNg3COPH2+xU9kQc6qCg1RHpESPHIFuHPhS4sd1jivurDHxWktsGirCPCaCNh9VW4/kdshwY9NomyVOjxgNyApTcbt3AUiOAV9/olKO9AnoixQG7AUuPFJ3INqSyGhyFIijANlJKhcvYxkIAFDdZ2js28hO/sPog4WCRwFNJdEf5IepziPEkcDWyydAaK/GxMjLexgmynlwB57VEzh+aycbCZu6Z4B+gvdbnjxRQNbE9hjkaKa4cLf4saTmYvKyNLgvZYfDaRRYW17eUHucO1rZAT4BFqJ35TB3MlbKL/AJTsVjy8jveXSQltb/L4V66MA6cPEYBayyaJaFKiLWxj593eAqDXNTj0TTJc15qLGifM7uO1BpO/7LxL1b6+dYa3qbpsbPm06Fp+WHGeWj9U1yb4xVk4wtcm6R7Y1/qXSun+x2qZ0OLCXV8SV4aB97XMeq/X7pPR2yx4+d+dlbYDccijttvdV9V5Kkk6y68yz8R+fqUgFkOcS1o/XYLcunfw79U63ijLyWR4bQ+jHI75yPPC1f0GZq56RGWXHHrbLTqf8RGtatjTYemYrcaCYuDX/wAz/putS6X6C6m6/wBbidqH56PGyXl8mXkNdRHmr5K9QdH+imh9MYmMPykeRkxAOMszWuPdVOIvhbkMCGDt7I2sYzYBgAA/RHx+PglcVyYvmnNa0eJuo+pMaHG7MUgzOId3Blbg72fNrXtAPxMp801Pe8/1e5PKp8l0mRK5zyS5xvdbXoeEA2GJwL5HkGnUAK4ortY3LJO2WVym2ujZMmEDD+Jlutjw7t/hn5XbUfqFk9M3vn6+wO+R3w5e6NrXNodvaSdvuAoeTP8AFgdJM7uLR2NaXbsIPAHtss/p9ky4/W+iS25kf5pre1r6J7zW/wC6nndq0x5o1rs9c6fHMI2jtoe/hXuOZogKBpY9LeJIwXnf3Vw5zGNB4Sx00cWTa0Rm5cg/mCZJnkbXynSNfK75W7FGPB8vVtIhoinKmeabe/lPZiTTG5XkNH91JfLDijxsPZV8+pOm+WMItehL7Epxx8RmwsqFJlS5B7WNcGnzSfjYD5nd8t7+FYshZjtAaAmo2K6IMWnhtOlNnwszi2P+QcJ8jrP0USaXt2Cn0hpWGV31oqDlZIihe88BB8os7qFngHHIcfkPKqk2lY4/uo8w42LJF6+6fNnSy5Ec+oNlbI/lwPH6A7fYL29jxMmx2gAHZeTOtMVun6pp3UMboXTaZOyTsLb+UFeqdDy2TwxyNcCxzQ4VxuFxvMyrI4yR1IRqNM5L+IjRJJug8ySFre6ORjjYumg717fdc3/Cnkdmd1Bp7gGuqOXZu5G4O/svVHUejwdRaTm6dkwslx8mF0Zse45C8Uem2uSemnqn+TyT2wTSnBnt2zCXUCfsaU6WTx212iMVWSn7PapitpF19V5M/EHhv6X9S9D197hIymTxsjG9xPunHzey9dQuZKxj2Oa8EXbTYXDPxH+nWtdaYujT6LhPypMRzxI0OAIafIvlV+DU58H7TJZHxqT9HROlNc6e9V9AwdTZgMysTFNtjyWh3ZJVG22f7qg6l9EOj+oJXuOnDGkLDH/APaPv28WuFelfqufSPSs/Rp9GyciSbLEklnsMIHyuFHk87L0D0d6xdLdb5f5bTc0tzC0u+Bkj4cmxrjz+irnlz+LJw2l/ol8cci5L/RovRv4dtN6M6ig1h+W7Lkx3F0DC0AMPg/Ur0BitvFtwBKrpy2SFzqPcBYNrk+o/id6P0DV3aa785lxwucyWbHjBaHDkCzZ3VWXPPL9VXX2Qo4ktFh6gOb0f1TpvWrYagkezAzu1tAROOzyfoV1LAz8bKgjmge2SF4tj2uBDh9CFoOXrfTfq30rK3Cym5OmZ0fZNG1wD4zzRHggrzRLqnqB6F6r+UimmyNMLSYmyW+BzCeR/tP8A5UFin5MeePbXr2Tjxj9E9P0e3DEyVrmyAOjcb7TuCq/J6a0jOka+bTMKYsNjvx2O3qvI9l5z0T8XWEcNzdT0PIjyQaa6F4c0i/r9Ftml/ik6MnETcl+djvefmc+H5W+3lRjPNiXTQ/i5P0dS1LonQcyQyZOkYEklGu7GYe2/0Ws5fpF0g93xBoWntIHa1ohAFe1KZB6u9GZUcb2dS6YfiGm904B483wpcfWeiahjiSDUcSSMmu6OZrh+4KF52SklJkX4/wB4kXSui+ntJjezC0fAx2udbhFC0WVWa76V9JdQNkGZouKZpWlpnZE1rwK9wPqrPL656d0yZmPk6xgQzS/yB07fm/W1N03qfStVDHYmfizdwtvZK0kj7XaH5k7/AHi+GKXRoPRPpXjenOrZh0rIy5MHNABinfYYRwduT9VuU8ddznuNA/yjyrbJyGPJERafrai5AbIBQ3KJzc5cmOKpUaxkxEOD5B8o/la3lQ6cxxe8d0l/K0+Fb5AkZK5z9iCaAVVI57Ju5w+YnZNP2NGs9YdPN1OB2Zj9oz8dtvDR/wBRo8fda1pM3eB8QdpG32XS22zIFH+Y2XKv6g6UGVLJqmnsHxTvNGPP1Cy5o2+S7N/jZqqDKrFaHNH+aVlDEQ4HlVend4A7ufYq7gdx3BY5KrOktMn4zR2java1MaeNwoUFEjfbgKawbDekqetlf8EuN3capZRQ8E/qo0d+CpMXglJrdg2SIhfOyytO/hYWvvzQTHy153TS3RGyR3+T+yD3hjCSaUSN7gbu791HyHunlZC013c14VsY20kQySWydpGMybLdlyHtLvlY61tjHSMjDHObMK2PlU+FC7Gx2MMLXtG23spodC7aGUxvaN2reo8YpHLyz+SXIyv7ZKcHPiI59lkL5mzu3a+Nw5CwfGl+F2yxGRv0UjEbH2OdTm3/AEu8KS2VGr9daHkdTaFm6VFO7HbmxmJ8jd6aedlz3or8P/THT8DxnYoz8p77MmRuKBsUOF2x0dxkjwsMjx8EN7fnCuxZnivh2yEouerK7H0rAwqZHiY7Wt4LY2gj+ylstlAPIY73UH80Iw4yuaDexJAWk6763dG6JHI2bVGSzMoFkQ7jv9lXkztv65bHjxX9MUdDe4NcCOOCqLVp4sVj5HvZG1u9k7LgnUn4psYtI0nT5HPug6Yiv2XGuo/VHq7q95ZJlZHw3b/CxwQP7KEY5MjqEbLlBJ1N0f/Z", "position": "Председатель совета"}, "demo-dana": {"age": 24, "createdAt": 1790700000000, "demo": true, "dept": "PR и внутренние коммуникации", "name": "Дана Ермекова", "position": "Специалист по коммуникациям"}, "demo-arman": {"age": 31, "createdAt": 1790700000000, "demo": true, "dept": "Проектный институт", "name": "Арман Касымов", "position": "Инженер-проектировщик"}, "demo-aigerim": {"age": 27, "createdAt": 1790700000000, "demo": true, "dept": "Технологический отдел", "name": "Айгерим Сапарова", "position": "Инженер-технолог"}, "demo-timur": {"age": 33, "createdAt": 1790700000000, "demo": true, "dept": "Геологический отдел", "name": "Тимур Оспанов", "position": "Геолог"}, "demo-madina": {"age": 25, "createdAt": 1790700000000, "demo": true, "dept": "HR", "name": "Мадина Ахметова", "position": "Специалист по персоналу"}}, "ideas": {"demo-i2": {"byMid": "demo-dana", "createdAt": 1790600000000, "demo": true, "description": "Портреты молодых специалистов на рабочих местах, выставка в холле.", "direction": "culture", "status": "accepted", "title": "Фотовыставка «Лица компании»"}, "demo-i1": {"byMid": "demo-daniyar", "createdAt": 1790700000000, "demo": true, "description": "4 встречи по 1,5 часа: бюджет, накопления, ипотека, инвестиции.", "direction": "edu", "status": "new", "title": "Курс «Личные финансы для молодых»"}}, "surveys": {"u_98TqkcJM9k6605ZG6ygz4Q": {"avoid": "", "directions": [], "grow": "", "hours": 8, "idea": "", "mid": "demo-daniyar", "role": "Организатор", "skills": {"analytics": 1, "budget": 2, "creative": 1, "media": 4, "org": 5, "partners": 4, "smm": 4, "speak": 4, "sport": 4, "teach": 3, "tech": 2, "text": 5}, "updatedAt": 1790747556043}}, "chair": {"demo-daniyar": {"scores": {"cap": 7, "init": 4, "resp": 6}, "survey": {"avoid": "Ведение мероприятий на сцене", "directions": ["sport", "edu"], "grow": "Организаторские навыки", "hours": 6, "idea": "Курс по личным финансам для молодых сотрудников", "role": "Исполнитель", "skills": {"analytics": 5, "budget": 5, "org": 2, "partners": 3, "speak": 2, "sport": 4}}}, "settings": {"weights": {"cap": 15, "init": 25, "part": 20, "res": 10, "resp": 30}}, "demo-dana": {"scores": {"cap": 7, "init": 7, "res": 7, "resp": 7}, "survey": {"avoid": "Переговоры с подрядчиками", "directions": ["culture", "social", "edu"], "grow": "Самой вести проект от начала до конца", "hours": 10, "idea": "Фотовыставка «Лица компании»", "role": "Креатив и контент", "skills": {"creative": 4, "media": 5, "org": 2, "smm": 5, "speak": 3, "text": 5}}}, "demo-arman": {"scores": {"cap": 8, "resp": 5}, "survey": {"avoid": "Написание постов", "directions": ["sport"], "grow": "Наставничество", "hours": 8, "idea": "Турнир по мини-футболу между подразделениями", "role": "Организатор", "skills": {"media": 2, "org": 3, "sport": 5, "teach": 3, "tech": 5}}}, "demo-aigerim": {"notes": "Надёжная, тянет на себе техконференцию.", "scores": {"cap": 8, "init": 8, "res": 8, "resp": 9}, "survey": {"avoid": "Съёмка и монтаж видео", "directions": ["edu", "social"], "grow": "Выступать перед большой аудиторией", "hours": 10, "idea": "Школа молодого инженера для новичков", "role": "Лидер проекта", "skills": {"analytics": 4, "budget": 3, "org": 5, "smm": 2, "speak": 3, "teach": 4, "tech": 5}}}, "demo-timur": {"notes": "Опытный, но пассивен. Попробовать дать наставничество.", "survey": {"avoid": "Долгие согласования", "directions": ["edu"], "grow": "", "hours": 4, "idea": "", "role": "Исполнитель", "skills": {"analytics": 4, "speak": 2, "sport": 3, "teach": 4, "tech": 5}}}, "demo-madina": {"scores": {"cap": 7, "init": 9, "res": 9, "resp": 8}, "survey": {"avoid": "Отчёты и таблицы", "directions": ["culture", "social"], "grow": "Работа с бюджетом", "hours": 12, "idea": "Новогодний вечер с конкурсом талантов", "role": "Ведущий / спикер", "skills": {"creative": 4, "org": 4, "partners": 4, "speak": 5, "teach": 3, "text": 4}}}}, "__meta": {"ts": 1790748000000}}</script>
+<script>
+/* Автономный режим: данные хранятся в этом браузере (localStorage) и в самом файле */
+(function(){
+  if(window.claude) return;
+  const KEY="sms-council-data-v1";
+  const seedEl=document.getElementById("seed");
+  let seed={}; try{seed=JSON.parse(seedEl.textContent)}catch(e){}
+  let data=null; try{data=JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){}
+  if(!data||((data.__meta||{}).ts||0)<((seed.__meta||{}).ts||0)) data=JSON.parse(JSON.stringify(seed));
+  const subs=[];
+  let warned=false;
+  function persist(){
+    data.__meta={ts:Date.now()};
+    try{localStorage.setItem(KEY,JSON.stringify(data))}
+    catch(e){if(!warned){warned=true;setTimeout(()=>window.toast&&toast("Память браузера заполнена. Нажми «Сохранить файл с данными», чтобы ничего не потерять"),50)}}
+  }
+  const coll=c=>data[c]||(data[c]={});
+  const snapDoc=(c,id)=>{const d=coll(c)[id];return {id,exists:!!d,data:()=>d,metadata:{fromCache:false,hasPendingWrites:false}}};
+  const snapColl=c=>{const o=coll(c);const docs=Object.keys(o).sort().map(id=>snapDoc(c,id));return {docs,size:docs.length,empty:!docs.length,docChanges:()=>[],metadata:{fromCache:false,hasPendingWrites:false}}};
+  function notify(c){subs.forEach(s=>{if(s.c===c)setTimeout(()=>s.fn(s.id?snapDoc(c,s.id):snapColl(c)),0)})}
+  function sub(c,id,fn){const s={c,id,fn};subs.push(s);setTimeout(()=>fn(id?snapDoc(c,id):snapColl(c)),0);return ()=>{const i=subs.indexOf(s);if(i>=0)subs.splice(i,1)}}
+  function docRef(path){
+    const a=path.split("/"),id=a.pop(),c=a.join("/");
+    return {id,path,
+      get:async()=>snapDoc(c,id),
+      set:async d=>{coll(c)[id]=JSON.parse(JSON.stringify(d));persist();notify(c)},
+      update:async d=>{const cur=coll(c)[id];if(!cur)throw {code:"invalid_argument",message:"no doc"};coll(c)[id]={...cur,...JSON.parse(JSON.stringify(d))};persist();notify(c)},
+      delete:async()=>{delete coll(c)[id];persist();notify(c)},
+      onSnapshot:(fn)=>sub(c,id,fn),
+      collection:p=>collRef(path+"/"+p)};
+  }
+  function collRef(c){
+    return {path:c,doc:id=>docRef(c+"/"+(id||("x"+Math.random().toString(36).slice(2,10)))),
+      add:async d=>{const r=docRef(c+"/x"+Math.random().toString(36).slice(2,10));await r.set(d);return r},
+      get:async()=>snapColl(c),onSnapshot:fn=>sub(c,null,fn),
+      where(){return this},orderBy(){return this},limit(){return this}};
+  }
+  const toDataUrl=blob=>new Promise((res,rej)=>{const f=new FileReader();f.onload=()=>res(f.result);f.onerror=rej;f.readAsDataURL(blob)});
+  const caps={
+    db:{doc:docRef,collection:collRef},
+    user:{isOwner:async()=>true,canEdit:async()=>true,can:async()=>true,id:async()=>"local",
+      me:async()=>({id:"local",name:"",email:null,isOwner:true,canEdit:true,avatarUrl:"",color:"#1F5BFF"}),profiles:async ids=>({})},
+    assets:{upload:async blob=>{const url=await toDataUrl(blob);return {id:url,url,sizeBytes:blob.size,contentType:blob.type}}}
+  };
+  window.claude={use:async n=>caps[n]||null};
+
+  /* резервные копии */
+  function download(name,text,type){
+    const b=new Blob([text],{type});const u=URL.createObjectURL(b);const a=document.createElement("a");
+    a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);
+  }
+  const stamp=()=>new Date().toISOString().slice(0,10);
+  window.__local={
+    saveHtml(){
+      const root=document.documentElement.cloneNode(true);
+      root.removeAttribute("data-theme");
+      const q=s=>root.querySelector(s);
+      q("#tabs").innerHTML="";q("#modeSw").innerHTML="";q("#chairBox").innerHTML="";q("#modal").innerHTML="";
+      q("#main").innerHTML='<div class="panel empty" id="boot">Загружаю совет… Пока можно налить чай.</div>';
+      const t=q("#toast");t.hidden=true;t.textContent="";
+      data.__meta={ts:Date.now()};
+      q("#seed").textContent=JSON.stringify(data).replace(/</g,"\\u003c");
+      download("Совет-молодых-специалистов-"+stamp()+".html","<!DOCTYPE html>\n"+root.outerHTML,"text/html");
+    },
+    exportJson(){download("smc-data-"+stamp()+".json",JSON.stringify(data,null,1),"application/json")},
+    async importJson(file){
+      const next=JSON.parse(await file.text());
+      if(!next||typeof next!=="object"||!next.members) throw new Error("bad");
+      const names=new Set([...Object.keys(data),...Object.keys(next)]);
+      data=next;persist();names.forEach(n=>{if(n!=="__meta")notify(n)});
+    }
+  };
+})();
+</script>
+<script>
+/* ============ справочники ============ */
+const DIRS={
+  edu:{name:"Обучение и наставничество",short:"Обучение",c:"var(--d-edu)"},
+  sport:{name:"Спорт и тимбилдинг",short:"Спорт",c:"var(--d-sport)"},
+  culture:{name:"Культура и досуг",short:"Культура",c:"var(--d-culture)"},
+  social:{name:"Социальные проекты",short:"Соцпроекты",c:"var(--d-social)"}
+};
+const SKILLS=[
+  ["org","Организация мероприятий"],["speak","Публичные выступления, ведение"],["partners","Переговоры и партнёры"],
+  ["smm","SMM и дизайн"],["media","Фото и видео"],["text","Тексты и коммуникации"],
+  ["teach","Обучение и наставничество"],["sport","Спорт и активности"],["creative","Творчество: сцена, музыка"],
+  ["analytics","Аналитика и отчёты"],["budget","Бюджет и закупки"],["tech","Профессиональная экспертиза"]
+];
+const SK=Object.fromEntries(SKILLS);
+const ROLES=["Лидер проекта","Организатор","Ведущий / спикер","Креатив и контент","Исполнитель"];
+const STATUS={idea:"Идея",planned:"Запланировано",active:"В работе",done:"Проведено",cancelled:"Отменено"};
+const STCHIP={idea:"",planned:"acc",active:"warn",done:"good",cancelled:"bad"};
+const CRIT=[
+  {k:"resp",name:"Ответственность",hint:"Ваша оценка + доля задач, закрытых в срок"},
+  {k:"init",name:"Инициативность",hint:"Ваша оценка + предложенные идеи и мероприятия, которые человек возглавил"},
+  {k:"cap",name:"Компетенции",hint:"Ваша оценка + пять сильнейших навыков из анкеты"},
+  {k:"part",name:"Вовлечённость",hint:"Участие в мероприятиях и закрытые задачи (считается автоматически)"},
+  {k:"res",name:"Качество результата",hint:"Только ваша оценка по итогам мероприятий"}
+];
+const DEFAULT_W={resp:30,init:25,cap:15,part:20,res:10};
+
+/* ============ состояние ============ */
+const S={ready:false,db:null,user:null,sample:null,uid:null,isOwner:false,mode:"chair",view:"dash",
+  members:[],events:[],ideas:[],memes:[],memeDraft:{top:"",bottom:"",img:null},jokeI:Math.floor(Math.random()*100),chair:{},settings:null,surveys:[],mySurvey:undefined,
+  evFilter:"all",evStatus:"open",sort:{k:"total",dir:-1},weightsDraft:null,
+  meDraft:null,ideaDraft:{title:"",direction:"edu",description:""},teamPlan:null,teamBusy:false,pickMid:""};
+let M=null; // открытый профиль
+let E=null; // открытое мероприятие
+
+/* ============ утилиты ============ */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const todayStr=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+const addDays=(s,n)=>{const d=new Date((s||todayStr())+"T12:00:00");d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)};
+const MON=["янв","фев","мар","апр","мая","июн","июл","авг","сен","окт","ноя","дек"];
+const fmtDate=s=>{if(!s)return "без даты";const[y,m,d]=s.split("-");return (+d)+" "+MON[+m-1]+(y!=String(new Date().getFullYear())?" "+y:"")};
+const uid8=()=>Math.random().toString(36).slice(2,10);
+const initials=n=>String(n||"?").trim().split(/\s+/).slice(0,2).map(w=>w[0]).join("").toUpperCase();
+const hue=s=>{let h=0;for(const c of String(s))h=(h*31+c.charCodeAt(0))%360;return h};
+const avatar=(m,cls="")=>m?.photo?`<img class="av ${cls}" src="${esc(String(m.photo).startsWith("data:image/")?m.photo:"/_blob/"+m.photo)}" alt="" loading="lazy">`:`<div class="av ${cls}" style="background:hsl(${hue(m?.id||m?.name)} 62% 48%)" aria-hidden="true">${esc(initials(m?.name))}</div>`;
+/* компетенции: из анкеты (навыки + активность) или из ИИ-анализа */
+const COMP=[
+  {k:"lead",n:"Лидерство",from:{org:1,speak:1},led:true},
+  {k:"net",n:"Нетворкинг",from:{partners:2,speak:1}},
+  {k:"comm",n:"Коммуникация",from:{text:1,speak:1}},
+  {k:"orgz",n:"Организованность",from:{org:2,budget:1}},
+  {k:"crea",n:"Креативность",from:{creative:2,smm:1,media:1}},
+  {k:"anal",n:"Аналитическое мышление",from:{analytics:2,tech:1}},
+  {k:"ment",n:"Наставничество",from:{teach:2,tech:1}},
+  {k:"media",n:"Медиа и контент",from:{smm:1,media:1,text:1}},
+  {k:"team",n:"Командный дух",from:{sport:2,org:1}},
+  {k:"money",n:"Финансовая грамотность",from:{budget:2,analytics:1}}
+];
+function compOf(mid,stats){
+  const ai=S.chair[mid]?.analysis?.competencies;
+  if(ai&&typeof ai==="object"){const out=COMP.map(c=>({k:c.k,n:c.n,v:clamp(+(ai[c.n]??ai[c.k])||0,0,5)})).filter(c=>c.v>0);if(out.length)return {src:"ai",list:out.sort((a,b)=>b.v-a.v)}}
+  const sv=surveyOf(mid); if(!sv?.skills) return null;
+  const st=stats||computeStats()[mid]||{};
+  const list=COMP.map(c=>{let sum=0,w=0;for(const[k,wt]of Object.entries(c.from)){sum+=(+sv.skills[k]||1)*wt;w+=wt}
+    let v=sum/w; if(c.led) v+=Math.min(1,(st.led||0)*0.5); if(c.k==="team") v+=Math.min(.5,(st.part||0)*.1);
+    return {k:c.k,n:c.n,v:Math.round(clamp(v,1,5)*10)/10}}).sort((a,b)=>b.v-a.v);
+  return {src:"survey",list};
+}
+const lvl=v=>`<span class="lvl" aria-hidden="true">${[1,2,3,4,5].map(i=>`<i class="${v>=i-.25?"on":""}"></i>`).join("")}</span>`;
+function strengthChips(mid,n=3,stats){const c=compOf(mid,stats);if(!c)return "";return `<div class="str">${c.list.slice(0,n).map(x=>`<span class="chip" title="${esc(x.n)}: ${x.v} из 5">${esc(x.n)} ${lvl(x.v)}</span>`).join("")}</div>`}
+const member=id=>S.members.find(m=>m.id===id);
+const mname=id=>member(id)?.name||"—";
+const dirChip=k=>DIRS[k]?`<span class="chip"><span class="dot" style="background:${DIRS[k].c}"></span>${DIRS[k].short}</span>`:"";
+function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2600)}
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+
+/* очередь записей: по одной за раз на документ */
+const Q={};
+function write(path,fn){Q[path]=(Q[path]||Promise.resolve()).then(fn).catch(e=>{console.error(e);toast(e?.code==="quota_exceeded"?"Хранилище заполнено: удалите старые записи":"Не удалось сохранить. Проверьте доступ и попробуйте ещё раз")});return Q[path]}
+function saveDoc(path,data){return write(path,()=>S.db.doc(path).set(data))}
+function saveChair(mid,patch){const cur=S.chair[mid]||{};const next={...cur,...patch,updatedAt:Date.now()};S.chair[mid]=next;return saveDoc("chair/"+mid,next)}
+
+/* ============ расчёты ============ */
+function surveyOf(mid){
+  const own=S.surveys.filter(s=>s.mid===mid).sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0))[0];
+  if(own) return {...own,src:"self"};
+  const c=S.chair[mid]?.survey; if(c) return {...c,src:"chair"};
+  return null;
+}
+function computeStats(){
+  const today=todayStr(),st={};
+  S.members.forEach(m=>st[m.id]={led:0,ledActive:0,part:0,tasks:0,done:0,onTime:0,overdue:0,active:0,ideas:0,evs:[]});
+  S.events.forEach(e=>{
+    const inv=new Set(e.participants||[]); if(e.leadMid) inv.add(e.leadMid);
+    (e.tasks||[]).forEach(t=>{ if(t.assignee) inv.add(t.assignee); const s=st[t.assignee]; if(!s)return; s.tasks++;
+      if(t.done){s.done++; if(!t.due||(t.doneAt||"")<=t.due) s.onTime++;}
+      else if(e.status!=="cancelled"&&e.status!=="done"){ s.active++; if(t.due&&t.due<today) s.overdue++; }
+      else if(e.status==="done"){ s.overdue++; }
+    });
+    if(e.status==="cancelled"||e.status==="idea") return;
+    inv.forEach(mid=>{const s=st[mid]; if(!s)return; s.part++; s.evs.push(e.id)});
+    const L=st[e.leadMid]; if(L){L.led++; if(e.status!=="done") L.ledActive++;}
+  });
+  S.ideas.forEach(i=>{if(st[i.byMid]) st[i.byMid].ideas++});
+  return st;
+}
+function loadOf(mid,s){const sv=surveyOf(mid);const hours=+sv?.hours||8;const used=s.active*3+s.ledActive*6;return {pct:Math.round(used/hours*100),hours,used}}
+function loadTag(p){return p<40?{t:"Скучает",c:"good",col:"var(--good)"}:p<=100?{t:"В деле",c:"warn",col:"var(--warn)"}:{t:"Горит",c:"bad",col:"var(--bad)"}}
+function critValues(mid,s){
+  const sc=S.chair[mid]?.scores||{}; const sv=surveyOf(mid);
+  const ch=k=>sc[k]?(sc[k]-1)/9*100:null;
+  const mix=(a,b)=>a==null?b:b==null?a:(a+b)/2;
+  const closed=s.done+s.overdue;
+  const respAuto=closed>0?s.onTime/closed*100:null;
+  const initAuto=Math.min(100,s.ideas*20+s.led*25);
+  let capAuto=null; if(sv?.skills){const v=Object.values(sv.skills).map(Number).filter(x=>x>0).sort((a,b)=>b-a).slice(0,5); if(v.length) capAuto=(v.reduce((a,b)=>a+b,0)/v.length-1)/4*100;}
+  const partAuto=Math.min(100,s.part*15+s.done*5);
+  return {resp:mix(ch("resp"),respAuto),init:mix(ch("init"),initAuto),cap:mix(ch("cap"),capAuto),part:partAuto,res:ch("res"),
+    auto:{resp:respAuto,init:initAuto,cap:capAuto,part:partAuto}};
+}
+function weights(){return S.weightsDraft||S.settings?.weights||DEFAULT_W}
+function ratingAll(){return allRows().filter(r=>!r.m.isChair)}
+function allRows(){
+  const st=computeStats(),w=weights();
+  const rows=S.members.map(m=>{const s=st[m.id],v=critValues(m.id,s);let sum=0,ws=0,have=0;
+    CRIT.forEach(c=>{if(v[c.k]!=null){sum+=v[c.k]*(+w[c.k]||0);ws+=(+w[c.k]||0);have++}});
+    return {m,s,v,total:ws?Math.round(sum/ws):0,have,load:loadOf(m.id,s)}});
+  const sorted=rows.filter(r=>!r.m.isChair).sort((a,b)=>b.total-a.total); sorted.forEach((r,i)=>r.rank=i+1);
+  return rows;
+}
+
+/* ============ отрисовка ============ */
+let pending=false;
+function busyTyping(){const a=document.activeElement;return a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)&&a.type!=="checkbox"&&a.type!=="range"}
+function render(){
+  if(busyTyping()){pending=true;return}
+  pending=false;
+  renderTabs();
+  const main=$("#main");
+  if(!S.ready){return}
+  const v=S.mode==="chair"?{dash:vDash,members:vMembers,rating:vRating,events:vEvents,ideas:vIdeas,memes:vMemes}[S.view]:{me:vMe,tasks:vTasks,events:vEvents,ideas:vPropose,memes:vMemes}[S.view];
+  main.innerHTML=(S.noDb?`<div class="banner">Данные совета доступны только после входа в claude.ai. Откройте страницу по ссылке, будучи авторизованным.</div>`:"")+(v?v():"");
+  if(M) renderMember(); if(E) renderEvent();
+}
+document.addEventListener("focusout",()=>setTimeout(()=>{if(pending&&!busyTyping())render()},0));
+
+function renderTabs(){
+  if(!S.ready){$("#tabs").innerHTML="";$("#modeSw").innerHTML="";return}
+  const ch=chairM();
+  $("#chairBox").innerHTML=ch?`<button class="chairbox" data-act="openChair" title="Председатель совета">${avatar(ch,"sm")}<span class="txt"><span class="t">Председатель</span><br><span class="n">${esc(ch.name)}</span></span></button>`:"";
+  const chairTabs=[["dash","Обзор"],["members","Участники"],["rating","Рейтинг"],["events","Мероприятия"],["ideas","Идеи"],["memes","Мемы"]];
+  const memTabs=[["me","Мой профиль"],["tasks","Мои задачи"],["events","Мероприятия"],["ideas","Есть идея!"],["memes","Мемы"]];
+  const t=S.mode==="chair"?chairTabs:memTabs;
+  if(!t.some(x=>x[0]===S.view)) S.view=t[0][0];
+  const newIdeas=S.ideas.filter(i=>i.status==="new").length;
+  $("#tabs").innerHTML=t.map(([k,n])=>`<button class="tab" data-act="tab" data-v="${k}" aria-current="${S.view===k}">${n}${k==="ideas"&&S.mode==="chair"&&newIdeas?` <span class="chip demo" style="padding:0 7px">${newIdeas}</span>`:""}</button>`).join("");
+  $("#modeSw").innerHTML=S.isOwner?`<div class="seg" role="group" aria-label="Режим"><button data-act="mode" data-v="chair" aria-pressed="${S.mode==="chair"}">Председатель</button><button data-act="mode" data-v="member" aria-pressed="${S.mode==="member"}">Участник</button></div>`:"";
+}
+
+/* ---------- Обзор ---------- */
+function vDash(){
+  const rows=ratingAll(),today=todayStr(),y=today.slice(0,4);
+  const q=Math.floor((+today.slice(5,7)-1)/3),qs=`${y}-${String(q*3+1).padStart(2,"0")}-01`,qe=`${y}-${String(q*3+3).padStart(2,"0")}-31`;
+  const evQ=S.events.filter(e=>e.status!=="cancelled"&&e.status!=="idea"&&e.date>=qs&&e.date<=qe).length;
+  const doneY=S.events.filter(e=>e.status==="done"&&(e.date||"").startsWith(y)).length;
+  const avgLoad=rows.length?Math.round(rows.reduce((a,r)=>a+Math.min(r.load.pct,150),0)/rows.length):0;
+  const free=rows.filter(r=>r.load.pct<40);
+  const newIdeas=S.ideas.filter(i=>i.status==="new");
+  const overdue=[];S.events.forEach(e=>{if(e.status==="cancelled"||e.status==="done")return;(e.tasks||[]).forEach(t=>{if(!t.done&&t.due&&t.due<today)overdue.push({e,t})})});
+  const team=S.members.filter(m=>!m.isChair);const noSurvey=team.filter(m=>!surveyOf(m.id)), noScore=team.filter(m=>!Object.keys(S.chair[m.id]?.scores||{}).length);
+  const upcoming=S.events.filter(e=>(e.status==="planned"||e.status==="active")).sort((a,b)=>(a.date||"9").localeCompare(b.date||"9")).slice(0,6);
+  const byDir=Object.keys(DIRS).map(k=>{const ev=S.events.filter(e=>e.direction===k&&(e.date||"").startsWith(y));return {k,done:ev.filter(e=>e.status==="done").length,plan:ev.filter(e=>e.status==="planned"||e.status==="active").length}});
+  const maxDir=Math.max(4,...byDir.map(d=>d.done+d.plan));
+  const loadRows=[...rows].sort((a,b)=>a.load.pct-b.load.pct);
+  const hasDemo=S.members.some(m=>m.demo)||S.events.some(e=>e.demo);
+  return `
+  <div class="head"><div><div class="eyebrow">Штаб председателя</div><h1>${chairM()?"Привет, "+esc(chairM().name.split(" ")[0])+"!":"Привет, шеф!"}</h1>
+  <p>Кто скучает, кто горит и что ждёт твоего решения.</p></div>
+  <div class="row">${window.__local?`<button class="btn sm" data-act="saveHtml">Сохранить файл с данными</button><button class="btn sm ghost" data-act="exportJson">Экспорт</button><label class="btn sm ghost" style="cursor:pointer">Импорт<input type="file" id="import_json" accept="application/json,.json" hidden></label>`:""}${hasDemo?`<button class="btn sm ghost" data-act="clearDemo">Удалить демо-данные</button>`:""}<button class="btn primary" data-act="newEvent">+ Мероприятие</button></div></div>
+  ${hasDemo?`<div class="banner"><b>Тут пока понарошку.</b> Всё с меткой «Демо» выдумано, чтобы было видно, как всё работает. Добавь настоящих людей во вкладке «Участники», а примеры снеси кнопкой выше.</div>`:""}
+  ${jokeBubble()}
+  <div class="kpis">
+    <div class="kpi"><div class="eyebrow">Участников</div><b>${rows.length}</b></div>
+    <div class="kpi"><div class="eyebrow">Мероприятий в ${q+1} квартале</div><b>${evQ}</b></div>
+    <div class="kpi"><div class="eyebrow">Проведено за ${y}</div><b>${doneY}</b>${doneY?`<span class="sfx">БАМ!</span>`:""}</div>
+    <div class="kpi"><div class="eyebrow">Средняя загрузка</div><b>${avgLoad}%</b></div>
+    <div class="kpi ${free.length?"hot":""}"><div class="eyebrow">Скучают без задач</div><b>${free.length}</b>${free.length?`<span class="sfx">ЭЙ!</span>`:""}</div>
+  </div>
+  <div class="grid g2">
+    <section class="panel">
+      <div class="panel-h"><h2>Кто сколько тащит</h2>${S.sample?`<button class="btn ai sm" data-act="teamPlan" ${S.teamBusy?"disabled":""}>Распределить нагрузку</button>`:""}</div>
+      <p class="small muted" style="margin:-4px 0 10px">Активные задачи ×3 ч и руководство мероприятием ×6 ч относительно часов в месяц, которые человек указал в анкете. Черта — 100%.</p>
+      ${loadRows.length?loadRows.map(r=>{const lt=loadTag(r.load.pct);return `<div class="lrow" data-act="openMember" data-id="${r.m.id}"><div class="nm">${avatar(r.m,"sm")}<span>${esc(r.m.name)}</span></div><div class="lbar"><i style="width:${clamp(r.load.pct,2,150)/1.5}%;background:${lt.col}"></i><span class="cap" style="left:${100/1.5}%"></span></div><span class="num small" style="text-align:right">${r.load.pct}%</span></div>`}).join(""):`<div class="empty">Тут будет видно, кто работает, а кто делает вид. Добавь участников.</div>`}
+    </section>
+    <section class="panel"><h2>Горящее</h2><div class="list">
+      ${newIdeas.length?`<div class="item" data-act="tab" data-v="ideas" style="cursor:pointer"><span class="stripe" style="background:var(--sun)"></span><div><div class="item-t">${newIdeas.length} ${plural(newIdeas.length,"новая идея","новые идеи","новых идей")} от участников</div><div class="small muted">Примите в план или отклоните. Идеи повышают инициативность автора в рейтинге.</div></div></div>`:""}
+      ${overdue.slice(0,4).map(o=>`<div class="item" data-act="openEvent" data-id="${o.e.id}" style="cursor:pointer"><span class="stripe" style="background:var(--bad)"></span><div><div class="item-t">Просрочено: ${esc(o.t.title)}</div><div class="small muted">${esc(mname(o.t.assignee))} · срок ${fmtDate(o.t.due)} · ${esc(o.e.title)}</div></div></div>`).join("")}
+      ${free.length?`<div class="item"><span class="stripe" style="background:var(--good)"></span><div><div class="item-t">Можно загрузить: ${free.map(r=>esc(r.m.name.split(" ")[0])).join(", ")}</div><div class="small muted">Откройте профиль и попросите ИИ предложить мероприятия под сильные стороны человека.</div></div></div>`:""}
+      ${noSurvey.length?`<div class="item"><span class="stripe" style="background:var(--warn)"></span><div><div class="item-t">Без анкеты: ${noSurvey.map(m=>esc(m.name.split(" ")[0])).join(", ")}</div><div class="small muted">Попросите заполнить анкету по ссылке на эту страницу или заполните сами в профиле.</div></div></div>`:""}
+      ${noScore.length?`<div class="item"><span class="stripe" style="background:var(--accent)"></span><div><div class="item-t">Нет вашей оценки: ${noScore.map(m=>esc(m.name.split(" ")[0])).join(", ")}</div><div class="small muted">Без неё рейтинг строится только на автоматических показателях.</div></div></div>`:""}
+      ${!newIdeas.length&&!overdue.length&&!free.length&&!noSurvey.length&&!noScore.length?`<div class="empty">Тишина. Подозрительно хорошо.</div>`:""}
+    </div></section>
+  </div>
+  ${S.teamBusy||S.teamPlan?vTeamPlan():""}
+  <div class="grid g2">
+    <section class="panel"><div class="panel-h"><h2>Ближайшие мероприятия</h2><button class="btn sm ghost" data-act="tab" data-v="events">Все →</button></div>
+      <div class="list">${upcoming.length?upcoming.map(e=>`<div class="item" data-act="openEvent" data-id="${e.id}" style="cursor:pointer"><span class="stripe" style="background:${DIRS[e.direction]?.c||"var(--line)"}"></span><div style="flex:1"><div class="item-t">${esc(e.title)}</div><div class="small muted">${fmtDate(e.date)} · ведёт ${esc(mname(e.leadMid))} · задачи ${(e.tasks||[]).filter(t=>t.done).length}/${(e.tasks||[]).length}</div></div><span class="chip ${STCHIP[e.status]}">${STATUS[e.status]}</span></div>`).join(""):`<div class="empty">Календарь пуст. Самое время что-нибудь замутить.</div>`}</div>
+    </section>
+    <section class="panel"><h2>Направления за ${y}</h2>
+      <div class="legend" style="margin-bottom:12px"><span><i style="background:var(--ink)"></i>проведено</span><span><i style="background:var(--ink);opacity:.3"></i>в плане</span></div>
+      <div class="bars">${byDir.map(d=>`<div class="hb"><span>${DIRS[d.k].name}</span><div class="track"><i style="width:${d.done/maxDir*100}%;background:${DIRS[d.k].c}"></i><i style="width:${d.plan/maxDir*100}%;background:${DIRS[d.k].c};opacity:.35"></i></div><span class="num small">${d.done+d.plan}</span></div>`).join("")}</div>
+    </section>
+  </div>`;
+}
+function plural(n,a,b,c){const m=n%10,h=n%100;return m===1&&h!==11?a:m>=2&&m<=4&&(h<12||h>14)?b:c}
+
+function vTeamPlan(){
+  if(S.teamBusy) return `<section class="panel"><div class="think"><i></i>ИИ сопоставляет навыки, интересы и загрузку участников. Обычно это занимает до минуты.</div></section>`;
+  const p=S.teamPlan;
+  return `<section class="panel"><div class="panel-h"><div><div class="eyebrow">Предложение ИИ</div><h2>План, который выравнивает загрузку</h2></div><button class="btn sm ghost" data-act="closeTeam">Скрыть</button></div>
+  <div class="grid g3">${p.map((x,i)=>`<div class="idea"><div class="row">${dirChip(x.direction)}${x.added?`<span class="chip good">Добавлено</span>`:""}</div><div class="item-t">${esc(x.title)}</div><div class="small">${esc(x.why)}</div>
+  <div class="small"><b>Ведёт:</b> ${esc(mname(x.leadMid))}${(x.helperMids||[]).length?` · <b>помогают:</b> ${x.helperMids.map(mname).map(esc).join(", ")}`:""}</div>
+  <ul class="bul small">${(x.tasks||[]).map(t=>`<li>${esc(t.title)} <span class="muted">— ${esc(mname(t.assigneeMid))}</span></li>`).join("")}</ul>
+  ${x.added?"":`<button class="btn sm primary" data-act="addTeam" data-i="${i}">Добавить в план</button>`}</div>`).join("")}</div></section>`;
+}
+
+/* ---------- Участники ---------- */
+function vMembers(){
+  const rows=ratingAll().sort((a,b)=>a.m.name.localeCompare(b.m.name,"ru")),ch=chairM();
+  return `${ch?`<button class="chaircard" data-act="openMember" data-id="${ch.id}">${avatar(ch,"xl")}<div style="flex:1;min-width:0"><div class="eyebrow">Главная по движу</div><h2>${esc(ch.name)}</h2><div class="small" style="opacity:.75">${esc(ch.position||"")}${ch.dept?" · "+esc(ch.dept):""}</div>${ch.photo?"":`<div class="small" style="margin-top:6px;opacity:.75">Откройте профиль, чтобы добавить фото</div>`}${strengthChips(ch.id,4)}</div><div class="quote">«Кто свободен? Шучу. Теперь все заняты.»</div></button>`:""}
+  <div class="head"><div><div class="eyebrow">${rows.length} ${plural(rows.length,"участник","участника","участников")}</div><h1>Наша банда</h1><p>Жми на карточку: там анкета, сильные и слабые стороны, твоя оценка и идеи, чем занять человека.</p></div>
+  <button class="btn primary" data-act="addMemberForm">+ Участник</button></div>
+  ${S.addForm?`<section class="panel"><h2>Новый участник</h2><div class="form2" style="margin-top:12px">
+    <label class="field"><span>ФИО</span><input type="text" id="nm_name" placeholder="Айгерим Нурланова"></label>
+    <label class="field"><span>Должность</span><input type="text" id="nm_pos" placeholder="Инженер-технолог"></label>
+    <label class="field"><span>Подразделение</span><input type="text" id="nm_dept" placeholder="Производственный отдел"></label>
+    <label class="field"><span>Возраст</span><input type="number" id="nm_age" min="18" max="35" placeholder="27"></label>
+  </div><div class="row" style="margin-top:12px"><button class="btn primary" data-act="addMember">Добавить</button><button class="btn ghost" data-act="cancelAdd">Отмена</button></div></section>`:""}
+  ${rows.length?`<div class="grid g3">${rows.map(r=>cardHTML(r)).join("")}</div>`:`<div class="empty">Пока никого. Совет из одного председателя тоже совет, но добавь людей.</div>`}`;
+}
+function cardHTML(r){
+  const sv=surveyOf(r.m.id),lt=loadTag(r.load.pct);
+  return `<button class="mcard" data-act="openMember" data-id="${r.m.id}">
+    <div class="mcard-top">${avatar(r.m)}<div><div class="mcard-name">${esc(r.m.name)}</div><div class="small muted">${esc(r.m.position||"")}${r.m.age?" · "+r.m.age:""}</div></div>
+    <div class="score"><b>${r.total}</b><div class="small muted">#${r.rank}</div></div></div>
+    <div class="loadrow"><span class="chip ${lt.c}">${lt.t}</span><div class="meter"><i style="width:${clamp(r.load.pct,2,100)}%;background:${lt.col}"></i></div><span class="num small">${r.load.pct}%</span></div>
+    <div class="row">${(sv?.directions||[]).map(dirChip).join("")}${!sv?`<span class="chip warn">Нет анкеты</span>`:""}${r.m.demo?`<span class="chip demo">Демо</span>`:""}</div>
+    ${strengthChips(r.m.id,3,r.s)}
+  </button>`;
+}
+
+/* ---------- Рейтинг ---------- */
+function vRating(){
+  const rows=ratingAll(),w=weights(),sum=CRIT.reduce((a,c)=>a+(+w[c.k]||0),0);
+  const k=S.sort.k,d=S.sort.dir;
+  rows.sort((a,b)=>{const va=k==="total"?a.total:k==="load"?a.load.pct:k==="name"?a.m.name:(a.v[k]??-1),vb=k==="total"?b.total:k==="load"?b.load.pct:k==="name"?b.m.name:(b.v[k]??-1);return (typeof va==="string"?va.localeCompare(vb,"ru"):va-vb)*d});
+  const th=(key,label)=>`<th data-act="sort" data-k="${key}">${label}${k===key?(d<0?" ↓":" ↑"):""}</th>`;
+  const bar=v=>v==null?`<span class="small muted">нет данных</span>`:`<div class="cell-bar"><span class="num small">${Math.round(v)}</span><div class="meter"><i style="width:${v}%;background:var(--accent)"></i></div></div>`;
+  return `<div class="head"><div><div class="eyebrow">Секретно. Видишь только ты</div><h1>Кто тут звезда</h1><p>Каждый критерий от 0 до 100. Где есть и ваша оценка, и автоматический показатель, берётся их среднее. Критерий без данных не учитывается, поэтому смотрите на полноту.</p></div></div>
+  <section class="panel"><div class="panel-h"><h2>Вес критериев</h2><div class="row"><span class="small muted">Сумма: <b class="num">${sum}</b>, итог нормируется автоматически</span><button class="btn sm ghost" data-act="resetW">По умолчанию</button></div></div>
+  <div class="weights">${CRIT.map(c=>`<div class="wt"><label for="w_${c.k}">${c.name}<span class="num">${w[c.k]}</span></label><input type="range" id="w_${c.k}" min="0" max="50" step="5" value="${w[c.k]}" data-w="${c.k}"><p>${c.hint}</p></div>`).join("")}</div></section>
+  <section class="panel"><div class="tbl-wrap"><table><thead><tr><th>#</th>${th("name","Участник")}${CRIT.map(c=>th(c.k,c.name)).join("")}${th("load","Загрузка")}${th("total","Итог")}<th>Полнота</th></tr></thead><tbody>
+  ${rows.map(r=>`<tr data-act="openMember" data-id="${r.m.id}"><td class="rank ${r.rank<=3?"top":""}">${r.rank}</td><td><div class="row" style="flex-wrap:nowrap">${avatar(r.m,"sm")}<div><div>${esc(r.m.name)}</div><div class="small muted">${(compOf(r.m.id,r.s)?.list||[]).slice(0,2).map(x=>esc(x.n)).join(" · ")}</div></div></div></td>${CRIT.map(c=>`<td>${bar(r.v[c.k])}</td>`).join("")}<td><span class="chip ${loadTag(r.load.pct).c}">${r.load.pct}%</span></td><td class="total num">${r.total}</td><td class="small ${r.have<4?"bad-t":"muted"}">${r.have}/5</td></tr>`).join("")}
+  </tbody></table></div>${rows.length?"":`<div class="empty">Нет участников</div>`}</section>`;
+}
+
+/* ---------- Мероприятия ---------- */
+function vEvents(){
+  const chair=S.mode==="chair";
+  let ev=[...S.events];
+  if(S.evFilter!=="all") ev=ev.filter(e=>e.direction===S.evFilter);
+  if(S.evStatus==="open") ev=ev.filter(e=>e.status!=="done"&&e.status!=="cancelled");
+  else if(S.evStatus==="done") ev=ev.filter(e=>e.status==="done"||e.status==="cancelled");
+  ev.sort((a,b)=>S.evStatus==="done"?(b.date||"").localeCompare(a.date||""):(a.date||"9").localeCompare(b.date||"9"));
+  const f=(k,n)=>`<button class="chip" data-act="evf" data-v="${k}" aria-pressed="${S.evFilter===k}">${n}</button>`;
+  const s=(k,n)=>`<button data-act="evs" data-v="${k}" aria-pressed="${S.evStatus===k}">${n}</button>`;
+  return `<div class="head"><div><div class="eyebrow">План совета</div><h1>Движ</h1></div>${chair?`<button class="btn primary" data-act="newEvent">+ Мероприятие</button>`:""}</div>
+  <div class="row"><div class="seg">${s("open","Текущие")}${s("done","Прошедшие")}${s("all","Все")}</div><div class="filters">${f("all","Все направления")}${Object.keys(DIRS).map(k=>f(k,DIRS[k].short)).join("")}</div></div>
+  ${ev.length?`<div class="grid g3">${ev.map(e=>{const t=e.tasks||[],dn=t.filter(x=>x.done).length;const team=new Set([e.leadMid,...(e.participants||[]),...t.map(x=>x.assignee)].filter(Boolean));
+    return `<div class="ecard ${chair?"":"ro"}" style="--dc:${DIRS[e.direction]?.c||"var(--line)"}" ${chair?`data-act="openEvent" data-id="${e.id}"`:""}>
+    <div class="row">${dirChip(e.direction)}<span class="chip ${STCHIP[e.status]}">${STATUS[e.status]}</span>${e.demo?`<span class="chip demo">Демо</span>`:""}</div>
+    <div class="ecard-t">${esc(e.title)}</div>
+    <div class="small muted">${fmtDate(e.date)} · ведёт ${esc(mname(e.leadMid))}</div>
+    ${e.description?`<div class="small">${esc(e.description)}</div>`:""}
+    <div class="row"><div class="row" style="gap:0">${[...team].slice(0,6).map(id=>member(id)?`<span style="margin-right:-6px">${avatar(member(id),"sm")}</span>`:"").join("")}</div><span class="spacer"></span><span class="progress">задачи ${dn}/${t.length}</span></div>
+    ${t.length?`<div class="meter"><i style="width:${dn/t.length*100}%;background:${DIRS[e.direction]?.c}"></i></div>`:""}</div>`}).join("")}</div>`:`<div class="empty">Здесь пусто, как в чате после «кто хочет вести?»${chair?" Создай мероприятие или попроси ИИ придумать его в профиле участника.":""}</div>`}`;
+}
+
+/* ---------- Идеи (председатель) ---------- */
+function vIdeas(){
+  const order={new:0,accepted:1,rejected:2};
+  const ideas=[...S.ideas].sort((a,b)=>(order[a.status]-order[b.status])||(b.createdAt||0)-(a.createdAt||0));
+  return `<div class="head"><div><div class="eyebrow">Инициатива участников</div><h1>Идеи от народа</h1><p>Каждая предложенная идея добавляет автору баллы инициативности. Принятая идея становится мероприятием, а автор — его руководителем.</p></div></div>
+  ${ideas.length?`<div class="grid g3">${ideas.map(i=>`<div class="idea"><div class="row">${dirChip(i.direction)}<span class="chip ${i.status==="new"?"warn":i.status==="accepted"?"good":"bad"}">${{new:"Новая",accepted:"Принята",rejected:"Отклонена"}[i.status]}</span>${i.demo?`<span class="chip demo">Демо</span>`:""}</div>
+  <div class="item-t">${esc(i.title)}</div>${i.description?`<div class="small">${esc(i.description)}</div>`:""}
+  <div class="row small muted">${member(i.byMid)?avatar(member(i.byMid),"sm"):""}${esc(mname(i.byMid))}</div>
+  ${i.status==="new"?`<div class="row"><button class="btn sm primary" data-act="acceptIdea" data-id="${i.id}">В план</button><button class="btn sm ghost" data-act="rejectIdea" data-id="${i.id}">Отклонить</button></div>`:""}</div>`).join("")}</div>`:`<div class="empty">Идей пока ноль. Народ стесняется. Напомни им про вкладку «Есть идея!».</div>`}`;
+}
+
+/* ============ режим участника ============ */
+function myMid(){return S.mySurvey?.mid||S.pickMid||null}
+function vMe(){
+  if(!S.uid) return `<div class="banner">Чтобы заполнить анкету, войдите в claude.ai и откройте эту страницу снова.</div>`;
+  const mid=myMid(),m=member(mid);
+  if(!m) return `<div class="head"><div><div class="eyebrow">Шаг 1 из 2</div><h1>Ты кто?</h1><p>Найди себя в списке. Если тебя нет, пни председателя, пусть добавит.</p></div></div>
+    <div class="grid g3">${S.members.map(x=>`<button class="mcard" data-act="pickMe" data-id="${x.id}"><div class="mcard-top">${avatar(x)}<div><div class="mcard-name">${esc(x.name)}</div><div class="small muted">${esc(x.position||"")}</div></div></div></button>`).join("")||`<div class="empty">Список участников пока пуст</div>`}</div>`;
+  if(!S.meDraft) S.meDraft=structuredClone(S.mySurvey||{skills:{},directions:[],hours:8,role:"Организатор",grow:"",avoid:"",idea:""});
+  const st=computeStats()[mid];
+  return `<div class="head"><div class="row" style="gap:14px">${avatar(m,"lg")}<div><div class="eyebrow">${S.mySurvey?"Анкета заполнена":"Шаг 2 из 2"}</div><h1>${esc(m.name)}</h1><p>${esc(m.position||"")}${m.dept?" · "+esc(m.dept):""}</p></div></div>
+  <button class="btn ghost sm" data-act="unpick">Это не я</button></div>
+  <div class="kpis"><div class="kpi"><div class="eyebrow">Мероприятий</div><b>${st?.part||0}</b></div><div class="kpi"><div class="eyebrow">Руководил</div><b>${st?.led||0}</b></div><div class="kpi"><div class="eyebrow">Задач закрыто</div><b>${st?.done||0}</b></div><div class="kpi"><div class="eyebrow">Идей предложено</div><b>${st?.ideas||0}</b></div></div>
+  ${compOf(mid,st)?`<section class="panel"><h2>Ваши сильные стороны</h2><p class="small muted" style="margin:4px 0 10px">Рассчитаны по анкете и вашему участию в мероприятиях.</p>${strengthChips(mid,4,st)}</section>`:""}
+  <section class="panel"><h2>Анкета-самооценка</h2><p class="small muted" style="margin:4px 0 14px">Оцените честно: по анкете председатель подбирает задачи, которые вам интересны и по силам. Ответы видит только председатель.</p>
+  ${surveyForm(S.meDraft,"me")}
+  <div class="row" style="margin-top:16px"><button class="btn primary" data-act="saveMe">Сохранить анкету</button>${S.mySurvey?.updatedAt?`<span class="small muted">Сохранено ${new Date(S.mySurvey.updatedAt).toLocaleDateString("ru-RU")}</span>`:""}</div></section>`;
+}
+function surveyForm(d,ns){
+  return `<div class="form">
+  <div><div class="eyebrow" style="margin-bottom:6px">Навыки: 1 — не умею, 5 — могу учить других</div><div class="skills">${SKILLS.map(([k,n])=>`<div class="skill"><span>${n}</span><div class="dots">${[1,2,3,4,5].map(v=>`<button type="button" class="${(+d.skills?.[k]||0)>=v?"on":""}" data-act="skill" data-ns="${ns}" data-k="${k}" data-v="${v}" aria-label="${n}: ${v}">${v}</button>`).join("")}</div></div>`).join("")}</div></div>
+  <div class="field"><span>Интересные направления</span><div class="filters">${Object.keys(DIRS).map(k=>`<button type="button" class="chip" data-act="dir" data-ns="${ns}" data-k="${k}" aria-pressed="${(d.directions||[]).includes(k)}"><span class="dot" style="background:${DIRS[k].c}"></span>${DIRS[k].name}</button>`).join("")}</div></div>
+  <div class="form2"><label class="field"><span>Часов в месяц на совет</span><input type="number" min="1" max="60" id="${ns}_hours" data-bind="hours" data-ns="${ns}" value="${esc(d.hours||8)}"></label>
+  <label class="field"><span>Роль, которая ближе</span><select id="${ns}_role" data-bind="role" data-ns="${ns}">${ROLES.map(r=>`<option ${d.role===r?"selected":""}>${r}</option>`).join("")}</select></label></div>
+  <label class="field"><span>Чему хочу научиться, что развить</span><textarea id="${ns}_grow" data-bind="grow" data-ns="${ns}" placeholder="Например: научиться выступать перед большой аудиторией">${esc(d.grow||"")}</textarea></label>
+  <label class="field"><span>Что даётся тяжело или не нравится делать</span><textarea id="${ns}_avoid" data-bind="avoid" data-ns="${ns}">${esc(d.avoid||"")}</textarea></label>
+  <label class="field"><span>Мероприятие, которое я мог(ла) бы провести</span><textarea id="${ns}_idea" data-bind="idea" data-ns="${ns}">${esc(d.idea||"")}</textarea></label>
+  </div>`;
+}
+function vTasks(){
+  const mid=myMid(); if(!member(mid)) return `<div class="empty">Сначала найди себя во вкладке «Мой профиль». Экзистенциально, но надо.</div>`;
+  const list=[];S.events.forEach(e=>{if(e.status==="cancelled")return;(e.tasks||[]).forEach(t=>{if(t.assignee===mid)list.push({e,t})})});
+  list.sort((a,b)=>(a.t.done-b.t.done)||(a.t.due||"9").localeCompare(b.t.due||"9"));
+  const led=S.events.filter(e=>e.leadMid===mid&&e.status!=="done"&&e.status!=="cancelled");
+  const today=todayStr();
+  return `<div class="head"><div><div class="eyebrow">Ваша работа в совете</div><h1>Мои задачи</h1><p>Сделал — отметь сразу. Председатель всё видит (и сроки тоже).</p></div></div>
+  ${led.length?`<section class="panel"><h2>Вы руководите</h2><div class="list" style="margin-top:10px">${led.map(e=>`<div class="item"><span class="stripe" style="background:${DIRS[e.direction]?.c}"></span><div><div class="item-t">${esc(e.title)}</div><div class="small muted">${fmtDate(e.date)} · задачи ${(e.tasks||[]).filter(t=>t.done).length}/${(e.tasks||[]).length}</div></div></div>`).join("")}</div></section>`:""}
+  <section class="panel">${list.length?list.map(({e,t})=>`<label class="taskro ${t.done?"done":""}"><input type="checkbox" data-act="myTask" data-e="${e.id}" data-t="${t.id}" ${t.done?"checked":""} style="width:18px;height:18px"><div style="flex:1;min-width:0"><div class="tt">${esc(t.title)}</div><div class="small muted">${esc(e.title)}</div></div>${t.due?`<span class="chip ${!t.done&&t.due<today?"bad":""}">${fmtDate(t.due)}</span>`:""}</label>`).join(""):`<div class="empty">Задач нет. Наслаждайся, пока председатель не заметил. Или предложи свою идею.</div>`}</section>`;
+}
+function vPropose(){
+  const mid=myMid(),d=S.ideaDraft,mine=S.ideas.filter(i=>i.byMid===mid);
+  return `<div class="head"><div><div class="eyebrow">Инициатива</div><h1>Есть идея!</h1><p>Обучение, спорт, праздник, волонтёрство: опишите, что хотите провести. Автор принятой идеи становится её руководителем.</p></div></div>
+  ${!member(mid)?`<div class="banner">Сначала выберите себя во вкладке «Мой профиль».</div>`:`<section class="panel"><div class="form">
+  <label class="field"><span>Название</span><input type="text" id="idea_title" data-bind="title" data-ns="idea" value="${esc(d.title)}" placeholder="Турнир по мини-футболу между цехами"></label>
+  <label class="field"><span>Направление</span><select id="idea_dir" data-bind="direction" data-ns="idea">${Object.keys(DIRS).map(k=>`<option value="${k}" ${d.direction===k?"selected":""}>${DIRS[k].name}</option>`).join("")}</select></label>
+  <label class="field"><span>Коротко: формат, для кого, что нужно</span><textarea id="idea_desc" data-bind="description" data-ns="idea">${esc(d.description)}</textarea></label>
+  <div><button class="btn primary" data-act="sendIdea">Отправить председателю</button></div></div></section>`}
+  ${mine.length?`<section class="panel"><h2>Мои идеи</h2><div class="list" style="margin-top:10px">${mine.map(i=>`<div class="item"><span class="stripe" style="background:${DIRS[i.direction]?.c}"></span><div style="flex:1"><div class="item-t">${esc(i.title)}</div></div><span class="chip ${i.status==="new"?"warn":i.status==="accepted"?"good":"bad"}">${{new:"На рассмотрении",accepted:"Принята",rejected:"Отклонена"}[i.status]}</span></div>`).join("")}</div></section>`:""}`;
+}
+
+/* ============ профиль участника (председатель) ============ */
+function openMember(id){M={mid:id,notes:null,editSurvey:false,surveyDraft:null,edit:false,confirmDel:false,aiBusy:null,ideas:null};renderMember()}
+function renderMember(){
+  const m=member(M.mid); if(!m){closeModal();return}
+  const rows=allRows(),r=rows.find(x=>x.m.id===m.id),isC=!!m.isChair,comp=compOf(m.id,r.s),sv=surveyOf(m.id),ch=S.chair[m.id]||{},sc=ch.scores||{},an=ch.analysis,lt=loadTag(r.load.pct);
+  if(M.notes==null) M.notes=ch.notes||"";
+  const evs=S.events.filter(e=>r.s.evs.includes(e.id)).sort((a,b)=>(b.date||"").localeCompare(a.date||""));
+  const html=`<div class="overlay" data-act="bg"><aside class="drawer" role="dialog" aria-label="Профиль ${esc(m.name)}">
+  <div class="dhead"><div class="phwrap">${avatar(m,"lg")}${S.assets?`<label class="phbtn" title="Загрузить фото"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><input type="file" accept="image/*" data-photo="${m.id}" aria-label="Загрузить фото"></label>`:""}</div><div style="flex:1"><h2>${esc(m.name)}</h2><div class="small muted">${esc(m.position||"")}${m.dept?" · "+esc(m.dept):""}${m.age?" · "+m.age+" лет":""}</div>
+  <div class="row" style="margin-top:6px">${isC?`<span class="chip demo">Председатель</span>`:`<span class="chip acc">Рейтинг ${r.total} · #${r.rank}</span><span class="chip ${lt.c}">${lt.t} · ${r.load.pct}%</span>`}${m.demo?`<span class="chip demo">Демо</span>`:""}</div></div>
+  <button class="btn ghost" data-act="close" aria-label="Закрыть">✕</button></div>
+  <div class="dbody">
+  ${M.edit?`<div class="sect"><h3>Данные участника</h3><div class="form2">
+    <label class="field"><span>ФИО</span><input type="text" id="em_name" value="${esc(m.name)}"></label>
+    <label class="field"><span>Должность</span><input type="text" id="em_pos" value="${esc(m.position||"")}"></label>
+    <label class="field"><span>Подразделение</span><input type="text" id="em_dept" value="${esc(m.dept||"")}"></label>
+    <label class="field"><span>Возраст</span><input type="number" id="em_age" value="${esc(m.age||"")}"></label></div>
+    <div class="row"><button class="btn primary sm" data-act="saveMemberInfo">Сохранить</button><button class="btn sm ghost" data-act="toggleEdit">Отмена</button><span class="spacer"></span>
+    ${M.confirmDel?`<span class="small bad-t">Удалить навсегда?</span><button class="btn sm danger" data-act="delMember">Да, удалить</button>`:`<button class="btn sm ghost danger" data-act="askDel">Удалить участника</button>`}</div></div>`:""}
+
+  <div class="sect"><div class="sect-h"><h3>Сильные стороны</h3><span class="small muted">${comp?(comp.src==="ai"?"по ИИ-анализу":"по анкете и активности · уточнится после ИИ-анализа"):""}</span></div>
+  ${comp?`<div class="grid" style="gap:8px">${comp.list.map((x,i)=>`<div class="comp"><span class="${i<3?"good-t":i>=comp.list.length-2?"bad-t":""}" style="font-weight:${i<3?700:500}">${esc(x.n)}</span><div class="meter"><i style="width:${x.v/5*100}%;background:${i<3?"var(--good)":i>=comp.list.length-2?"var(--bad)":"var(--accent)"}"></i></div><span class="num small">${x.v}</span></div>`).join("")}</div>`:`<div class="small muted">Появятся после заполнения анкеты.</div>`}
+  </div>
+
+  <div class="sect"><div class="sect-h"><h3>Анализ: сильные и слабые стороны</h3>${S.sample?`<button class="btn ai sm" data-act="analyze" ${M.aiBusy||!sv?"disabled":""}>${an?"Обновить анализ":"Проанализировать"}</button>`:""}</div>
+  ${!sv?`<div class="small muted">Для анализа нужна анкета участника.</div>`:""}
+  ${M.aiBusy==="an"?`<div class="think"><i></i>Анализирую анкету, активность и ваши оценки…</div>`:""}
+  ${an?`<div>${esc(an.summary)}</div><div class="cols2"><div><div class="eyebrow good-t">Сильные стороны</div><ul class="bul">${(an.strengths||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div><div><div class="eyebrow bad-t">Зоны роста</div><ul class="bul">${(an.weaknesses||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div>
+  ${(an.roles||[]).length?`<div><div class="eyebrow">Лучшие роли в мероприятиях</div><ul class="bul">${an.roles.map(x=>`<li><b>${esc(x.role)}</b> — ${esc(x.why)}</li>`).join("")}</ul></div>`:""}
+  ${(an.develop||[]).length?`<div><div class="eyebrow">Как развить через работу в совете</div><ul class="bul">${an.develop.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+  <div class="small muted">Анализ от ${new Date(an.at).toLocaleDateString("ru-RU")}</div>`:(sv&&M.aiBusy!=="an"?`<div class="small muted">${S.sample?"Нажмите «Проанализировать», чтобы получить разбор по анкете и активности.":"ИИ-анализ работает только в онлайн-версии сайта на claude.ai."}</div>`:"")}
+  </div>
+
+  <div class="sect"><div class="sect-h"><h3>Мероприятия, которые может провести</h3>${S.sample?`<button class="btn ai sm" data-act="suggest" ${M.aiBusy?"disabled":""}>Предложить идеи</button>`:""}</div>
+  ${M.aiBusy==="id"?`<div class="think"><i></i>Подбираю мероприятия под навыки, интересы и загрузку…</div>`:""}
+  ${M.ideas?M.ideas.map((x,i)=>`<div class="idea"><div class="row">${dirChip(x.direction)}${x.growth?`<span class="chip warn">Развивает зону роста</span>`:""}<span class="chip">~${esc(x.hours)} ч</span>${x.added?`<span class="chip good">Добавлено</span>`:""}</div>
+  <div class="item-t">${esc(x.title)}</div><div class="small">${esc(x.format)}</div><div class="small muted">${esc(x.why)}</div>
+  <ul class="bul small">${(x.tasks||[]).map(t=>`<li>${esc(t.title)} <span class="muted">— ${fmtDate(addDays(todayStr(),+t.days||7))}</span></li>`).join("")}</ul>
+  ${x.added?"":`<div><button class="btn sm primary" data-act="addIdea" data-i="${i}">Добавить в план, руководитель — ${esc(m.name.split(" ")[0])}</button></div>`}</div>`).join(""):(M.aiBusy!=="id"?`<div class="small muted">${S.sample?"ИИ предложит 3 мероприятия под сильные стороны, одно из них — чтобы подтянуть зону роста.":"Подбор мероприятий ИИ работает только в онлайн-версии сайта на claude.ai."}</div>`:"")}
+  </div>
+
+  ${isC?"":`<div class="sect"><div class="sect-h"><h3>Ваша оценка</h3><span class="small muted">1–10, повторный клик снимает оценку</span></div>
+  ${CRIT.filter(c=>c.k!=="part").map(c=>`<div><div class="row" style="justify-content:space-between"><b class="small">${c.name}</b><span class="small muted">авто: ${r.v.auto[c.k]==null?"—":Math.round(r.v.auto[c.k])} · итог: ${r.v[c.k]==null?"—":Math.round(r.v[c.k])}</span></div>
+  <div class="tenrow" style="margin-top:6px">${[1,2,3,4,5,6,7,8,9,10].map(v=>`<button class="${sc[c.k]===v?"on":sc[c.k]>v?"in":""}" data-act="score" data-k="${c.k}" data-v="${v}" aria-label="${c.name} ${v}">${v}</button>`).join("")}</div></div>`).join("")}
+  <label class="field"><span>Заметки председателя (видите только вы)</span><textarea id="m_notes" data-bind="notes" data-ns="M">${esc(M.notes)}</textarea></label>
+  <div><button class="btn sm" data-act="saveNotes">Сохранить заметки</button></div></div>`}
+
+  <div class="sect"><div class="sect-h"><h3>Анкета</h3><span class="row">${sv?`<span class="chip ${sv.src==="self"?"good":"acc"}">${sv.src==="self"?"Заполнил(а) сам(а)":"Заполнили вы"}</span>`:""}${!M.editSurvey&&sv?.src!=="self"?`<button class="btn sm" data-act="editSurvey">${sv?"Изменить":"Заполнить за участника"}</button>`:""}</span></div>
+  ${M.editSurvey?surveyForm(M.surveyDraft,"M")+`<div class="row"><button class="btn primary sm" data-act="saveSurvey">Сохранить анкету</button><button class="btn sm ghost" data-act="cancelSurvey">Отмена</button></div>`:
+   sv?`<div class="skills">${SKILLS.filter(([k])=>sv.skills?.[k]).sort((a,b)=>sv.skills[b[0]]-sv.skills[a[0]]).map(([k,n])=>`<div class="skill"><span>${n}</span><div class="meter" style="width:120px"><i style="width:${sv.skills[k]*20}%;background:${sv.skills[k]>=4?"var(--good)":sv.skills[k]<=2?"var(--bad)":"var(--accent)"}"></i></div></div>`).join("")}</div>
+   <div class="row">${(sv.directions||[]).map(dirChip).join("")}<span class="chip">${esc(sv.hours||8)} ч/мес</span><span class="chip">${esc(sv.role||"")}</span></div>
+   ${sv.grow?`<div class="small"><b>Хочет развить:</b> ${esc(sv.grow)}</div>`:""}${sv.avoid?`<div class="small"><b>Даётся тяжело:</b> ${esc(sv.avoid)}</div>`:""}${sv.idea?`<div class="small"><b>Идея:</b> ${esc(sv.idea)}</div>`:""}`:`<div class="small muted">Анкеты нет. Участник может заполнить её сам, открыв эту страницу, или вы можете заполнить её сейчас.</div>`}
+  </div>
+
+  <div class="sect"><h3>Активность</h3>
+  <div class="row"><span class="chip">Мероприятий ${r.s.part}</span><span class="chip">Руководил ${r.s.led}</span><span class="chip">Задач ${r.s.done}/${r.s.tasks}</span><span class="chip ${r.s.overdue?"bad":""}">Просрочено ${r.s.overdue}</span><span class="chip">Идей ${r.s.ideas}</span></div>
+  ${evs.length?`<div class="list">${evs.slice(0,8).map(e=>`<div class="item" data-act="openEvent" data-id="${e.id}" style="cursor:pointer"><span class="stripe" style="background:${DIRS[e.direction]?.c}"></span><div style="flex:1"><div class="item-t">${esc(e.title)}</div><div class="small muted">${fmtDate(e.date)} · ${e.leadMid===m.id?"руководитель":"участник"}</div></div><span class="chip ${STCHIP[e.status]}">${STATUS[e.status]}</span></div>`).join("")}</div>`:`<div class="small muted">Пока не участвовал(а) в мероприятиях.</div>`}
+  </div>
+  ${M.edit?"":`<div><button class="btn sm ghost" data-act="toggleEdit">Редактировать данные участника</button></div>`}
+  </div></aside></div>`;
+  $("#modal").innerHTML=html;
+}
+function closeModal(){M=null;E=null;$("#modal").innerHTML=""}
+
+/* ============ редактор мероприятия ============ */
+function openEvent(id,preset){
+  const src=id?S.events.find(e=>e.id===id):null;
+  E={id:id||null,confirmDel:false,d:structuredClone(src||{title:"",direction:"edu",date:addDays(todayStr(),30),status:"planned",leadMid:"",participants:[],tasks:[],description:"",...(preset||{})})};
+  M=null;renderEvent();
+}
+function renderEvent(){
+  const d=E.d,opts=sel=>`<option value="">—</option>`+S.members.map(m=>`<option value="${m.id}" ${sel===m.id?"selected":""}>${esc(m.name)}</option>`).join("");
+  $("#modal").innerHTML=`<div class="overlay" data-act="bg"><aside class="drawer" role="dialog" aria-label="Мероприятие">
+  <div class="dhead"><div style="flex:1"><div class="eyebrow">${E.id?"Мероприятие":"Новое мероприятие"}</div><h2>${esc(d.title||"Без названия")}</h2></div><button class="btn ghost" data-act="close" aria-label="Закрыть">✕</button></div>
+  <div class="dbody"><div class="sect"><div class="form">
+  <label class="field"><span>Название</span><input type="text" id="ev_title" data-bind="title" data-ns="E" value="${esc(d.title)}"></label>
+  <div class="form2">
+   <label class="field"><span>Направление</span><select id="ev_dir" data-bind="direction" data-ns="E">${Object.keys(DIRS).map(k=>`<option value="${k}" ${d.direction===k?"selected":""}>${DIRS[k].name}</option>`).join("")}</select></label>
+   <label class="field"><span>Дата</span><input type="date" id="ev_date" data-bind="date" data-ns="E" value="${esc(d.date)}"></label>
+   <label class="field"><span>Статус</span><select id="ev_status" data-bind="status" data-ns="E">${Object.entries(STATUS).map(([k,n])=>`<option value="${k}" ${d.status===k?"selected":""}>${n}</option>`).join("")}</select></label>
+   <label class="field"><span>Руководитель</span><select id="ev_lead" data-bind="leadMid" data-ns="E">${opts(d.leadMid)}</select></label>
+  </div>
+  <label class="field"><span>Описание</span><textarea id="ev_desc" data-bind="description" data-ns="E">${esc(d.description||"")}</textarea></label>
+  <div class="field"><span>Участники</span><div class="filters">${S.members.map(m=>`<button type="button" class="chip" data-act="evPart" data-id="${m.id}" aria-pressed="${(d.participants||[]).includes(m.id)}">${esc(m.name)}</button>`).join("")}</div></div>
+  </div></div>
+  <div class="sect"><div class="sect-h"><h3>Задачи</h3><button class="btn sm" data-act="addTask">+ Задача</button></div>
+  ${(d.tasks||[]).length?d.tasks.map((t,i)=>`<div class="task"><input type="checkbox" data-act="tDone" data-i="${i}" ${t.done?"checked":""} aria-label="Выполнено" style="width:18px;height:18px">
+   <input type="text" id="t_title_${t.id}" data-tb="title" data-i="${i}" value="${esc(t.title)}" placeholder="Что сделать">
+   <select id="t_as_${t.id}" data-tb="assignee" data-i="${i}">${opts(t.assignee)}</select>
+   <input type="date" id="t_due_${t.id}" data-tb="due" data-i="${i}" value="${esc(t.due||"")}">
+   <button class="btn sm ghost" data-act="delTask" data-i="${i}" aria-label="Удалить задачу">✕</button></div>`).join(""):`<div class="small muted">Разбейте мероприятие на задачи и назначьте ответственных: так считается загрузка и ответственность.</div>`}
+  </div>
+  <div class="row"><button class="btn primary" data-act="saveEvent">Сохранить</button><button class="btn ghost" data-act="close">Отмена</button><span class="spacer"></span>
+  ${E.id?(E.confirmDel?`<span class="small bad-t">Удалить мероприятие?</span><button class="btn sm danger" data-act="delEvent">Да, удалить</button>`:`<button class="btn sm ghost danger" data-act="askDelEvent">Удалить</button>`):""}</div>
+  </div></aside></div>`;
+}
+
+/* ============ ИИ ============ */
+const AI_CTX="Ты помогаешь председателю Совета молодых специалистов крупной компании. Совет — сотрудники до 35 лет — организует обучение и наставничество (edu), спорт и тимбилдинг (sport), культуру и досуг (culture), социальные проекты и волонтёрство (social). Цель — больше мероприятий и равномерная вовлечённость каждого. Пиши по-русски, конкретно и доброжелательно, опирайся только на данные.";
+function memberPayload(mid){
+  const m=member(mid),s=computeStats()[mid],sv=surveyOf(mid),ch=S.chair[mid]||{};
+  return {name:m.name,position:m.position,dept:m.dept,age:m.age,
+    skills:sv?Object.fromEntries(Object.entries(sv.skills||{}).map(([k,v])=>[SK[k],v])):null,
+    directions:sv?.directions,hoursPerMonth:sv?.hours,preferredRole:sv?.role,wantsToDevelop:sv?.grow,dislikes:sv?.avoid,ownIdea:sv?.idea,
+    activity:{events:s.part,led:s.led,tasksDone:s.done,tasksTotal:s.tasks,onTime:s.onTime,overdue:s.overdue,ideasProposed:s.ideas},
+    loadPercent:loadOf(mid,s).pct,chairScores1to10:ch.scores||{},chairNotes:ch.notes||""};
+}
+function aiErr(e){if(e?.code==="not_granted")toast("Доступ к ИИ не разрешён для этой страницы");else if(e?.code==="rate_limited")toast("Слишком много запросов к ИИ. Подождите минуту");else toast("ИИ задумался и ушёл пить чай. Попробуй ещё раз");console.error(e)}
+async function aiAnalyze(){
+  const mid=M.mid;M.aiBusy="an";renderMember();
+  try{
+    const r=await S.sample.json(`${AI_CTX}
+Проанализируй участника совета. Данные:
+${JSON.stringify(memberPayload(mid))}
+Верни только JSON вида:
+{"summary":"2–3 предложения о человеке как участнике совета","strengths":["3–5 сильных сторон"],"weaknesses":["2–4 зоны роста, тактично"],"roles":[{"role":"роль в мероприятиях","why":"почему"}],"develop":["2–3 способа развить зоны роста через задачи в совете"],"competencies":{${COMP.map(c=>`"${c.n}":1-5`).join(",")}}}
+В competencies оцени каждую компетенцию целым числом от 1 до 5 по навыкам из анкеты, активности и оценкам председателя.`,{modelTier:"default"});
+    await saveChair(mid,{analysis:{...r,at:Date.now()}});
+  }catch(e){aiErr(e)}
+  if(M&&M.mid===mid){M.aiBusy=null;renderMember()}
+}
+async function aiSuggest(){
+  const mid=M.mid;M.aiBusy="id";renderMember();
+  try{
+    const existing=S.events.filter(e=>e.status!=="cancelled").map(e=>e.title);
+    const r=await S.sample.json(`${AI_CTX}
+Предложи 3 конкретных мероприятия, которые этот участник может организовать как руководитель в ближайшие 1–2 месяца. Два — на его сильных сторонах и интересах, одно — чтобы развить зону роста (growth:true). Учитывай загрузку и доступные часы. Не повторяй существующие мероприятия: ${JSON.stringify(existing)}.
+Участник: ${JSON.stringify(memberPayload(mid))}
+Анализ: ${JSON.stringify(S.chair[mid]?.analysis||null)}
+Верни только JSON:
+{"ideas":[{"title":"название","direction":"edu|sport|culture|social","format":"формат и масштаб одним предложением","why":"почему подходит именно этому человеку","growth":false,"hours":10,"tasks":[{"title":"задача","days":7}]}]}
+В каждой идее 3–5 задач, days — через сколько дней от сегодня срок.`,{modelTier:"default"});
+    if(M&&M.mid===mid) M.ideas=(r.ideas||[]).map(x=>({...x,direction:DIRS[x.direction]?x.direction:"edu"}));
+  }catch(e){aiErr(e)}
+  if(M&&M.mid===mid){M.aiBusy=null;renderMember()}
+}
+async function aiTeam(){
+  S.teamBusy=true;S.teamPlan=null;render();
+  try{
+    const rows=ratingAll();
+    const people=rows.map(r=>{const sv=surveyOf(r.m.id);return {mid:r.m.id,name:r.m.name,position:r.m.position,
+      topSkills:sv?Object.entries(sv.skills||{}).sort((a,b)=>b[1]-a[1]).slice(0,4).map(x=>SK[x[0]]):[],weak:sv?Object.entries(sv.skills||{}).filter(x=>x[1]<=2).map(x=>SK[x[0]]):[],
+      directions:sv?.directions||[],hours:sv?.hours||8,load:r.load.pct,wants:sv?.grow||"",rating:r.total}});
+    const existing=S.events.filter(e=>e.status!=="cancelled"&&e.status!=="done").map(e=>({title:e.title,direction:e.direction,lead:e.leadMid}));
+    const r=await S.sample.json(`${AI_CTX}
+Составь 4–6 новых мероприятий, чтобы равномерно загрузить совет. Руководителями ставь в первую очередь тех, у кого load меньше 60. Тех, у кого load больше 100, не назначай руководителями и давай им максимум одну задачу. Помощников подбирай так, чтобы их навыки дополняли руководителя. Охвати разные направления, особенно те, где мало текущих мероприятий.
+Участники: ${JSON.stringify(people)}
+Текущие мероприятия: ${JSON.stringify(existing)}
+Верни только JSON:
+{"events":[{"title":"название","direction":"edu|sport|culture|social","why":"зачем и почему эта команда","leadMid":"mid","helperMids":["mid"],"tasks":[{"title":"задача","assigneeMid":"mid","days":14}]}]}
+Используй только mid из списка участников.`,{modelTier:"default"});
+    const ok=id=>!!member(id);
+    S.teamPlan=(r.events||[]).filter(x=>ok(x.leadMid)).map(x=>({...x,direction:DIRS[x.direction]?x.direction:"edu",helperMids:(x.helperMids||[]).filter(ok),tasks:(x.tasks||[]).filter(t=>ok(t.assigneeMid))}));
+  }catch(e){aiErr(e)}
+  S.teamBusy=false;render();
+}
+async function createEvent(ev){const id="e"+uid8();await saveDoc("events/"+id,{...ev,createdAt:Date.now()});return id}
+
+/* ============ обработчики ============ */
+document.addEventListener("click",async ev=>{
+  const el=ev.target.closest("[data-act]"); if(!el)return;
+  const a=el.dataset.act;
+  if(a==="bg"){if(ev.target===el)closeModal();return}
+  if(el.tagName==="INPUT"&&el.type==="checkbox"&&a!=="tDone"&&a!=="myTask") return;
+  const id=el.dataset.id;
+  switch(a){
+    case "tab": S.view=el.dataset.v; closeModal(); render(); scrollTo(0,0); break;
+    case "mode": S.mode=el.dataset.v; S.view=S.mode==="chair"?"dash":"me"; closeModal(); render(); break;
+    case "close": closeModal(); break;
+    case "openMember": openMember(id); break;
+    case "openChair": if(S.mode==="chair"&&S.isOwner) openMember(chairM().id); break;
+    case "openEvent": openEvent(id); break;
+    case "newEvent": openEvent(null); break;
+    case "evf": S.evFilter=el.dataset.v; render(); break;
+    case "evs": S.evStatus=el.dataset.v; render(); break;
+    case "sort": {const k=el.dataset.k;S.sort=S.sort.k===k?{k,dir:-S.sort.dir}:{k,dir:k==="name"?1:-1};render();break}
+    case "resetW": S.weightsDraft={...DEFAULT_W}; saveWeights(); render(); break;
+    case "addMemberForm": S.addForm=true; render(); setTimeout(()=>$("#nm_name")?.focus(),0); break;
+    case "cancelAdd": S.addForm=false; render(); break;
+    case "addMember": {const name=$("#nm_name").value.trim(); if(!name){toast("Укажите ФИО");return}
+      const mid="m"+uid8(); await saveDoc("members/"+mid,{name,position:$("#nm_pos").value.trim(),dept:$("#nm_dept").value.trim(),age:+$("#nm_age").value||null,createdAt:Date.now()});
+      S.addForm=false; toast("Новенький в банде!"); render(); break}
+    case "toggleEdit": M.edit=!M.edit; M.confirmDel=false; renderMember(); break;
+    case "askDel": M.confirmDel=true; renderMember(); break;
+    case "delMember": {const mid=M.mid; closeModal(); await write("members/"+mid,()=>S.db.doc("members/"+mid).delete()); await write("chair/"+mid,()=>S.db.doc("chair/"+mid).delete()); toast("Участник удалён"); break}
+    case "saveMemberInfo": {const m=member(M.mid); await saveDoc("members/"+m.id,{...stripId(m),name:$("#em_name").value.trim()||m.name,position:$("#em_pos").value.trim(),dept:$("#em_dept").value.trim(),age:+$("#em_age").value||null}); M.edit=false; toast("Сохранено. Красота"); break}
+    case "score": {const k=el.dataset.k,v=+el.dataset.v,cur={...(S.chair[M.mid]?.scores||{})}; if(cur[k]===v) delete cur[k]; else cur[k]=v; saveChair(M.mid,{scores:cur}); renderMember(); render(); break}
+    case "saveNotes": await saveChair(M.mid,{notes:M.notes||""}); toast("Заметки сохранены"); break;
+    case "editSurvey": M.editSurvey=true; M.surveyDraft=structuredClone(S.chair[M.mid]?.survey||{skills:{},directions:[],hours:8,role:"Организатор",grow:"",avoid:"",idea:""}); renderMember(); break;
+    case "cancelSurvey": M.editSurvey=false; renderMember(); break;
+    case "saveSurvey": await saveChair(M.mid,{survey:{...M.surveyDraft,updatedAt:Date.now()}}); M.editSurvey=false; toast("Анкета сохранена"); renderMember(); render(); break;
+    case "skill": {if(el.dataset.ns==="me")S.meTouched=true;const d=draftOf(el.dataset.ns); d.skills=d.skills||{}; const v=+el.dataset.v; d.skills[el.dataset.k]=d.skills[el.dataset.k]===v?v-1:v; if(!d.skills[el.dataset.k]) delete d.skills[el.dataset.k]; rerenderNs(el.dataset.ns); break}
+    case "dir": {if(el.dataset.ns==="me")S.meTouched=true;const d=draftOf(el.dataset.ns),k=el.dataset.k; d.directions=d.directions||[]; d.directions=d.directions.includes(k)?d.directions.filter(x=>x!==k):[...d.directions,k]; rerenderNs(el.dataset.ns); break}
+    case "analyze": aiAnalyze(); break;
+    case "suggest": aiSuggest(); break;
+    case "addIdea": {const x=M.ideas[+el.dataset.i],mid=M.mid; const start=todayStr();
+      await createEvent({title:x.title,direction:x.direction,date:addDays(start,Math.max(14,...(x.tasks||[]).map(t=>+t.days||0))+3),status:"planned",leadMid:mid,participants:[],description:x.format,source:"ai",
+        tasks:(x.tasks||[]).map(t=>({id:uid8(),title:t.title,assignee:mid,due:addDays(start,+t.days||7),done:false}))});
+      x.added=true; toast("ВЖУХ! Мероприятие в плане"); renderMember(); break}
+    case "teamPlan": aiTeam(); break;
+    case "closeTeam": S.teamPlan=null; render(); break;
+    case "addTeam": {const x=S.teamPlan[+el.dataset.i],start=todayStr();
+      await createEvent({title:x.title,direction:x.direction,date:addDays(start,Math.max(14,...(x.tasks||[]).map(t=>+t.days||0))+3),status:"planned",leadMid:x.leadMid,participants:x.helperMids||[],description:x.why,source:"ai",
+        tasks:(x.tasks||[]).map(t=>({id:uid8(),title:t.title,assignee:t.assigneeMid,due:addDays(start,+t.days||14),done:false}))});
+      x.added=true; toast("ВЖУХ! Мероприятие в плане"); render(); break}
+    case "acceptIdea": {const i=S.ideas.find(x=>x.id===id); await createEvent({title:i.title,direction:i.direction,date:addDays(todayStr(),30),status:"planned",leadMid:i.byMid,participants:[],description:i.description,source:"idea",ideaId:i.id,tasks:[]});
+      await saveDoc("ideas/"+i.id,{...stripId(i),status:"accepted"}); toast("Идея принята! Автор теперь главный"); break}
+    case "rejectIdea": {const i=S.ideas.find(x=>x.id===id); await saveDoc("ideas/"+i.id,{...stripId(i),status:"rejected"}); break}
+    case "clearDemo": clearDemo(); break;
+    case "joke": S.jokeI++; render(); break;
+    case "saveHtml": window.__local.saveHtml(); toast("Файл сохранён в «Загрузки». Его можно открыть на любом компьютере"); break;
+    case "exportJson": window.__local.exportJson(); toast("Резервная копия скачана"); break;
+    case "lol": {const mm=S.memes.find(x=>x.id===id); if(!mm||!S.uid)return; const l=mm.lol||[]; await saveDoc("memes/"+id,{...stripId(mm),lol:l.includes(S.uid)?l.filter(x=>x!==S.uid):[...l,S.uid]}); break}
+    case "delMeme": {await write("memes/"+id,()=>S.db.doc("memes/"+id).delete()); toast("Мем ушёл в архив истории"); break}
+    case "postMeme": {const d=S.memeDraft; if(!d.img){toast("Сначала выбери картинку");return}
+      await saveDoc("memes/mm"+uid8(),{kind:"photo",img:d.img,top:d.top.trim(),bottom:d.bottom.trim(),byMid:S.mode==="chair"?(chairM()?.id||null):myMid(),byUid:S.uid,lol:[],createdAt:Date.now()});
+      S.memeDraft={top:"",bottom:"",img:null}; toast("Мем опубликован. Народ оценит"); render(); break}
+    case "clearMemeImg": S.memeDraft.img=null; render(); break;
+    /* мероприятие */
+    case "evPart": {const p=E.d.participants||[]; E.d.participants=p.includes(id)?p.filter(x=>x!==id):[...p,id]; renderEvent(); break}
+    case "addTask": E.d.tasks=[...(E.d.tasks||[]),{id:uid8(),title:"",assignee:E.d.leadMid||"",due:E.d.date||"",done:false}]; renderEvent(); setTimeout(()=>{const t=E.d.tasks.at(-1);document.getElementById("t_title_"+t.id)?.focus()},0); break;
+    case "delTask": E.d.tasks.splice(+el.dataset.i,1); renderEvent(); break;
+    case "tDone": {const t=E.d.tasks[+el.dataset.i]; t.done=el.checked; t.doneAt=el.checked?todayStr():null; break}
+    case "saveEvent": {const d=E.d; if(!d.title.trim()){toast("Введите название");return}
+      d.tasks=(d.tasks||[]).filter(t=>t.title.trim()); const data=stripId(d);
+      if(E.id) await saveDoc("events/"+E.id,data); else await createEvent(data); closeModal(); toast("Мероприятие сохранено"); break}
+    case "askDelEvent": E.confirmDel=true; renderEvent(); break;
+    case "delEvent": {const eid=E.id; closeModal(); await write("events/"+eid,()=>S.db.doc("events/"+eid).delete()); toast("Удалено"); break}
+    /* участник */
+    case "pickMe": S.pickMid=id; S.meDraft=null; render(); break;
+    case "unpick": S.pickMid=""; S.mySurvey=S.mySurvey?{...S.mySurvey,mid:null}:null; S.meDraft=null; render(); break;
+    case "saveMe": {const mid=myMid(); if(!mid)return; const data={...S.meDraft,mid,updatedAt:Date.now()}; await saveDoc("surveys/"+S.uid,data); S.mySurvey=data; S.meTouched=false; toast("Анкета сохранена. Ты лучший!"); render(); break}
+    case "myTask": {const e=S.events.find(x=>x.id===el.dataset.e); if(!e)return; const tasks=structuredClone(e.tasks||[]); const t=tasks.find(x=>x.id===el.dataset.t); t.done=el.checked; t.doneAt=el.checked?todayStr():null;
+      await saveDoc("events/"+e.id,{...stripId(e),tasks}); toast(el.checked?"Задача закрыта":"Задача снова открыта"); break}
+    case "sendIdea": {const d=S.ideaDraft; if(!d.title.trim()){toast("Добавьте название идеи");return}
+      await saveDoc("ideas/i"+uid8(),{title:d.title.trim(),direction:d.direction,description:d.description.trim(),byMid:myMid(),byUid:S.uid,status:"new",createdAt:Date.now()});
+      S.ideaDraft={title:"",direction:d.direction,description:""}; toast("Идея улетела председателю!"); render(); break}
+  }
+});
+const JOKES=[
+  "Мероприятие само себя не проведёт. Мы проверяли.",
+  "Дедлайн ближе, чем кажется в календаре.",
+  "«Я просто послушать» — последние слова будущего руководителя проекта.",
+  "Кофе-брейк — тоже мероприятие, если ты его организовал.",
+  "Идея без исполнителя — это просто мечта в общем чате.",
+  "Совет молодых специалистов: молодые, специалисты, советуем.",
+  "Не знаешь, что делать, — предложи идею. Знаешь — тем более.",
+  "Самый быстрый способ получить задачу — сказать «можно вопрос?».",
+  "Фото не было — мероприятия не было.",
+  "Кто последним вышел из чата, тот и ведёт следующий тимбилдинг."
+];
+function jokeBubble(){return `<div class="row" style="align-items:flex-end;gap:14px"><div class="bubble" style="flex:1;min-width:0">${esc(JOKES[S.jokeI%JOKES.length])}</div><button class="btn sm" data-act="joke">Ещё шутку</button></div>`}
+const FACES={
+  happy:'<circle cx="32" cy="32" r="28" fill="#FFD23F" stroke="#0A1633" stroke-width="3"/><circle cx="23" cy="27" r="3.5" fill="#0A1633"/><circle cx="41" cy="27" r="3.5" fill="#0A1633"/><path d="M20 38q12 12 24 0" fill="none" stroke="#0A1633" stroke-width="3" stroke-linecap="round"/>',
+  shock:'<circle cx="32" cy="32" r="28" fill="#BFD4FF" stroke="#0A1633" stroke-width="3"/><circle cx="23" cy="26" r="6" fill="#fff" stroke="#0A1633" stroke-width="2.5"/><circle cx="41" cy="26" r="6" fill="#fff" stroke="#0A1633" stroke-width="2.5"/><circle cx="23" cy="26" r="2" fill="#0A1633"/><circle cx="41" cy="26" r="2" fill="#0A1633"/><ellipse cx="32" cy="44" rx="6" ry="8" fill="#0A1633"/>',
+  cool:'<circle cx="32" cy="32" r="28" fill="#FFD23F" stroke="#0A1633" stroke-width="3"/><path d="M12 24h40v4c0 6-6 8-10 8s-8-3-9-7h-2c-1 4-5 7-9 7s-10-2-10-8z" fill="#0A1633"/><path d="M22 44q10 6 20-2" fill="none" stroke="#0A1633" stroke-width="3" stroke-linecap="round"/>',
+  tired:'<circle cx="32" cy="32" r="28" fill="#DDE8FF" stroke="#0A1633" stroke-width="3"/><path d="M17 28h12M35 28h12" stroke="#0A1633" stroke-width="3" stroke-linecap="round"/><path d="M17 32q6 3 12 0M35 32q6 3 12 0" fill="none" stroke="#1F5BFF" stroke-width="2"/><path d="M24 45h16" stroke="#0A1633" stroke-width="3" stroke-linecap="round"/>',
+  sweat:'<circle cx="32" cy="32" r="28" fill="#FFD23F" stroke="#0A1633" stroke-width="3"/><circle cx="23" cy="28" r="3.5" fill="#0A1633"/><circle cx="41" cy="28" r="3.5" fill="#0A1633"/><path d="M22 43q10-6 20 0" fill="none" stroke="#0A1633" stroke-width="3" stroke-linecap="round"/><path d="M50 10q5 8 0 11q-5-3 0-11z" fill="#6FB6FF" stroke="#0A1633" stroke-width="2"/>'
+};
+const face=k=>`<svg viewBox="0 0 64 64" aria-hidden="true">${FACES[k]||FACES.happy}</svg>`;
+function vMemes(){
+  const d=S.memeDraft,list=[...S.memes].sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
+  return `<div class="head"><div><div class="eyebrow">Строго неофициально</div><h1>Мем-стена</h1><p>Фотки с мероприятий, приколы про дедлайны и всё, что поднимает боевой дух. Без обид и без начальства в кадре (ну, почти).</p></div></div>
+  ${S.uid?`<section class="panel"><h2>Запилить мем</h2><div class="grid g2" style="margin-top:12px;align-items:start">
+   <div class="form">
+    <label class="field"><span>Картинка</span><input type="file" id="meme_file" accept="image/*"></label>
+    <label class="field"><span>Текст сверху</span><input type="text" id="meme_top" data-bind="top" data-ns="meme" value="${esc(d.top)}" placeholder="Когда председатель пишет «есть минутка?»"></label>
+    <label class="field"><span>Текст снизу</span><input type="text" id="meme_bottom" data-bind="bottom" data-ns="meme" value="${esc(d.bottom)}" placeholder="Минутка: 3 мероприятия и отчёт"></label>
+    <div class="row"><button class="btn primary" data-act="postMeme">Опубликовать</button>${d.img?`<button class="btn ghost sm" data-act="clearMemeImg">Убрать картинку</button>`:""}</div>
+   </div>
+   ${d.img?`<div class="meme" style="transform:none;margin:0"><div class="meme-pic"><img src="${d.img}" alt="Предпросмотр мема"><div class="mtext t" id="pv_top">${esc(d.top)}</div><div class="mtext b" id="pv_bottom">${esc(d.bottom)}</div></div></div>`:`<div class="empty">Тут появится предпросмотр. Выбери фото с последнего тимбилдинга, там точно есть что-то смешное.</div>`}
+  </div></section>`:""}
+  ${list.length?`<div class="memes">${list.map(memeHTML).join("")}</div>`:`<div class="empty">Мемов пока нет. Будь первым, кто рассмешит совет.</div>`}`;
+}
+function memeHTML(x){
+  const by=member(x.byMid),mine=S.uid&&x.byUid===S.uid,l=x.lol||[],on=S.uid&&l.includes(S.uid);
+  const body=x.kind==="drawn"?`<div class="meme-drawn">${(x.panels||[]).map(p=>`<div class="p">${p.lab?`<span class="lab">${esc(p.lab)}</span>`:""}${face(p.face)}<span>${esc(p.text)}</span></div>`).join("")}</div>`
+    :`<div class="meme-pic"><img src="${/^data:image\/(jpeg|png|webp|gif);base64,[A-Za-z0-9+\/=]+$/.test(x.img||"")?x.img:""}" alt="${esc((x.top+" "+x.bottom).trim()||"Мем")}" loading="lazy">${x.top?`<div class="mtext t">${esc(x.top)}</div>`:""}${x.bottom?`<div class="mtext b">${esc(x.bottom)}</div>`:""}</div>`;
+  return `<figure class="meme" style="margin:0 0 22px">${body}<figcaption class="meme-f">${by?avatar(by,"sm"):""}<span class="small" style="font-weight:700">${esc(by?.name||"Аноним из совета")}</span><span class="spacer"></span>
+  <button class="lol" data-act="lol" data-id="${x.id}" aria-pressed="${!!on}" ${S.uid?"":"disabled"}>АХАХ ${l.length||""}</button>${(mine||S.isOwner)&&S.mode==="chair"||mine?`<button class="btn ghost sm" data-act="delMeme" data-id="${x.id}" aria-label="Удалить мем">✕</button>`:""}</figcaption></figure>`;
+}
+async function memeFile(file){
+  if(!file)return;
+  try{const img=await createImageBitmap(file);let w=Math.min(640,img.width),h=Math.round(img.height*w/img.width);
+    if(h>900){h=900;w=Math.round(img.width*h/img.height)}
+    const c=document.createElement("canvas");c.width=w;c.height=h;c.getContext("2d").drawImage(img,0,0,w,h);
+    let q=.78,url=c.toDataURL("image/jpeg",q);while(url.length>200000&&q>.35){q-=.1;url=c.toDataURL("image/jpeg",q)}
+    if(url.length>240000){toast("Картинка слишком тяжёлая, возьми поменьше");return}
+    S.memeDraft.img=url;render();
+  }catch(e){console.error(e);toast("Не получилось открыть картинку. Попробуй JPG или PNG")}
+}
+function chairM(){return S.members.find(m=>m.isChair)}
+function stripId(o){const {id,...r}=o;return r}
+function draftOf(ns){return ns==="meme"?S.memeDraft:ns==="me"?S.meDraft:ns==="M"?(M.editSurvey?M.surveyDraft:M):ns==="E"?E.d:ns==="idea"?S.ideaDraft:null}
+function rerenderNs(ns){if(ns==="M")renderMember();else if(ns==="E")renderEvent();else render()}
+document.addEventListener("input",ev=>{
+  const el=ev.target;
+  if(el.dataset.bind){if(el.dataset.ns==="me")S.meTouched=true;const d=el.dataset.ns==="M"&&el.dataset.bind==="notes"?M:draftOf(el.dataset.ns); if(d) d[el.dataset.bind]=el.type==="number"?+el.value:el.value;
+    if(el.dataset.ns==="meme"){const pv=document.getElementById("pv_"+el.dataset.bind);if(pv)pv.textContent=el.value}
+    if(el.dataset.ns==="E"&&el.dataset.bind==="title") $(".dhead h2").textContent=el.value||"Без названия"; return}
+  if(el.dataset.tb&&E){E.d.tasks[+el.dataset.i][el.dataset.tb]=el.value; return}
+  if(el.dataset.w){S.weightsDraft={...weights(),[el.dataset.w]:+el.value}; const lab=el.parentElement.querySelector("label .num"); if(lab) lab.textContent=el.value; saveWeightsSoon(); }
+});
+document.addEventListener("change",ev=>{const el=ev.target;
+  if(el.dataset.photo){uploadPhoto(el.dataset.photo,el.files?.[0]);el.value="";return}
+  if(el.id==="meme_file"){memeFile(el.files?.[0]);el.value="";return}
+  if(el.id==="import_json"&&el.files?.[0]){window.__local.importJson(el.files[0]).then(()=>toast("Данные загружены")).catch(()=>toast("Это не похоже на файл экспорта совета"));el.value="";return}
+  if(el.dataset.tb&&E){E.d.tasks[+el.dataset.i][el.dataset.tb]=el.value}
+  if(el.dataset.w){render()}
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&(M||E))closeModal()});
+let wt;function saveWeightsSoon(){clearTimeout(wt);wt=setTimeout(saveWeights,700)}
+function saveWeights(){const w=S.weightsDraft; if(!w)return; S.settings={...(S.settings||{}),weights:w}; saveDoc("chair/settings",S.settings)}
+async function squareJpeg(file){
+  const img=await createImageBitmap(file);const side=Math.min(img.width,img.height),out=Math.min(480,side);
+  const c=document.createElement("canvas");c.width=c.height=out;
+  c.getContext("2d").drawImage(img,(img.width-side)/2,(img.height-side)/2,side,side,0,0,out,out);
+  return await new Promise(r=>c.toBlob(r,"image/jpeg",0.86));
+}
+async function uploadPhoto(mid,file){
+  if(!file||!S.assets)return; const m=member(mid); if(!m)return;
+  toast("Загружаю фото…");
+  try{const blob=await squareJpeg(file);const r=await S.assets.upload(blob);
+    await saveDoc("members/"+mid,{...stripId(m),photo:r.id});toast("Фото обновлено")}
+  catch(e){console.error(e);toast("Не удалось загрузить фото. Попробуйте JPG или PNG до 10 МБ")}
+}
+async function clearDemo(){
+  const jobs=[];S.members.filter(m=>m.demo).forEach(m=>{jobs.push("members/"+m.id,"chair/"+m.id)});
+  S.events.filter(e=>e.demo).forEach(e=>jobs.push("events/"+e.id)); S.ideas.filter(i=>i.demo).forEach(i=>jobs.push("ideas/"+i.id));
+  toast("Удаляю демо-данные…"); for(const p of jobs){await write(p,()=>S.db.doc(p).delete())} toast("Понарошку кончилось. Теперь всё по-настоящему");
+}
+
+/* ============ запуск ============ */
+async function boot(){
+  const C=window.claude;
+  if(!C){S.ready=true;S.noDb=true;render();return}
+  const [db,user,sample]=await Promise.all([C.use("db"),C.use("user"),C.use("sample")]);
+  S.db=db;S.user=user;S.sample=sample;S.assets=await C.use("assets").catch(()=>null);
+  S.isOwner=(await user?.isOwner())??false; S.uid=user?await user.id():null;
+  S.mode=S.isOwner?"chair":"member"; S.view=S.isOwner?"dash":"me";
+  if(!db){S.ready=true;S.noDb=true;render();return}
+  const onErr=e=>{console.error(e)};
+  const col=(name,key)=>db.collection(name).onSnapshot(s=>{S[key]=s.docs.map(d=>({id:d.id,...d.data()}));S.ready=true;render()},onErr);
+  col("members","members"); col("events","events"); col("ideas","ideas"); col("memes","memes");
+  if(S.isOwner){
+    db.collection("chair").onSnapshot(s=>{const c={};s.docs.forEach(d=>{if(d.id==="settings")S.settings=d.data();else c[d.id]=d.data()});S.chair=c;render()},onErr);
+    db.collection("surveys").onSnapshot(s=>{S.surveys=s.docs.map(d=>({uid:d.id,...d.data()}));if(S.uid){const me=S.surveys.find(x=>x.uid===S.uid);S.mySurvey=me||null;if(!S.meTouched)S.meDraft=null}render()},onErr);
+  } else if(S.uid){
+    db.doc("surveys/"+S.uid).onSnapshot(d=>{S.mySurvey=d.exists?d.data():null;if(!S.meTouched)S.meDraft=null;if(S.mySurvey)S.surveys=[{uid:S.uid,...S.mySurvey}];render()},onErr);
+  }
+  setTimeout(()=>{if(!S.ready){S.ready=true;render()}},4000);
+}
+renderTabs();
+boot();
+</script>
+
+</body>
+</html>
